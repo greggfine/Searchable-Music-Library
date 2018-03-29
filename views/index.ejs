@@ -22,6 +22,10 @@
 					<div class="custom-file mb-3">
 						<input type="file" name="file" id="file" class="custom-file-input">
 						<label for="file" class="custom-file-label">Choose File</label>
+						<input type="text" name="genre" id="genre">
+						<label for="genre">Genre</label>
+						<input type="text" name="era" id="era">
+						<label for="era">Era</label>
 					</div>
 						<input type="submit" value="Submit" class="btn btn-primary btn-block">
 				</form>
@@ -33,6 +37,8 @@
 								<img src="image/<%=file.filename%>" alt="">
 							<%} else { %>
 							<%= file.filename %>
+							<%= file.metadata.bodyInfo.genre %>
+							<%= file.metadata.bodyInfo.era %>
 							<% } %>%>
 
 						<form method="POST" action="/files/<%=file._id%>?_method=DELETE">

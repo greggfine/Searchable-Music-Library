@@ -40,9 +40,12 @@ const storage = new GridFsStorage({
           return reject(err);
         }
         const filename = buf.toString('hex') + path.extname(file.originalname);
+        const metadata = {bodyInfo: req.body}
         const fileInfo = {
-          filename: filename,
-          bucketName: 'uploads'
+          filename: file.originalname,
+          // filename: filename,
+          bucketName: 'uploads',
+          metadata: metadata
         };
         resolve(fileInfo);
       });
@@ -61,13 +64,14 @@ app.get('/', function(req, res) {
 			res.render('index', {files: false});
 			} else {
 				files.map(file => {
-					if(file.contentType === 'image/jpeg' || file.contentType === 'image/png') 
+					if(file.contentType === 'audio/mp3') 
 					{
-						file.isImage = true;
+						file.isAudio = true;
 					} else {
-						file.isImage = false;
+						file.isAudio = false;
 					}
 				});
+
 				res.render('index', {files: files});
 		}
 	})
@@ -108,12 +112,14 @@ app.get('/files/:filename', function(req, res){
 		}
 		// File exists
 		return res.json(file);
+
+
 	});
 });
 
 // @route GET /image/:filename
 // @desc Display Image
-app.get('/image/:filename', function(req, res){
+app.get('/audio/:filename', function(req, res){
 	gfs.files.findOne({filename: req.params.filename}, function(err, file){
 		// Check if files
 		if(!file || file.length === 0){
@@ -121,14 +127,14 @@ app.get('/image/:filename', function(req, res){
 				err: 'No file exists'
 			});
 		}
-		// Check if image
-		if(file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+		// Check if audio
+		if(file.contentType === 'audio/mp3') {
 			// Read output to browser
 			const readstream = gfs.createReadStream(file.filename);
 			readstream.pipe(res);
 		} else {
 			res.status(404).json({
-				err: 'Not an image'
+				err: 'Not an audio file'
 			});
 		}
 	});
