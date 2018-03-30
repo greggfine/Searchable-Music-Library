@@ -11,6 +11,9 @@ const methodOverride = require('method-override');
 
 const app = express();
 
+// var urlencodedParser = bodyParser.urlencoded({ extended: true });
+// var jsonParser = bodyParser.json()
+
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
@@ -139,6 +142,32 @@ app.get('/audio/:filename', function(req, res){
 		}
 	});
 });
+
+
+
+//SEARCH route
+app.get('/search', function(req, res) {
+
+	res.render('search')
+	// console.log(req)
+
+})
+
+
+//DISPLAY SEARCH RESULT route
+app.get('/result', function(req, res) {
+		var genre = req.query.genre;
+		var length = req.query.length;
+		console.log(genre)
+		gfs.files.find({metadata: {
+					bodyInfo: {
+					genre: genre,
+					length: length
+					}
+	}}).toArray(function(err, files){
+			res.render('results', {files: files});
+		})
+})
 
 //  @route DELETE /files/:id
 //  @desc Delete file

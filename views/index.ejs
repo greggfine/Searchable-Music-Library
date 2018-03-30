@@ -24,8 +24,12 @@
 						<label for="file" class="custom-file-label">Choose File</label>
 						<input type="text" name="genre" id="genre">
 						<label for="genre">Genre</label>
-						<input type="text" name="era" id="era">
-						<label for="era">Era</label>
+					<!-- 	<input type="text" name="era" id="era">
+						<label for="era">Era</label> -->
+
+							<input type="text" name="length" id="length" >
+							<label for="length">Length</label>
+	
 					</div>
 						<input type="submit" value="Submit" class="btn btn-primary btn-block">
 				</form>
@@ -39,6 +43,7 @@
 							<%= file.filename %>
 							<%= file.metadata.bodyInfo.genre %>
 							<%= file.metadata.bodyInfo.era %>
+							<%= file.metadata.bodyInfo.length %>
 							<% } %>%>
 
 						<form method="POST" action="/files/<%=file._id%>?_method=DELETE">
