@@ -28,6 +28,8 @@
 						<label for="available">Available</label>
 						<input type="text" name="length" id="length" >
 						<label for="length">Length</label>
+						<input type="text" name="bpm" id="bpm" >
+						<label for="bpm">BPM</label>
 	
 					</div>
 						<input type="submit" value="Submit" class="btn btn-primary btn-block">
@@ -43,11 +45,18 @@
 							<%= file.metadata.genre %>
 							<%= file.metadata.available %>
 							<%= file.metadata.length %>
+							<%= file.metadata.bpm %>
 							<% } %>%>
 
 						<form method="POST" action="/files/<%=file._id%>?_method=DELETE">
 							<button class="btn btn-danger btn-block mt-4">Delete</button>
 						</form>
+
+						<!-- <form method="POST" action="/files/<%=file._id%>?_method=DELETE">
+							<button class="btn btn-warning btn-block mt-4">Edit</button>
+						</form> -->
+
+						<a href="/files/<%=file.filename%>/edit"><button type="button" class="btn btn-warning"> Edit</button></a>
 
 						</div>
 					<% })%>

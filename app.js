@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 
 const app = express();
 
-// var urlencodedParser = bodyParser.urlencoded({ extended: true });
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 // var jsonParser = bodyParser.json()
 
 app.use(bodyParser.json());
@@ -171,6 +171,42 @@ app.get('/result', function(req, res) {
 			}
 		})
 })
+
+// EDIT route
+app.get('/files/:filename/edit', function(req, res) {
+	gfs.files.findOne({filename: req.params.filename}, function(err, file) {
+		if(err) {
+			res.redirect('/files');
+		} else {
+			// console.log(found)
+			res.render('edit', {file: file})
+		}
+	})
+})
+
+//UPDATE ROUTE
+app.put("/files/:filename", urlencodedParser, function(req,res){
+	var genre = req.body.genre;
+	var available = req.body.available;
+	var length = req.body.length;
+	var bpm = req.body.bpm;
+	console.log(genre)
+	// var length = req.body.length;
+	// var available = req.body.available;
+    gfs.files.update({'filename': req.params.filename}, {'$set': {"metadata.genre": genre, 
+    	"metadata.available": available, 
+    	"metadata.length": length,
+    	"metadata.bpm": bpm
+    	 }})
+    // gfs.files.update(req.params.filename, function(err, updated){
+        // if(err){ 
+        //     res.redirect("/files");
+        // } else {
+        //     res.redirect("/files");
+        // }
+        res.redirect('/');
+    })
+// })
 
 //  @route DELETE /files/:id
 //  @desc Delete file
