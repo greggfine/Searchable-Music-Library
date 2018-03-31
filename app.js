@@ -43,12 +43,11 @@ const storage = new GridFsStorage({
           return reject(err);
         }
         const filename = buf.toString('hex') + path.extname(file.originalname);
-        const metadata = {bodyInfo: req.body}
+
         const fileInfo = {
           filename: file.originalname,
-          // filename: filename,
           bucketName: 'uploads',
-          metadata: metadata
+          metadata: req.body
         };
         resolve(fileInfo);
       });
@@ -144,28 +143,30 @@ app.get('/audio/:filename', function(req, res){
 });
 
 
-
 //SEARCH route
 app.get('/search', function(req, res) {
-
 	res.render('search')
-	// console.log(req)
-
 })
-
 
 //DISPLAY SEARCH RESULT route
 app.get('/result', function(req, res) {
 		var genre = req.query.genre;
 		var length = req.query.length;
-		console.log(genre)
-		gfs.files.find({metadata: {
-					bodyInfo: {
-					genre: genre,
-					length: length
+		gfs.files.find(
+					{
+						$or: [ {"metadata.genre": genre }, { "metadata.length": length } ]
+
 					}
-	}}).toArray(function(err, files){
+					)
+		.toArray(function(err, files){
+
+		if(!files || files.length === 0){
+			return res.status(404).json({
+				err: 'No file exists'
+			});
+		} else {
 			res.render('results', {files: files});
+			}
 		})
 })
 
@@ -184,3 +185,16 @@ app.delete('/files/:id', function(req, res){
 app.listen(5000, function() {
 	console.log('The server is running');
 })
+
+
+
+// var colors = {
+// 	one: 'blue',
+// 	two: 'red'
+// };
+
+
+
+
+
+
