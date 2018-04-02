@@ -153,10 +153,17 @@ app.get('/result', function(req, res) {
 		var genre = req.query.genre;
 		var length = req.query.length;
 		var available = req.query.available;
+		var bpm = req.query.bpm;
 		gfs.files.find(
 					{
-						$or: [ {"metadata.genre": genre }, { "metadata.length": length },
-								{ "metadata.available": available } ]
+						 // "metadata.genre": genre ,  "metadata.length": length ,
+							// 	 "metadata.available": available  
+
+
+								$or: [ {"metadata.genre": genre }, { "metadata.length": length },
+										{ "metadata.available": available },
+										{ "metadata.bpm": bpm } ]
+
 
 					}
 					)
