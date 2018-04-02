@@ -1,23 +1,40 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const passport = require('passport');
 const bodyParser = require('body-parser');
+const User = require('./models/user');
+const LocalStrategy = require('passport-local');
+const passportLocalMongoose = require('passport-local-mongoose');
 const path = require('path');
 const crypto = require('crypto');
-const mongoose = require('mongoose');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
 
-
 const app = express();
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
-// var jsonParser = bodyParser.json()
+//  var jsonParser = bodyParser.json()
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+// // app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
+app.use(require('express-session')({
+	secret: "Rusty is the best and cutest dog in the world",
+	resave: false,
+	saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+mongoose.connect('mongodb://gregg:gregg@ds025239.mlab.com:25239/mongouploads');
 // Mongo URI
 const mongoURI='mongodb://gregg:gregg@ds025239.mlab.com:25239/mongouploads';
 
@@ -56,10 +73,14 @@ const storage = new GridFsStorage({
 });
 const upload = multer({ storage });
 
+// ==================
+//  	ROUTES
+// ==================
+
 // @route GET/
 // @desc Loads form
 
-app.get('/', function(req, res) {
+app.get('/tracks', isLoggedIn, function(req, res) {
 	gfs.files.find().toArray(function(err, files){
 		// Check if files
 		if(!files || files.length === 0){
@@ -73,22 +94,71 @@ app.get('/', function(req, res) {
 						file.isAudio = false;
 					}
 				});
-
 				res.render('index', {files: files});
 		}
 	})
 });
 
+// AUTH ROUTES
+
+// app.get('/secret', isLoggedIn, function(req, res) {
+// 	res.render('secret');
+// });
+
+// Show sign up form
+app.get('/', function(req, res) {
+	res.render('register');
+});
+
+//  Handling User Sign Up
+app.post("/register", function(req, res){
+    User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+        if(err){
+            console.log(err);
+            return res.render('register');
+        }
+        passport.authenticate("local")(req, res, function(){
+           res.redirect("/login");
+        });
+    });
+});
+
+//  LOGIN ROUTES
+//  render login form
+app.get('/login', function(req, res) {
+	res.render('login');
+});
+
+// LOGIN Logic
+// Middleware
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/tracks",
+    failureRedirect: "/login"
+}) ,function(req, res){
+});
+
+app.get('/logout', function(req, res) {
+	req.logout();
+	res.redirect('/');
+});
+
+function isLoggedIn(req, res, next) {
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.redirect('/login');
+}
+
 // @route POST/upload
 // @desc Uploads file to DB
-app.post('/upload', upload.single('file'), function(req, res) {
+app.post('/upload', upload.single('file'), isLoggedIn, function(req, res) {
 	// res.json({file: req.file});
-	res.redirect('/');
+	res.redirect('/tracks');
 });
 
 // @route GET /files
 // @desc Display all files in JSON
-app.get('/files', function(req, res){
+app.get('/files', isLoggedIn, function(req, res){
 	gfs.files.find().toArray(function(err, files){
 		// Check if files
 		if(!files || files.length === 0){
@@ -101,10 +171,9 @@ app.get('/files', function(req, res){
 	})
 })
 
-
 // @route GET /files/:filename
 // @desc Display single file object
-app.get('/files/:filename', function(req, res){
+app.get('/files/:filename', isLoggedIn, function(req, res){
 	gfs.files.findOne({filename: req.params.filename}, function(err, file){
 		// Check if files
 		if(!file || file.length === 0){
@@ -114,14 +183,12 @@ app.get('/files/:filename', function(req, res){
 		}
 		// File exists
 		return res.json(file);
-
-
 	});
 });
 
 // @route GET /image/:filename
 // @desc Display Image
-app.get('/audio/:filename', function(req, res){
+app.get('/audio/:filename',isLoggedIn, function(req, res){
 	gfs.files.findOne({filename: req.params.filename}, function(err, file){
 		// Check if files
 		if(!file || file.length === 0){
@@ -142,14 +209,13 @@ app.get('/audio/:filename', function(req, res){
 	});
 });
 
-
 //SEARCH route
-app.get('/search', function(req, res) {
+app.get('/search', isLoggedIn, function(req, res) {
 	res.render('search')
-})
+});
 
 //DISPLAY SEARCH RESULT route
-app.get('/result', function(req, res) {
+app.get('/result', isLoggedIn, function(req, res) {
 		var genre = req.query.genre;
 		var length = req.query.length;
 		var available = req.query.available;
@@ -158,13 +224,9 @@ app.get('/result', function(req, res) {
 					{
 						 // "metadata.genre": genre ,  "metadata.length": length ,
 							// 	 "metadata.available": available  
-
-
 								$or: [ {"metadata.genre": genre }, { "metadata.length": length },
 										{ "metadata.available": available },
 										{ "metadata.bpm": bpm } ]
-
-
 					}
 					)
 		.toArray(function(err, files){
@@ -180,26 +242,22 @@ app.get('/result', function(req, res) {
 })
 
 // EDIT route
-app.get('/files/:filename/edit', function(req, res) {
+app.get('/files/:filename/edit', isLoggedIn, function(req, res) {
 	gfs.files.findOne({filename: req.params.filename}, function(err, file) {
 		if(err) {
 			res.redirect('/files');
 		} else {
-			// console.log(found)
 			res.render('edit', {file: file})
 		}
 	})
 })
 
 //UPDATE ROUTE
-app.put("/files/:filename", urlencodedParser, function(req,res){
+app.put("/files/:filename", isLoggedIn, function(req,res){
 	var genre = req.body.genre;
 	var available = req.body.available;
 	var length = req.body.length;
 	var bpm = req.body.bpm;
-	console.log(genre)
-	// var length = req.body.length;
-	// var available = req.body.available;
     gfs.files.update({'filename': req.params.filename}, {'$set': {"metadata.genre": genre, 
     	"metadata.available": available, 
     	"metadata.length": length,
@@ -211,35 +269,21 @@ app.put("/files/:filename", urlencodedParser, function(req,res){
         // } else {
         //     res.redirect("/files");
         // }
-        res.redirect('/');
+        res.redirect('/tracks');
     })
 // })
 
 //  @route DELETE /files/:id
 //  @desc Delete file
-app.delete('/files/:id', function(req, res){
+app.delete('/files/:id', isLoggedIn, function(req, res){
 	gfs.remove({_id: req.params.id, root: 'uploads'}, (err, gridStore) => {
 		if(err) {
 			return res.status(404).json({err: err});
 		}
-		res.redirect('/');
+		res.redirect('/tracks');
 	});
 });
 
-
 app.listen(5000, function() {
 	console.log('The server is running');
-})
-
-
-
-// var colors = {
-// 	one: 'blue',
-// 	two: 'red'
-// };
-
-
-
-
-
-
+});
