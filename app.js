@@ -106,7 +106,7 @@ app.get('/tracks', isLoggedIn, function(req, res) {
 // });
 
 // Show sign up form
-app.get('/', function(req, res) {
+app.get('/register', function(req, res) {
 	res.render('register');
 });
 
@@ -118,21 +118,21 @@ app.post("/register", function(req, res){
             return res.render('register');
         }
         passport.authenticate("local")(req, res, function(){
-           res.redirect("/login");
+           res.redirect("/");
         });
     });
 });
 
 //  LOGIN ROUTES
 //  render login form
-app.get('/login', function(req, res) {
+app.get('/', function(req, res) {
 	res.render('login');
 });
 
 // LOGIN Logic
 // Middleware
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/tracks",
+    successRedirect: "/search",
     failureRedirect: "/login"
 }) ,function(req, res){
 });
