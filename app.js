@@ -11,6 +11,7 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
+// const wavesurfer = require("wavesurfer");
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // // app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 app.use(require('express-session')({
 	secret: "Rusty is the best and cutest dog in the world",
@@ -186,8 +188,8 @@ app.get('/files/:filename', isLoggedIn, function(req, res){
 	});
 });
 
-// @route GET /image/:filename
-// @desc Display Image
+// @route GET /audio/:filename
+// @desc Display Audio
 app.get('/audio/:filename',isLoggedIn, function(req, res){
 	gfs.files.findOne({filename: req.params.filename}, function(err, file){
 		// Check if files
