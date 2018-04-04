@@ -1,0 +1,91 @@
+html, body {
+	font-size: 16px;
+	font-family: Arial;
+}
+
+.login-image {
+	width: 50%;
+}
+
+.brand-center{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+    color: #F5F5F5;
+}
+
+.ht-title{
+	color: #fff;
+	width: 1200px;
+	padding-left: 400px;
+}
+
+.ht-header {
+	color: black;
+	/*padding-top: 400px;*/
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%);
+	font-size: 4rem;
+	/*min-width: 900px;*/
+	text-shadow: 6px 4px 12px #0000004a;
+}
+
+.track-edit {
+	margin-top: 400px;
+	background-color: red;
+}
+
+.register-form {
+	padding-top: 400px;
+}
+
+.login {
+	padding-top: 300px;
+}
+
+.home-bg {
+	background-image: url('images/01.jpg');
+	height: 100vh;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: right top;
+	/*background-color: #474b4f;*/
+	/*background-color: #61892f;*/
+	/*background-color: #5f7030;*/
+	/*background-color: #B0C040;*/
+	background-color: #BDCE45;
+	/*background-color: #C9DD4B;*/
+	/*background-blend-mode: overlay;*/
+	/*background-blend-mode: soft-light;*/
+	background-blend-mode: screen;
+}
+
+.search {
+	padding-top: 400px;
+}
+
+.navbar-padding{
+	padding-left: 60px;
+	padding-right: 100px;
+}
+
+.nav-item-padding{
+	padding-right: 60px;
+	font-size: 1.2rem;
+}
+
+.results {
+	padding-top: 400px;
+}
+
+.index {
+	padding-top: 300px;
+}
+
+/*.edit-form {
+	padding-top: 600px;
+}*/

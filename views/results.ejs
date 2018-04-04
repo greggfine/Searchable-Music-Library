@@ -1,27 +1,41 @@
 <% include partials/header %>
-		<div class="row">
-			<h1>YO!</h1>
-			<% if(files){ %>
-				<% files.forEach(function(file) {%>
-					<div class="card card-body mb-3">
-						<% if(file.isImage) { %>
-							<img src="image/<%=file.filename%>" alt="">
-						<%} else { %>
-						<%= file.filename %>
-						<%= file.metadata.genre %>
-						<%= file.metadata.available %>
-						<%= file.metadata.length %>
-						<%= file.metadata.bpm %>
-						<% } %>
-					</div>
-				<% })%>
-			<% } else { %>
-				<p>No files to show</p>
-			<% } %>%>
-		</div>
+<div class="home-bg">
+<div class="results container">
+	<div class="row">
+		<% if(files){ %>
+			<% files.forEach(function(file) {%>
+				<div class="card card-body mb-3">
+					<% if(file.isImage) { %>
+						<img src="image/<%=file.filename%>" alt="">
+					<%} else { %>
+					<%= file.filename %>
+					<%= file.metadata.genre %>
+					<%= file.metadata.available %>
+					<%= file.metadata.length %>
+					<%= file.metadata.bpm %>
+					<% } %>
+				</div>
+			<% })%>
+		<% } else { %>
+			<p>No files to show</p>
+		<% } %>%>
+	</div>
+	
+	<hr>
+	<div id="waveform"></div>
+	<a href="" id="downloader" download>
+		<i class="fa fa-download"></i>
 
 
+		<!-- DOWNLOAD TRACK -->
+	</a>
+	
+	<!-- Create action buttons -->
+	<input type="button" id="btn-play" value="Play" disabled="disabled"/>
+	<input type="button" id="btn-pause" value="Pause" disabled="disabled"/>
+	<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
 
-		<li><a href="/search">Back to SEARCH</a></li>
+</div>
+</div>
 
 <% include partials/footer  %>

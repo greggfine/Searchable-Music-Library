@@ -1,30 +1,106 @@
 <% include partials/header %>
-		<div class="row">
-			<div class="col-md-6 m-auto">
-				<h1 class="text-center display-4 my-4">HT Music Search</h1>
-				<form action="/result" method="GET"">
-					<div class="custom-file mb-3">
-						<input type="text" name="genre" id="genre" >
-						<label for="genre">Genre</label>
-					</div>
-					<div class="custom-file mb-3">
-						<input type="text" name="length" id="length" >
-						<label for="length">Length</label>
-					</div>
-					<div class="custom-file mb-3">
-						<input type="text" name="available" id="available" >
-						<label for="available">Available</label>
-					</div>
-					<div class="custom-file mb-3">
-						<input type="text" name="bpm" id="bpm" >
-						<label for="bpm">BPM</label>
-					</div>
-						<input type="submit" value="submit"  class="btn btn-primary btn-block">
-				</form>
-				<hr>
-				
-			</div>
-		</div>
+<div class="home-bg ">
+	<div class="row search">
+		<div class="col-md-6 m-auto">
+			<!-- <h1 class="text-center display-4 my-4">HT Music Search</h1> -->
+			<form action="/result" method="GET"">
+				<div class="custom-file mb-6">
+					<!-- <input type="text" name="genre" id="genre" > -->
+					<label for="genre">Genre</label>
+					<select name="genre" id="genre">
+						<option value="acoustic">Acoustic</option>
+						<option value="alternative">Alternative</option>
+						<option value="ambient">Ambient</option>
+						<option value="americana">Americana</option>
+						<option value="blues">Blues</option>
+						<option value="brazilian">Brazilian</option>
+						<option value="breakbeat">Breakbeat</option>
+						<option value="childrens">Childrens</option>
+						<option value="chill">Chill</option>
+						<option value="christmas">Christmas</option>
+						<option value="classical">Classical</option>
+						<option value="country">Country</option>
+						<option value="dance">Dance</option>
+						<option value="downtempo">Downtempo</option>
+						<option value="dubstep">Dubstep</option>
+						<option value="disco">Disco</option>
+						<option value="drums">Drums/Percussion</option>
+						<option value="easy listening">Easy Listening</option>
+						<option value="electronic">Electronic</option>
+						<option value="epic">Epic</option>
+						<option value="funk">Funk</option>
+						<option value="hardcore">Hardcore</option>
+						<option value="hard rock">Hard Rock</option>
+						<option value="hip hop">Hip Hop</option>
+						<option value="holiday">Holiday</option>
+						<option value="house">House</option>
+						<option value="indie">Indie</option>
+						<option value="jazz">Jazz</option>
+						<option value="jungle">Jungle</option>
+						<option value="latin">Latin</option>
+						<option value="lounge">Lounge</option>
+						<option value="mnemonic">Mnemonic</option>
+						<option value="new age">New Age</option>
+						<option value="orchestral">Orchestral</option>
+						<option value="pop">Pop</option>
+						<option value="psychedelic">Psychedelic</option>
+						<option value="rap">Rap</option>
+						<option value="reggae">Reggae</option>
+						<option value="retro">Retro</option>
+						<option value="rock">Rock</option>
+						<option value="ska">Ska</option>
+						<option value="techno">Techno</option>
+						<option value="trip hop">Trip Hop</option>
+						<option value="vocal">Vocal</option>
+						<option value="world">World</option>
+					</select>
+				</div>
+				<div class="custom-file mb-6">
+					<!-- <input type="text" name="length" id="length" > -->
+					<select name="length" id="length">
+						<option value="10">10</option>
+						<option value="15">15</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+						<option value="60">60</option>
+						<option value="90">90</option>
+					</select>
+					<label for="length">Length</label>
+				</div>
 
-		<li><a href="/logout">Logout!</a></li>
+				<div class="custom-file mb-6">
+					<!-- <input type="text" name="bpm" id="bpm" > -->
+					<select name="bpm" id="bpm">
+						<option value="slow">slow</option>
+						<option value="medium">medium</option>
+						<option value="fast">fast</option>
+					</select>
+					<label for="bpm">BPM</label>
+				</div>
+
+				<div class="custom-file mb-6">
+					<select name="moods" id="moods">
+						<option value="edgy">edgy</option>
+						<option value="sad">sad</option>
+						<option value="upbeat">upbeat</option>
+					</select>
+					<label for="moods">Moods</label>
+				</div>
+
+				<div class="custom-file mb-6">
+					<select name="instrumentation" id="instrumentation">
+						<option value="guitar">guitar</option>
+						<option value="percussion">percussion</option>
+						<option value="strings">strings</option>
+					</select>
+					<label for="instrumentation">Instrumentation</label>
+				</div>
+					<input type="submit" value="submit"  class="btn btn-success btn-block">
+			</form>
+			<hr>
+			
+		</div>
+	</div>
+</div>
+
 <% include partials/footer  %>

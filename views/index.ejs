@@ -1,71 +1,75 @@
 <% include partials/header %>
 
-	
-		<div class="row">
-			<div class="col-md-6 m-auto">
-				<h1 class="text-center display-4 my-4">HT Music Library</h1>
-				<form action="/upload" method="POST" enctype="multipart/form-data">
-					<div class="custom-file mb-3">
-						<input type="file" name="file" id="file" class="custom-file-input">
-						<label for="file" class="custom-file-label">Choose File</label>
-						<input type="text" name="genre" id="genre">
-						<label for="genre">Genre</label>
-						<input type="text" name="available" id="available">
-						<label for="available">Available</label>
-						<input type="text" name="length" id="length" >
-						<label for="length">Length</label>
-						<input type="text" name="bpm" id="bpm" >
-						<label for="bpm">BPM</label>
-	
-					</div>
-						<input type="submit" value="Submit" class="btn btn-primary btn-block">
-				</form>
-				<hr>
-				<div id="waveform"></div>
-				<a href="" id="downloader" download>
-					DOWNLOAD TRACK
-				</a>
-
-				<!-- Create action buttons -->
-				<input type="button" id="btn-play" value="Play" disabled="disabled"/>
-				<input type="button" id="btn-pause" value="Pause" disabled="disabled"/>
-				<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
-
-
-				<% if(files){ %>
-					<% files.forEach(function(file) {%>
-						<div class="card card-body mb-3">
-							<% if(file.isImage) { %>
-								<img src="image/<%=file.filename%>" alt="">
-							<%} else { %>
-							<%= file.filename %>
-							<%= file.metadata.genre %>
-							<%= file.metadata.available %>
-							<%= file.metadata.length %>
-							<%= file.metadata.bpm %>
-							<% } %>%>
-
-						<form method="POST" action="/files/<%=file._id%>?_method=DELETE">
-							<button class="btn btn-danger btn-block mt-4">Delete</button>
-						</form>
-
-						<!-- <form method="POST" action="/files/<%=file._id%>?_method=DELETE">
-							<button class="btn btn-warning btn-block mt-4">Edit</button>
-						</form> -->
-
-						<a href="/files/<%=file.filename%>/edit"><button type="button" class="btn btn-warning"> Edit</button></a>
-
+<!-- <div class="home-bg"> -->
+		
+			<div class="index">
+				<div class="row">
+					<div class="col-md-6 m-auto">
+						<h1 class="text-center display-4 my-4">HT Music Library</h1>
+						<form action="/upload" method="POST" enctype="multipart/form-data">
+							<div class="custom-file mb-3">
+								<input type="file" name="file" id="file" class="custom-file-input">
+								<label for="file" class="custom-file-label">Choose File</label>
+								<input type="text" name="genre" id="genre">
+								<label for="genre">Genre</label>
+								<input type="text" name="available" id="available">
+								<label for="available">Available</label>
+								<input type="text" name="length" id="length" >
+								<label for="length">Length</label>
+								<input type="text" name="bpm" id="bpm" >
+								<label for="bpm">BPM</label>
 						
-
-
-
-						</div>
-					<% })%>
-				<% } else { %>
-					<p>No files to show</p>
-				<% } %>%>
+							</div>
+								<input type="submit" value="Submit" class="btn btn-success btn-block">
+						</form>
+						<hr>
+						<div id="waveform"></div>
+						<a href="" id="downloader" download>
+							DOWNLOAD TRACK
+						</a>
+					
+						<!-- Create action buttons -->
+						<input type="button" id="btn-play" value="Play" disabled="disabled"/>
+						<input type="button" id="btn-pause" value="Pause" disabled="disabled"/>
+						<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
+					
+					
+						<% if(files){ %>
+							<% files.forEach(function(file) {%>
+								<div class="card card-body mb-3">
+									<% if(file.isImage) { %>
+										<img src="image/<%=file.filename%>" alt="">
+									<%} else { %>
+									<%= file.filename %>
+									<%= file.metadata.genre %>
+									<%= file.metadata.available %>
+									<%= file.metadata.length %>
+									<%= file.metadata.bpm %>
+									<% } %>%>
+					
+								<form method="POST" action="/files/<%=file._id%>?_method=DELETE">
+									<button class="btn btn-danger btn-block mt-4">Delete</button>
+								</form>
+					
+								<!-- <form method="POST" action="/files/<%=file._id%>?_method=DELETE">
+									<button class="btn btn-warning btn-block mt-4">Edit</button>
+								</form> -->
+					
+								<a href="/files/<%=file.filename%>/edit"><button type="button" class="btn btn-warning"> Edit</button></a>
+					
+								
+					
+					
+					
+								</div>
+							<% })%>
+						<% } else { %>
+							<p>No files to show</p>
+						<% } %>%>
+					</div>
+				</div>
 			</div>
-		</div>
+<!-- </div> -->
 <% include partials/footer  %>
 
 
