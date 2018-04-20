@@ -14,11 +14,12 @@
 	<input type="button" id="btn-pause" value="Pause" disabled="disabled"/>
 	<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
 
+	
 	<div class="row">
 		<% if(files){ %>
 			<% files.forEach(function(file) {%>
 				<div class="card card-body mb-3">
-					<a id="current-track" href="/audio/<%=file.filename%>"><%= file.filename %></a>
+					<h1 id="current-track"><%=file.filename%></h1>
 					<%= file._id %>
 					<%= file.metadata.genre %>
 					<%= file.metadata.available %>
@@ -96,6 +97,8 @@
 		     buttons.play.disabled = false;
 		    
 		 });
+
+	
 		 
 		 // If you want a responsive mode (so when the user resizes the window)
 		 // the spectrum will be still playable
@@ -117,9 +120,28 @@
 
 		 // Load the audio file from your domain !
 
-			Spectrum.load('Advair_gff2a.mp3');
-			downloader.setAttribute('href', 'Advair_gff2a.mp3');
+		  var current = document.getElementById("current-track");
+		  // var clicker = document.getElementById("clicker");
+		  current.addEventListener('click', function(){
+		  	alert(this.textContent)
+		  })
 
+
+		 var trackName = current.textContent;
+		    // console.log(trackName)
+		    // var myTrackName = `http://localhost:5000/audio/${trackName}`;
+		    // var myTrackName = 'http://localhost:5000/audio/' + trackName;
+		    // console.log(myTrackName)
+			Spectrum.load('http://localhost:5000/audio/' + trackName);
+			// Spectrum.load('http://localhost:5000/audio/61Degrees1.mp3');
+			// Spectrum.load('http://localhost:5000/audio/' + trackName);
+						   // http://localhost:5000/audio/61%20Degrees%201.mp3
+			// Spectrum.load('Advair_gff2a.mp3');
+			downloader.setAttribute('href', 'Advair_gff2a.mp3');
+			// downloader.setAttribute('href', 'Advair_gff2a.mp3');
+
+
+		
 
 
 

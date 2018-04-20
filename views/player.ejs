@@ -1,7 +1,7 @@
 <% include partials/header %>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div class="home-bg">
 <div class="results container">
-	<div id="waveform"></div>
 	<a href="" id="downloader" download>
 		<i class="fa fa-download"></i>
 
@@ -14,107 +14,114 @@
 	<input type="button" id="btn-pause" value="Pause" disabled="disabled"/>
 	<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
 
-	<h1><%= namer %></h1>
+	<h1> <%=  myRes  %> </h1>
+	<a href="<%=  myRes  %>" id="linker">Click</a>
+
+
+
+	<div id="waveform"></div>
 	
 	<hr>
 
 </div>
 </div>
 
-<!-- main wavesurfer.js lib -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.5/wavesurfer.min.js"></script>
+ <!-- main wavesurfer.js lib -->
+ <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.5/wavesurfer.min.js"></script>
 
 
-	<script>
-		// Store the 3 buttons in some object
-		 var buttons = {
-		     play: document.getElementById("btn-play"),
-		     pause: document.getElementById("btn-pause"),
-		     stop: document.getElementById("btn-stop")
-		 };
+ 	<script>
+ 		// Store the 3 buttons in some object
+ 		 var buttons = {
+ 		     play: document.getElementById("btn-play"),
+ 		     pause: document.getElementById("btn-pause"),
+ 		     stop: document.getElementById("btn-stop")
+ 		 };
 
-		 var downloader = document.getElementById("downloader");
+ 		 var downloader = document.getElementById("downloader");
 
-		 // Create an instance of wave surfer with its configuration
-		 var Spectrum = WaveSurfer.create({
-		     container: '#waveform',
-		     waveColor: '#darkgrey',
-		     // waveColor: '#C9DD4B',
-		     progressColor: '#61892f',
-		     cursorColor: '#999999'
-		     // scrollParent: true
-		 });
+ 		 // Create an instance of wave surfer with its configuration
+ 		 var Spectrum = WaveSurfer.create({
+ 		     container: '#waveform',
+ 		     waveColor: '#darkgrey',
+ 		     // waveColor: '#C9DD4B',
+ 		     progressColor: '#61892f',
+ 		     cursorColor: '#999999'
+ 		     // scrollParent: true
+ 		 });
 
-		 // Handle Play button
-		 buttons.play.addEventListener("click", function(){
-		     Spectrum.play();
+ 		 // Handle Play button
+ 		 buttons.play.addEventListener("click", function(){
+ 		     Spectrum.play();
 
-		     // Enable/Disable respectively buttons
-		     buttons.stop.disabled = false;
-		     buttons.pause.disabled = false;
-		     buttons.play.disabled = true;
-		 }, false);
+ 		     // Enable/Disable respectively buttons
+ 		     buttons.stop.disabled = false;
+ 		     buttons.pause.disabled = false;
+ 		     buttons.play.disabled = true;
+ 		 }, false);
 
-		 // Handle Pause button
-		 buttons.pause.addEventListener("click", function(){
-		     Spectrum.pause();
+ 		 // Handle Pause button
+ 		 buttons.pause.addEventListener("click", function(){
+ 		     Spectrum.pause();
 
-		     // Enable/Disable respectively buttons
-		     buttons.pause.disabled = true;
-		     buttons.play.disabled = false;
-		 }, false);
-
-
-		 // Handle Stop button
-		 buttons.stop.addEventListener("click", function(){
-		     Spectrum.stop();
-
-		     // Enable/Disable respectively buttons
-		     buttons.pause.disabled = true;
-		     buttons.play.disabled = false;
-		     buttons.stop.disabled = true;
-		 }, false);
+ 		     // Enable/Disable respectively buttons
+ 		     buttons.pause.disabled = true;
+ 		     buttons.play.disabled = false;
+ 		 }, false);
 
 
-		 // Add a listener to enable the play button once it's ready
-		 Spectrum.on('ready', function () {
-		     buttons.play.disabled = false;
-		    
-		 });
-		 
-		 // If you want a responsive mode (so when the user resizes the window)
-		 // the spectrum will be still playable
-		 window.addEventListener("resize", function(){
-		     // Get the current progress according to the cursor position
-		     var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
+ 		 // Handle Stop button
+ 		 buttons.stop.addEventListener("click", function(){
+ 		     Spectrum.stop();
 
-		     // Reset graph
-		     Spectrum.empty();
-		     Spectrum.drawBuffer();
-		     // Set original position
-		     Spectrum.seekTo(currentProgress);
-
-		     // Enable/Disable respectively buttons
-		     buttons.pause.disabled = true;
-		     buttons.play.disabled = false;
-		     buttons.stop.disabled = false;
-		 }, false);
-
-		 // Load the audio file from your domain !
-
-		 	// var currentTrack = document.getElementById("current-track");
-		 	// currentTrack.addEventListener('click', function(e) {
-		 	// 	console.log(this)
-		 	var song = 'http://localhost:5000/audio/advil_gff5.mp3';
-			Spectrum.load(song);
-			// Spectrum.load('Advair_gff2a.mp3');
-			downloader.setAttribute('href', song);
-			// downloader.setAttribute('href', 'Advair_gff2a.mp3');
-		 	// });
+ 		     // Enable/Disable respectively buttons
+ 		     buttons.pause.disabled = true;
+ 		     buttons.play.disabled = false;
+ 		     buttons.stop.disabled = true;
+ 		 }, false);
 
 
+ 		 // Add a listener to enable the play button once it's ready
+ 		 Spectrum.on('ready', function () {
+ 		     buttons.play.disabled = false;
+ 		    
+ 		 });
+ 		 
+ 		 // If you want a responsive mode (so when the user resizes the window)
+ 		 // the spectrum will be still playable
+ 		 window.addEventListener("resize", function(){
+ 		     // Get the current progress according to the cursor position
+ 		     var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
 
-	</script>
+ 		     // Reset graph
+ 		     Spectrum.empty();
+ 		     Spectrum.drawBuffer();
+ 		     // Set original position
+ 		     Spectrum.seekTo(currentProgress);
 
+ 		     // Enable/Disable respectively buttons
+ 		     buttons.pause.disabled = true;
+ 		     buttons.play.disabled = false;
+ 		     buttons.stop.disabled = false;
+ 		 }, false);
+
+ 		 var linker = document.getElementById("linker");
+
+ 		 // Load the audio file from your domain !
+ 		 	linker.addEventListener('click', function(){
+
+ 		 		// var linked = linker.getAttribute('href');
+ 		 		console.log(5)
+ 		 	})
+ 		 	console.log(linked)
+ 			Spectrum.load(linked);
+ 			// Spectrum.load('Advair_gff2a.mp3');
+ 			downloader.setAttribute('href', linked);
+
+ 			// http://localhost:5000/audio/61%20Degrees%201.mp3
+
+
+
+ 	</script>
 
 <% include partials/footer  %>

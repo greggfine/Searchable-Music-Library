@@ -1,4 +1,6 @@
 const express = require('express');
+const fs = require('fs');
+const http = require('http');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bodyParser = require('body-parser');
@@ -232,25 +234,27 @@ app.get('/files/:filename', isLoggedIn, function(req, res){
 
 // @route GET /audio/:filename
 // @desc Display Audio
-app.get('/audio/:filename',isLoggedIn, function(req, res){
-	gfs.files.findOne({filename: req.params.filename}, function(err, file){
+// app.get('/audio/:filename',isLoggedIn, function(req, res){
+// 	gfs.files.findOne({filename: req.params.filename}, function(err, file){
 
-		if(!file || file.length === 0){
-			return res.status(404).json({
-				err: 'No file exists'
-			});
-		}
+// 		if(!file || file.length === 0){
+// 			return res.status(404).json({
+// 				err: 'No file exists'
+// 			});
+// 		}
 
-		if(file.contentType === 'audio/mp3') {
-			const readstream = gfs.createReadStream(file.filename);
-			readstream.pipe(res);
-		} else {
-			res.status(404).json({
-				err: 'Not an audio file'
-			});
-		}
-	});
-});
+// 		if(file.contentType === 'audio/mp3') {
+// 			var name = file.filename;
+
+// 			const readstream = gfs.createReadStream(file.filename);
+// 			readstream.pipe(res);
+// 		} else {
+// 			res.status(404).json({
+// 				err: 'Not an audio file'
+// 			});
+// 		}
+// 	});
+// });
 
 //SEARCH route
 app.get('/search', isLoggedIn, function(req, res) {
