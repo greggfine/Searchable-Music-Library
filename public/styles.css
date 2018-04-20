@@ -7,6 +7,10 @@ html, body {
 	width: 50%;
 }
 
+.player {
+	padding-top: 900px;
+}
+
 .brand-center{
     position: absolute;
     width: 100%;

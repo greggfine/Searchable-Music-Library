@@ -11,11 +11,60 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
-// const wavesurfer = require("wavesurfer");
+// var WaveSurfer = require('wavesurfer.js');
+
+// var buttons = {
+// 	play: document.getElementById("btn-play"),
+// 	pause: document.getElementById("btn-pause"),
+// 	stop: document.getElementById("btn-stop")
+// };
+
+// var Spectrum = WaveSurfer.create({
+//     container: '#audio-spectrum',
+//     progressColor: '#03a9f4',
+// });
+
+// buttons.play.addEventListener('click', function(){
+// 	Spectrum.play();
+// 	buttons.stop.disabled = false;
+// 	buttons.pause.disabled = false;
+// 	buttons.play.disabled = true;
+// }, false);
+
+
+// buttons.pause.addEventListener('click', function(){
+// 	Spectrum.pause();
+// 	buttons.pause.disabled = true;
+// 	buttons.play.disabled = false;
+// }, false);
+
+// buttons.stop.addEventListener('click', function(){
+// 	Spectrum.stop();
+// 	buttons.pause.disabled = true;
+// 	buttons.play.disabled = false;
+// 	buttons.stop.disabled = true;
+// }, false);
+
+// Spectrum.on('ready', function() {
+// 	buttons.play.disabled = false;
+// });
+
+// window.addEventListener('resize', function(){
+// 	var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
+
+// 	Spectrum.empty();
+// 	Spectrum.drawBuffer();
+
+// 	Spectrum.seekTo(currentProgress);
+
+// 	buttons.pause.disabled = true;
+// 	buttons.play.disabled = false;
+// 	buttons.stop.disabled = false;
+// }, false);
+
+// Spectrum.load('Advair_gff2a.mp3');
 
 const app = express();
-
-//  var jsonParser = bodyParser.json()
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -101,12 +150,6 @@ app.get('/tracks', isLoggedIn, function(req, res) {
 	})
 });
 
-// AUTH ROUTES
-
-// app.get('/secret', isLoggedIn, function(req, res) {
-// 	res.render('secret');
-// });
-
 // Show sign up form
 app.get('/register', function(req, res) {
 	res.render('register');
@@ -158,7 +201,6 @@ function isLoggedIn(req, res, next) {
 // @route POST/upload
 // @desc Uploads file to DB
 app.post('/upload', upload.single('file'), isLoggedIn, function(req, res) {
-	// res.json({file: req.file});
 	res.redirect('/tracks');
 });
 
@@ -166,13 +208,11 @@ app.post('/upload', upload.single('file'), isLoggedIn, function(req, res) {
 // @desc Display all files in JSON
 app.get('/files', isLoggedIn, function(req, res){
 	gfs.files.find().toArray(function(err, files){
-		// Check if files
 		if(!files || files.length === 0){
 			return res.status(404).json({
 				err: 'No files exist'
 			});
 		}
-		// Files exist
 		return res.json(files);
 	})
 })
@@ -181,13 +221,11 @@ app.get('/files', isLoggedIn, function(req, res){
 // @desc Display single file object
 app.get('/files/:filename', isLoggedIn, function(req, res){
 	gfs.files.findOne({filename: req.params.filename}, function(err, file){
-		// Check if files
 		if(!file || file.length === 0){
 			return res.status(404).json({
 				err: 'No file exists'
 			});
 		}
-		// File exists
 		return res.json(file);
 	});
 });
@@ -196,15 +234,14 @@ app.get('/files/:filename', isLoggedIn, function(req, res){
 // @desc Display Audio
 app.get('/audio/:filename',isLoggedIn, function(req, res){
 	gfs.files.findOne({filename: req.params.filename}, function(err, file){
-		// Check if files
+
 		if(!file || file.length === 0){
 			return res.status(404).json({
 				err: 'No file exists'
 			});
 		}
-		// Check if audio
+
 		if(file.contentType === 'audio/mp3') {
-			// Read output to browser
 			const readstream = gfs.createReadStream(file.filename);
 			readstream.pipe(res);
 		} else {
@@ -269,15 +306,8 @@ app.put("/files/:filename", isLoggedIn, function(req,res){
     	"metadata.length": length,
     	"metadata.bpm": bpm
     	 }})
-    // gfs.files.update(req.params.filename, function(err, updated){
-        // if(err){ 
-        //     res.redirect("/files");
-        // } else {
-        //     res.redirect("/files");
-        // }
         res.redirect('/tracks');
     })
-// })
 
 //  @route DELETE /files/:id
 //  @desc Delete file
