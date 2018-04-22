@@ -15,12 +15,12 @@
 	<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
 
 
-	<div >
-		<ul>
+	<div class="card card-body mb-3">
+		<ul class="col-md-12 list-group">
 		<% files.forEach(function(file) {%>
-			<li id="current-track" ><%= file.filename %></li>
+			<li id="current-track" class="list-group-item"><%= file.filename %></li>
 			<button class="btn btn-primary" onclick="runIt(this.value)" value="<%= file.filename %>"></button>
-		<!-- 	<button style="height: 50px; width: 50px" onclick="alert(this.value)" value="<%= file.filename %>"></button> -->
+
 		<% }) %>
 		 </ul>
 		
