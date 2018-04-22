@@ -118,13 +118,13 @@
 		  var current = document.getElementById("current-track");
 
 		window.onload = function(){
-			Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/61Degrees1.mp3');
+			Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.textContent);
 			// Spectrum.load('http://localhost:5000/audio/' + current.textContent)
 			// Spectrum.load('https://vast-dusk-24076.herokuapp.com/audio/' + current.textContent)
 		}
 
 		  function runIt(trackName){
-		  	var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/61Degrees1.mp3';
+		  	var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/' + trackName;
 		  	// var curTrack = 'http://localhost:5000/audio/' + trackName;
 		  	// var curTrack = 'https://vast-dusk-24076.herokuapp.com/audio/' + trackName;
 			Spectrum.load(curTrack);
