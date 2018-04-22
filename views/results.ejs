@@ -14,22 +14,16 @@
 	<input type="button" id="btn-pause" value="Pause" disabled="disabled"/>
 	<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
 
-	
-	<div class="row">
-		<% if(files){ %>
-			<% files.forEach(function(file) {%>
-				<div class="card card-body mb-3">
-					<h1 id="current-track"><%=file.filename%></h1>
-					<%= file._id %>
-					<%= file.metadata.genre %>
-					<%= file.metadata.available %>
-					<%= file.metadata.length %>
-					<%= file.metadata.bpm %>
-				</div>
-			<% })%>
-		<% } else { %>
-			<p>No files to show</p>
-		<% } %>%>
+
+	<div >
+		<ul>
+		<% files.forEach(function(file) {%>
+			<li id="current-track" ><%= file.filename %></li>
+			<button class="btn btn-primary" onclick="runIt(this.value)" value="<%= file.filename %>"></button>
+		<!-- 	<button style="height: 50px; width: 50px" onclick="alert(this.value)" value="<%= file.filename %>"></button> -->
+		<% }) %>
+		 </ul>
+		
 	</div>
 	
 	<hr>
@@ -42,6 +36,13 @@
 
 
 	<script>
+
+		// console.log(document)
+		// var myFiles = document.getElementById("my-files");
+		// var fileArr = myFiles.getAttribute('href');
+		// console.log( fileArr)
+		// fileArr.forEach(file => console.log(file))
+		// console.log(fileArr)
 		// Store the 3 buttons in some object
 		 var buttons = {
 		     play: document.getElementById("btn-play"),
@@ -121,24 +122,32 @@
 		 // Load the audio file from your domain !
 
 		  var current = document.getElementById("current-track");
-		  // var clicker = document.getElementById("clicker");
-		  current.addEventListener('click', function(){
-		  	alert(this.textContent)
-		  })
+
+		  // current.addEventListener('click', function(e){
+		  // 	console.log(current)
+		  // })
+
+		  // var trackLoad = Array.from(document.querySelectorAll("#current-track"));
+		  // var trackName = trackLoad[2].innerHTML;
+		  // console.log(trackLoad[1].innerHTML)
+		  // console.log(trackLoad[2].innerHTML)
+		  // Array.from(document.querySelectorAll("#current-track")).forEach(li => li.click);
+		window.onload = function(){
+			Spectrum.load('http://localhost:5000/audio/' + current.textContent)
+		}
+
+		  function runIt(trackName){
+		  	var curTrack = 'http://localhost:5000/audio/' + trackName;
+			Spectrum.load(curTrack);
+			downloader.setAttribute('href', curTrack);
+		  }
+		  // Array.from(document.querySelectorAll("#current-track")).forEach(button => button.click());
 
 
-		 var trackName = current.textContent;
-		    // console.log(trackName)
-		    // var myTrackName = `http://localhost:5000/audio/${trackName}`;
-		    // var myTrackName = 'http://localhost:5000/audio/' + trackName;
-		    // console.log(myTrackName)
-			Spectrum.load('http://localhost:5000/audio/' + trackName);
-			// Spectrum.load('http://localhost:5000/audio/61Degrees1.mp3');
-			// Spectrum.load('http://localhost:5000/audio/' + trackName);
-						   // http://localhost:5000/audio/61%20Degrees%201.mp3
-			// Spectrum.load('Advair_gff2a.mp3');
-			downloader.setAttribute('href', 'Advair_gff2a.mp3');
-			// downloader.setAttribute('href', 'Advair_gff2a.mp3');
+		 	// var trackName = current.textContent;
+
+
+
 
 
 		
