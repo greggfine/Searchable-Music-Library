@@ -272,6 +272,12 @@ app.delete('/files/:id', isLoggedIn, function(req, res){
 	});
 });
 
-app.listen(5000, function() {
-	console.log('The server is running');
+// app.listen(process.env.PORT || 3000, function() {
+// 	console.log('The server is running');
+// });
+
+var port = process.env.PORT || 8080;
+
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
 });
