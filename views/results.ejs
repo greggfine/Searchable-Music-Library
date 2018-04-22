@@ -37,12 +37,6 @@
 
 	<script>
 
-		// console.log(document)
-		// var myFiles = document.getElementById("my-files");
-		// var fileArr = myFiles.getAttribute('href');
-		// console.log( fileArr)
-		// fileArr.forEach(file => console.log(file))
-		// console.log(fileArr)
 		// Store the 3 buttons in some object
 		 var buttons = {
 		     play: document.getElementById("btn-play"),
@@ -123,15 +117,6 @@
 
 		  var current = document.getElementById("current-track");
 
-		  // current.addEventListener('click', function(e){
-		  // 	console.log(current)
-		  // })
-
-		  // var trackLoad = Array.from(document.querySelectorAll("#current-track"));
-		  // var trackName = trackLoad[2].innerHTML;
-		  // console.log(trackLoad[1].innerHTML)
-		  // console.log(trackLoad[2].innerHTML)
-		  // Array.from(document.querySelectorAll("#current-track")).forEach(li => li.click);
 		window.onload = function(){
 			Spectrum.load('http://localhost:5000/audio/' + current.textContent)
 		}
@@ -141,19 +126,6 @@
 			Spectrum.load(curTrack);
 			downloader.setAttribute('href', curTrack);
 		  }
-		  // Array.from(document.querySelectorAll("#current-track")).forEach(button => button.click());
-
-
-		 	// var trackName = current.textContent;
-
-
-
-
-
-		
-
-
-
 
 
 	</script>

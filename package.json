@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {
-    // "build": "webpack --config webpack.config.prod.js -p"
-    // "build": "webpack --config webpack.config.prod.js -p"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -22,11 +19,7 @@
     "passport": "^0.3.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.0",
-    "uniq": "^1.0.1",
-    "wavesurfer.js": "^2.0.0-beta01",
-    "webpack": "^4.5.0"
+    "wavesurfer.js": "^2.0.0-beta01"
   },
-  "devDependencies": {
-    "webpack-cli": "^2.0.14"
-  }
+  "devDependencies": {}
 }

@@ -1,6 +1,6 @@
 const express = require('express');
-const fs = require('fs');
-const http = require('http');
+// const fs = require('fs');
+// const http = require('http');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bodyParser = require('body-parser');
@@ -13,58 +13,6 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
-// var WaveSurfer = require('wavesurfer.js');
-
-// var buttons = {
-// 	play: document.getElementById("btn-play"),
-// 	pause: document.getElementById("btn-pause"),
-// 	stop: document.getElementById("btn-stop")
-// };
-
-// var Spectrum = WaveSurfer.create({
-//     container: '#audio-spectrum',
-//     progressColor: '#03a9f4',
-// });
-
-// buttons.play.addEventListener('click', function(){
-// 	Spectrum.play();
-// 	buttons.stop.disabled = false;
-// 	buttons.pause.disabled = false;
-// 	buttons.play.disabled = true;
-// }, false);
-
-
-// buttons.pause.addEventListener('click', function(){
-// 	Spectrum.pause();
-// 	buttons.pause.disabled = true;
-// 	buttons.play.disabled = false;
-// }, false);
-
-// buttons.stop.addEventListener('click', function(){
-// 	Spectrum.stop();
-// 	buttons.pause.disabled = true;
-// 	buttons.play.disabled = false;
-// 	buttons.stop.disabled = true;
-// }, false);
-
-// Spectrum.on('ready', function() {
-// 	buttons.play.disabled = false;
-// });
-
-// window.addEventListener('resize', function(){
-// 	var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
-
-// 	Spectrum.empty();
-// 	Spectrum.drawBuffer();
-
-// 	Spectrum.seekTo(currentProgress);
-
-// 	buttons.pause.disabled = true;
-// 	buttons.play.disabled = false;
-// 	buttons.stop.disabled = false;
-// }, false);
-
-// Spectrum.load('Advair_gff2a.mp3');
 
 const app = express();
 
@@ -234,27 +182,27 @@ app.get('/files/:filename', isLoggedIn, function(req, res){
 
 // @route GET /audio/:filename
 // @desc Display Audio
-// app.get('/audio/:filename',isLoggedIn, function(req, res){
-// 	gfs.files.findOne({filename: req.params.filename}, function(err, file){
+app.get('/audio/:filename',isLoggedIn, function(req, res){
+	gfs.files.findOne({filename: req.params.filename}, function(err, file){
 
-// 		if(!file || file.length === 0){
-// 			return res.status(404).json({
-// 				err: 'No file exists'
-// 			});
-// 		}
+		if(!file || file.length === 0){
+			return res.status(404).json({
+				err: 'No file exists'
+			});
+		}
 
-// 		if(file.contentType === 'audio/mp3') {
-// 			var name = file.filename;
+		if(file.contentType === 'audio/mp3') {
+			var name = file.filename;
 
-// 			const readstream = gfs.createReadStream(file.filename);
-// 			readstream.pipe(res);
-// 		} else {
-// 			res.status(404).json({
-// 				err: 'Not an audio file'
-// 			});
-// 		}
-// 	});
-// });
+			const readstream = gfs.createReadStream(file.filename);
+			readstream.pipe(res);
+		} else {
+			res.status(404).json({
+				err: 'Not an audio file'
+			});
+		}
+	});
+});
 
 //SEARCH route
 app.get('/search', isLoggedIn, function(req, res) {
