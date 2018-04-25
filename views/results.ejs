@@ -1,23 +1,33 @@
 <% include partials/header %>
 <div class="home-bg">
 <div class="results container">
-	<div id="waveform"></div>
-	<a href="" id="downloader" download>
-		<i class="fa fa-download"></i>
+	
 
 
 		<!-- DOWNLOAD TRACK -->
-	</a>
 	
 	<!-- Create action buttons -->
-	<input type="button" id="btn-play" value="Play" disabled="disabled"/>
-	<input type="button" id="btn-pause" value="Pause" disabled="disabled"/>
-	<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
+	<div class="master-player">
+		<!-- <div class="wave-player"> -->
+			<i class="fa fa-play fa-4x play-button" id="btn-play" value="Play" disabled="disabled"></i>
+			<div id="waveform"></div>
+		<!-- </div> -->
+		<h1 id="track-title"></h1>
+		
+		<div class="flex-group">
+			<i class="fa fa-pause fa-4x" id="btn-pause" value="Pause" disabled="disabled"></i>
+			<i class="fa fa-stop fa-4x" id="btn-stop" value="Stop" disabled="disabled"></i>
+			
+			<a href="" id="downloader" download>
+				<i class="fa fa-download fa-4x download-icon"></i>
+			</a>
+		</div>
+	</div>
 
 
 	<div class="">
 	<!-- <div class="card card-body mb-3"> -->
-		<ul class="list-group">
+		<ul class="list-group track-group">
 		<% files.forEach(function(file) {%>
 			<button class="btn btn-track-info" id="current-track" onclick="runIt(this.value)" value="<%= file.filename %>"><%= file.filename %></button>
 			<li  class="list-group-item  track-li"><%= file.metadata.description %></li>
@@ -53,7 +63,8 @@
 		     waveColor: '#darkgrey',
 		     // waveColor: '#C9DD4B',
 		     progressColor: '#61892f',
-		     cursorColor: '#999999'
+		     cursorColor: '#999999',
+		     pixelRatio: 1
 		     // scrollParent: true
 		 });
 
@@ -95,7 +106,7 @@
 		 });
 
 	
-		 
+		 var trackTitle = document.getElementById('track-title');
 		 // If you want a responsive mode (so when the user resizes the window)
 		 // the spectrum will be still playable
 		 window.addEventListener("resize", function(){
@@ -122,6 +133,7 @@
 			// Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.textContent);
 			Spectrum.load('http://localhost:8080/audio/' + current.textContent)
 			// Spectrum.load('https://vast-dusk-24076.herokuapp.com/audio/' + current.textContent)
+			trackTitle.innerHTML = current.textContent;
 		}
 
 		  function runIt(trackName){
@@ -130,6 +142,7 @@
 		  	// var curTrack = 'https://vast-dusk-24076.herokuapp.com/audio/' + trackName;
 			Spectrum.load(curTrack);
 			downloader.setAttribute('href', curTrack);
+			trackTitle.innerHTML = trackName;
 		  }
 
 

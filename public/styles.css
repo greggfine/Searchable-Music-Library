@@ -4,13 +4,46 @@ html, body {
 }
 
 .btn-track-info{
-	background-color: lightgrey;
+	background-color: #C9DD4B;
 	height: 45px;
 	text-align: left;
 }
 
 .track-li {
 	height: 45px;
+}
+
+
+.master-player {
+	margin-bottom: 50px;
+	margin-top: -150px;
+	/*border: 1px solid;*/
+	width: 1200px;
+	position: fixed;
+}
+
+.track-group {
+	margin-top: 200px;
+	position: fixed;
+	height: 1000px;
+	overflow: scroll;
+}
+
+.play-button {
+	/*border: 1px solid;*/
+	padding-right: 20px;
+	float: left;
+	line-height: 100px;
+}
+
+
+#waveform {
+	overflow: hidden;
+}
+
+.download-icon {
+	padding-bottom: 100px;
+	color: #61892f;
 }
 
 .login-image {
@@ -48,6 +81,10 @@ html, body {
 	text-shadow: 6px 4px 12px #0000004a;
 }
 
+.login-icon {
+	padding-right: 8px;
+}
+
 .track-edit {
 	margin-top: 400px;
 	background-color: red;
@@ -62,20 +99,17 @@ html, body {
 }
 
 .home-bg {
-	background-image: url('images/01.jpg');
-	height: 100vh;
-	width: 100%;
+	/*background-image: url('images/01.jpg');
 	background-repeat: no-repeat;
+	background-size: cover;
 	background-position: right top;
-	/*background-color: #474b4f;*/
-	/*background-color: #61892f;*/
-	/*background-color: #5f7030;*/
-	/*background-color: #B0C040;*/
-	background-color: #BDCE45;
-	/*background-color: #C9DD4B;*/
-	/*background-blend-mode: overlay;*/
-	/*background-blend-mode: soft-light;*/
-	background-blend-mode: screen;
+	background-color: #C9DD4B;
+	background-blend-mode: screen;*/
+}
+
+.flex-group {
+	display: flex;
+	justify-content: space-around;
 }
 
 .search {
@@ -100,6 +134,28 @@ html, body {
 	padding-top: 300px;
 }
 
+#track-title {
+	font-size: 1.3rem;
+	color: #6b6e70;
+	padding-bottom: 50px;
+}
+
 /*.edit-form {
 	padding-top: 600px;
 }*/
+
+
+/* 
+$htLightGreen: #C9DD4B; 
+$htMediumGreen: #5f7030; 	
+$htDarkGreen: #61892f;  
+$htLightGrey: #999999; 
+$htMediumGrey: #333333;  	 
+$htDarkGrey: #1D1D1D;  
+$htBlack: rgb(0, 1, 0);
+$htBlackOpacity: rgba(0, 1, 0, 0.96);
+$htWhite: #F5F5F5;   
+$htNewGreen: #6b6e70;
+$htNewGreen2: #474b4f; 
+*/
+
