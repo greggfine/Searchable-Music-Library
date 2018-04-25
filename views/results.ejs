@@ -15,11 +15,12 @@
 	<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
 
 
-	<div class="card card-body mb-3">
-		<ul class="col-md-12 list-group">
+	<div class="">
+	<!-- <div class="card card-body mb-3"> -->
+		<ul class="list-group">
 		<% files.forEach(function(file) {%>
-			<li id="current-track" class="list-group-item"><%= file.filename %></li>
-			<button class="btn btn-primary" onclick="runIt(this.value)" value="<%= file.filename %>"></button>
+			<button class="btn btn-track-info" id="current-track" onclick="runIt(this.value)" value="<%= file.filename %>"><%= file.filename %></button>
+			<li  class="list-group-item  track-li"><%= file.metadata.description %></li>
 
 		<% }) %>
 		 </ul>
@@ -118,14 +119,14 @@
 		  var current = document.getElementById("current-track");
 
 		window.onload = function(){
-			Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.textContent);
-			// Spectrum.load('http://localhost:5000/audio/' + current.textContent)
+			// Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.textContent);
+			Spectrum.load('http://localhost:8080/audio/' + current.textContent)
 			// Spectrum.load('https://vast-dusk-24076.herokuapp.com/audio/' + current.textContent)
 		}
 
 		  function runIt(trackName){
-		  	var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/' + trackName;
-		  	// var curTrack = 'http://localhost:5000/audio/' + trackName;
+		  	// var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/' + trackName;
+		  	var curTrack = 'http://localhost:8080/audio/' + trackName;
 		  	// var curTrack = 'https://vast-dusk-24076.herokuapp.com/audio/' + trackName;
 			Spectrum.load(curTrack);
 			downloader.setAttribute('href', curTrack);

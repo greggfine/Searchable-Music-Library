@@ -215,13 +215,14 @@ app.get('/result', isLoggedIn, function(req, res) {
 		var length = req.query.length;
 		var available = req.query.available;
 		var bpm = req.query.bpm;
+		// var description = req.query.description;
 		gfs.files.find(
 					{
 						 // "metadata.genre": genre ,  "metadata.length": length ,
 							// 	 "metadata.available": available  
 								$or: [ {"metadata.genre": genre }, { "metadata.length": length },
 										{ "metadata.available": available },
-										{ "metadata.bpm": bpm } ]
+										{ "metadata.bpm": bpm }]
 					}
 					)
 		.toArray(function(err, files){
@@ -253,10 +254,12 @@ app.put("/files/:filename", isLoggedIn, function(req,res){
 	var available = req.body.available;
 	var length = req.body.length;
 	var bpm = req.body.bpm;
+	var description = req.body.description;
     gfs.files.update({'filename': req.params.filename}, {'$set': {"metadata.genre": genre, 
     	"metadata.available": available, 
     	"metadata.length": length,
-    	"metadata.bpm": bpm
+    	"metadata.bpm": bpm,
+    	"metadata.description": description
     	 }})
         res.redirect('/tracks');
     })

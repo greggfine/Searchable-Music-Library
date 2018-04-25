@@ -3,6 +3,16 @@ html, body {
 	font-family: Arial;
 }
 
+.btn-track-info{
+	background-color: lightgrey;
+	height: 45px;
+	text-align: left;
+}
+
+.track-li {
+	height: 45px;
+}
+
 .login-image {
 	width: 50%;
 }
