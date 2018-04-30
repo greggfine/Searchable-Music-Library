@@ -7,37 +7,36 @@ html, body {
 	background-color: #C9DD4B;
 	height: 45px;
 	text-align: left;
-	width: 1000px;
 }
 
-.track-li {
-	/*height: 45px;*/
-	width: 1000px;
+.btn-genre-search {
+	background-color: #61892f;
+	color: #fff;
+}
+
+.search-card {
+	min-width: 350px;
+	background-color: #999999;
+}
+
+.chevron-icon {
+	color: #fff;
+}
+
+.show{
+	background-color: #fff;
 }
 
 
-.master-player {
-	margin-bottom: 50px;
-	margin-top: -150px;
-	/*border: 1px solid;*/
-	width: 1200px;
-	/*position: fixed;*/
-}
-
-.track-group {
-	margin-top: 200px;
-	/*position: fixed;*/
-/*	height: 1000px;
-	overflow: scroll;*/
+.genres-header {
+	color: #fff;
 }
 
 .play-button {
-	/*border: 1px solid;*/
 	padding-right: 20px;
 	float: left;
 	line-height: 100px;
 }
-
 
 #waveform {
 	overflow: hidden;
@@ -73,13 +72,11 @@ html, body {
 
 .ht-header {
 	color: black;
-	/*padding-top: 400px;*/
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translateX(-50%);
 	font-size: 4rem;
-	/*min-width: 900px;*/
 	text-shadow: 6px 4px 12px #0000004a;
 }
 
@@ -100,6 +97,12 @@ html, body {
 	padding-top: 300px;
 }
 
+.search-form {
+	display: flex;
+	/*flex-direction: column;*/
+	justify-content: space-around;
+}
+
 .home-bg {
 	/*background-image: url('images/01.jpg');
 	background-repeat: no-repeat;
@@ -112,13 +115,6 @@ html, body {
 .flex-group {
 	display: flex;
 	justify-content: space-around;
-}
-
-.left-side {
-	/*position: absolute;*/
-	/*width: 300px;*/
-	/*left: 10px;*/
-	/*top: 200px;*/
 }
 
 .search {
@@ -136,9 +132,7 @@ html, body {
 }
 
 .results {
-	padding-top: 400px;
-	/*width: 1270px;*/
-	/*margin: auto;*/
+	padding-top: 250px;
 }
 
 .index {
@@ -151,9 +145,6 @@ html, body {
 	padding-bottom: 50px;
 }
 
-/*.edit-form {
-	padding-top: 600px;
-}*/
 
 
 /* 

@@ -1,180 +1,123 @@
 <% include partials/header %>
-<div class="home-bg">
-<div class="results container">
-	
-<div class="row">	
-<div class="col-3">
-	<div class="accordion" id="accordion">
-	  <div class="card">
-	    <div class="card-header" id="headingOne">
-	      <h5 class="mb-0">
-	        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-	          <i class="fa fa-search fa-1x login-icon"></i>SEARCH
-	        </button>
-	      </h5>
-	    </div>
 
-	    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-	      <div class="card-body">
-	      	<form action="/result" method="GET"">
-	      		<!-- <div class="custom-file mb-6"> -->
-	      			<label for="genre">Genre</label>
-	        		<select name="genre" id="genre">
-						<option value="acoustic">Acoustic</option>
-						<option value="alternative">Alternative</option>
-						<option value="ambient">Ambient</option>
-						<option value="americana">Americana</option>
-						<option value="blues">Blues</option>
-						<option value="bossa">Bossa</option>
-						<option value="brazilian">Brazilian</option>
-						<option value="breakbeat">Breakbeat</option>
-						<option value="childrens">Childrens</option>
-						<option value="chill">Chill</option>
-						<option value="christmas">Christmas</option>
-						<option value="classical">Classical</option>
-						<option value="country">Country</option>
-						<option value="dance">Dance</option>
-						<option value="downtempo">Downtempo</option>
-						<option value="dubstep">Dubstep</option>
-						<option value="disco">Disco</option>
-						<option value="drums">Drums/Percussion</option>
-						<option value="easy listening">Easy Listening</option>
-						<option value="electronic">Electronic</option>
-						<option value="epic">Epic</option>
-						<option value="funk">Funk</option>
-						<option value="hardcore">Hardcore</option>
-						<option value="hard rock">Hard Rock</option>
-						<option value="hip hop">Hip Hop</option>
-						<option value="holiday">Holiday</option>
-						<option value="house">House</option>
-						<option value="indie">Indie</option>
-						<option value="jazz">Jazz</option>
-						<option value="jungle">Jungle</option>
-						<option value="latin">Latin</option>
-						<option value="lounge">Lounge</option>
-						<option value="mnemonic">Mnemonic</option>
-						<option value="new age">New Age</option>
-						<option value="orchestral">Orchestral</option>
-						<option value="pop">Pop</option>
-						<option value="psychedelic">Psychedelic</option>
-						<option value="rap">Rap</option>
-						<option value="reggae">Reggae</option>
-						<option value="retro">Retro</option>
-						<option value="rock">Rock</option>
-						<option value="ska">Ska</option>
-						<option value="techno">Techno</option>
-						<option value="trip hop">Trip Hop</option>
-						<option value="vocal">Vocal</option>
-						<option value="world">World</option>
-					</select>
-				<input type="submit" value="submit"  class="btn btn-success btn-block">
-	      </div>
-	  </form>
-	    </div>
-	  </div>
-	 <!--  <div class="card">
-	    <div class="card-header" id="headingTwo">
-	      <h5 class="mb-0">
-	        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-	          TEMPOS
-	        </button>
-	      </h5>
-	    </div> -->
-	    <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-	      <div class="card-body">
-	      </div>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <div class="card-header" id="headingThree">
-	      <h5 class="mb-0">
-	        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-	          LENGTH
-	        </button>
-	      </h5>
-	    </div>
-	    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-	      <div class="card-body">
-	      </div>
-	    </div>
-	  </div> -->
-	</div>
-</div>
+<div class="results">
+
+	<div class="row">	
+
+		<div class="col-md-4">
+			<div class="accordion" id="accordion">
+			  <div class="card search-card">
+
+			    <div class="card-header" id="headingOne">
+ 					<h5 class="mb-0">
+			         	 <i class="fa fa-chevron-right fa-1x chevron-icon"></i>
+			       		 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			       		 <h3 class="genres-header">Genres</h3>
+			       		 </button>
+			        </h5>
+			     </div><!-- End card-header -->
+
+			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+			        <div class="card-body">
+			     		<form action="/result" method="GET" class="search-form">
+	     	      			<!-- <label for="genre">Genre</label> -->
+	     	        		<select class="genre" name="genre" id="genre">
+			     						<option value="acoustic">Acoustic</option>
+			     						<option value="alternative">Alternative</option>
+			     						<option value="ambient">Ambient</option>
+			     						<option value="americana">Americana</option>
+			     						<option value="blues">Blues</option>
+			     						<option value="bossa">Bossa</option>
+			     						<option value="brazilian">Brazilian</option>
+			     						<option value="breakbeat">Breakbeat</option>
+			     						<option value="childrens">Childrens</option>
+			     						<option value="chill">Chill</option>
+			     						<option value="christmas">Christmas</option>
+			     						<option value="classical">Classical</option>
+			     						<option value="country">Country</option>
+			     						<option value="dance">Dance</option>
+			     						<option value="downtempo">Downtempo</option>
+			     						<option value="dubstep">Dubstep</option>
+			     						<option value="disco">Disco</option>
+			     						<option value="drums">Drums/Percussion</option>
+			     						<option value="easy listening">Easy Listening</option>
+			     						<option value="electronic">Electronic</option>
+			     						<option value="epic">Epic</option>
+			     						<option value="funk">Funk</option>
+			     						<option value="hardcore">Hardcore</option>
+			     						<option value="hard rock">Hard Rock</option>
+			     						<option value="hip hop">Hip Hop</option>
+			     						<option value="holiday">Holiday</option>
+			     						<option value="house">House</option>
+			     						<option value="indie">Indie</option>
+			     						<option value="jazz">Jazz</option>
+			     						<option value="jungle">Jungle</option>
+			     						<option value="latin">Latin</option>
+			     						<option value="lounge">Lounge</option>
+			     						<option value="mnemonic">Mnemonic</option>
+			     						<option value="new age">New Age</option>
+			     						<option value="orchestral">Orchestral</option>
+			     						<option value="pop">Pop</option>
+			     						<option value="psychedelic">Psychedelic</option>
+			     						<option value="rap">Rap</option>
+			     						<option value="reggae">Reggae</option>
+			     						<option value="retro">Retro</option>
+			     						<option value="rock">Rock</option>
+			     						<option value="ska">Ska</option>
+			     						<option value="techno">Techno</option>
+			     						<option value="trip hop">Trip Hop</option>
+			     						<option value="vocal">Vocal</option>
+			     						<option value="world">World</option>
+	     					</select>
+
+	     					<input type="submit" value="submit"  class="btn btn-outline-success
+	     					btn-lg">
+	     		 	 	</form>
+	     	  		 </div><!-- End card-body -->
+	     	    </div><!-- End collapse -->
+
+			  </div><!-- End card -->
+			</div><!-- End accordion -->
+		</div><!-- End col-md-3 -->
 
 
-<div class="col-9">
-		<!-- DOWNLOAD TRACK -->
-	
-	<!-- Create action buttons -->
-	<div class="master-player">
-		<!-- <div class="wave-player"> -->
-			<i class="fa fa-play fa-4x play-button" id="btn-play" value="Play" disabled="disabled"></i>
-			<div id="waveform"></div>
-		<!-- </div> -->
-		<h1 id="track-title"></h1>
-		
-		<div class="flex-group">
-			<i class="fa fa-pause fa-4x" id="btn-pause" value="Pause" disabled="disabled"></i>
-			<i class="fa fa-stop fa-4x" id="btn-stop" value="Stop" disabled="disabled"></i>
-			
-			<a href="" id="downloader" download>
-				<i class="fa fa-download fa-4x download-icon"></i>
-			</a>
-		</div>
-	
+
+		<div class="col-lg-8">
+
+			<div class="master-player">
+				<i class="fa fa-play fa-4x play-button" id="btn-play" value="Play" disabled="disabled"></i>
+				<div id="waveform"></div>
+				<h1 id="track-title"></h1>
+			</div><!-- End master-player -->
+
+			<div class="flex-group">
+				<i class="fa fa-pause fa-4x" id="btn-pause" value="Pause" disabled="disabled"></i>
+				<i class="fa fa-stop fa-4x" id="btn-stop" value="Stop" disabled="disabled"></i>
+				
+				<a href="" id="downloader" download>
+					<i class="fa fa-download fa-4x download-icon"></i>
+				</a>
+			</div><!-- End flex-group -->
 
 
-	<div class="">
-	<!-- <div class="card card-body mb-3"> -->
-		<ul class="list-group track-group">
-		<% files.forEach(function(file) {%>
-			<button class="btn btn-track-info" id="current-track" onclick="runIt(this.value)" value="<%= file.filename %>"><%= file.filename %></button>
-			<li  class="list-group-item  track-li"><%= file.metadata.description %></li>
+			<ul class="list-group track-group">
+			<% files.forEach(function(file) {%>
+				<button class="btn btn-track-info" id="current-track" onclick="runIt(this.value)" value="<%= file.filename %>"><%= file.filename %></button>
+				<li  class="list-group-item  track-li"><%= file.metadata.description %></li>
 
-		<% }) %>
-		 </ul>
-		
-	</div>
-
-	</div>
-	
-	<hr>
-
-	</div>
-	<!-- </div> -->
+			<% }) %>
+			 </ul>
 
 
-</div>
 
-</div><!-- End ROW -->
+		</div><!-- End col-md-8 -->
 
 
 
 
+	</div><!-- End row -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div><!-- End results -->
 
 
 
