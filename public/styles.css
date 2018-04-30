@@ -7,10 +7,12 @@ html, body {
 	background-color: #C9DD4B;
 	height: 45px;
 	text-align: left;
+	width: 1000px;
 }
 
 .track-li {
-	height: 45px;
+	/*height: 45px;*/
+	width: 1000px;
 }
 
 
@@ -19,14 +21,14 @@ html, body {
 	margin-top: -150px;
 	/*border: 1px solid;*/
 	width: 1200px;
-	position: fixed;
+	/*position: fixed;*/
 }
 
 .track-group {
 	margin-top: 200px;
-	position: fixed;
-	height: 1000px;
-	overflow: scroll;
+	/*position: fixed;*/
+/*	height: 1000px;
+	overflow: scroll;*/
 }
 
 .play-button {
@@ -113,10 +115,10 @@ html, body {
 }
 
 .left-side {
-	position: absolute;
-	width: 300px;
-	left: 10px;
-	top: 200px;
+	/*position: absolute;*/
+	/*width: 300px;*/
+	/*left: 10px;*/
+	/*top: 200px;*/
 }
 
 .search {
@@ -135,6 +137,8 @@ html, body {
 
 .results {
 	padding-top: 400px;
+	/*width: 1270px;*/
+	/*margin: auto;*/
 }
 
 .index {
