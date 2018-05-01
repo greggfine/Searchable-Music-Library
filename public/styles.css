@@ -4,7 +4,7 @@ html, body {
 }
 
 .top-player{
-	padding-top: 250px;
+	padding-top: 270px;
 	position: fixed;
 	background-color: #fff;
 	width: 100%;
@@ -95,22 +95,57 @@ html, body {
 }
 
 .ht-header {
-	color: black;
+	/*color: black;*/
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translateX(-50%);
 	font-size: 4rem;
-	text-shadow: 6px 4px 12px #0000004a;
+	/*text-shadow: 6px 4px 12px #0000004a;*/
+	letter-spacing: 6px
 }
 
-.login-icon {
+
+
+.logout-icon {
 	padding-right: 8px;
+	font-size: 2rem;
+}
+
+.home-login {
+/*	position: relative;
+	left: -100px;*/
+	color: #000;
+	font-size: 1.7rem;
+	background-color: #fff;
+	padding: 1.1rem;
+	border-radius: 5px;
+	width: 200px;
+}
+
+.navbar-border {
+	border-bottom: 1.5px solid rgba(0, 0, 0, .4);
+
+}
+
+.home-login:hover {
+	background-color: lawngreen;
+	/*background-color: #6b6e70;*/
+	color: #000;
+}
+
+.login-btn {
+	color: #fff;
 }
 
 .track-edit {
 	margin-top: 400px;
 	background-color: red;
+}
+
+.login-form {
+	font-size: 2rem;
+	width: 200px;
 }
 
 .register-form {
@@ -128,12 +163,12 @@ html, body {
 }
 
 .home-bg {
-	/*background-image: url('images/01.jpg');
+	background-image: url('images/01.jpg');
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 2800px 2000px;
 	background-position: right top;
-	background-color: #C9DD4B;
-	background-blend-mode: screen;*/
+	background-color: limegreen ;
+	background-blend-mode: saturation;
 }
 
 .flex-group {
@@ -177,6 +212,77 @@ html, body {
 #waveform {
 	overflow: hidden;
 }
+
+.length-span {
+	padding-right: 50px;
+	float: right;
+}
+
+.id-span {
+	padding-right: 30px;
+	/*float: right;*/
+}
+
+/*body {
+	background: #666;
+	padding: 1em;
+}*/
+
+.music-library-title {
+	width: 600px;
+	font-weight: bold;
+	padding-left: 100px;
+	color: green;
+}
+
+.video__item {
+	position: absolute;
+	left: 50%;
+	top: 25%;
+	transform: translateX(-50%);
+	border: 1px solid grey;
+	box-shadow: 15px 10px 5px black;
+}
+
+h1 {
+	position: relative;
+	font-size: 200px;
+	margin-top: 0;
+	font-family: 'Myriad Pro', 'Myriad', helvetica, arial, sans-serif;
+	text-shadow: 2px 3px 3px #292929;
+	letter-spacing: -7px;
+	-webkit-text-stroke: 1px white;
+
+}
+
+
+
+h1 a {
+	text-decoration: none;
+	color: #ffffff;
+	position: absolute;
+
+	-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+	text-shadow: 0 2px 0 #e9e9e9;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+
+
+
+h1:after {
+	color: #dbdbdb;
+	content : attr(data-title);
+}
+
+
+
+
+
+
+
+
 
 
 /* 

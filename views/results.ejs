@@ -83,7 +83,7 @@
   				<!-- <div class="master-player"> -->
   					<i class="fa fa-play fa-4x play-button" id="btn-play" value="Play" disabled="disabled"></i>
   					<div id="waveform"></div>
-  					<h1 id="track-title"></h1>
+  					<h2 id="track-title"></h2>
   				<!-- </div> -->
 
   				<div class="flex-group">
@@ -108,8 +108,8 @@
 
 			<ul class="list-group track-group">
 			<% files.forEach(function(file) {%>
-				<button class="btn btn-track-info" id="current-track" onclick="runIt(this.value)" value="<%= file.filename %>"><%= file.filename %></button>
-				<li  class="list-group-item  track-li"><%= file.metadata.description %></li>
+				<button class="btn btn-track-info" id="current-track" onclick="runIt(this.value)" value="<%= file.filename %>"><strong><%= file.filename %></strong></button>
+				<li  class="list-group-item  track-li"><strong class="id-span"><%= file.metadata.id %></strong><%= file.metadata.description %> <span class="length-span"><%= file.metadata.length %></span></li>
 
 			<% }) %>
 			 </ul>

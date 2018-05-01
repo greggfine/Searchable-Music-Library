@@ -8,6 +8,10 @@
 				  <label for="filename">Filename</label>
 				  <input type="text" class="form-control" id="filename" name="filename" value="<%=file.filename%>">
 				</div>
+				<div class="form-group ">
+				  <label for="trackName">Track Name</label>
+				  <input type="text" class="form-control" id="trackName" name="trackName" value="<%=file.metadata.trackName%>">
+				</div>
 			 <div class="form-group ">
 			   <label for="genre">Genre</label>
 			   <input type="text" class="form-control" id="genre" name="genre" value="<%=file.metadata.genre%>">
@@ -18,15 +22,19 @@
 			 </div>
 			 <div class="form-group">
 			   <label for="length">Length </label>
-			   <input type="text"class="form-control" id="length" name="length" value="<%=file.metadata.length%>">
+			   <input type="text" class="form-control" id="length" name="length" value="<%=file.metadata.length%>">
 			 </div>
 			 <div class="form-group">
 			   <label for="bpm">BPM </label>
-			   <input type="text"class="form-control" id="bpm" name="bpm" value="<%=file.metadata.bpm%>">
+			   <input type="text" class="form-control" id="bpm" name="bpm" value="<%=file.metadata.bpm%>">
+			 </div> 
+			 <div class="form-group">
+			   <label for="id">ID </label>
+			   <input type="text" class="form-control" id="id" name="id" value="<%=file.metadata.id%>">
 			 </div> 
 			<div class="form-group">
 			   <label for="description">Description </label>
-			   <input type="text"class="form-control" id="description" name="description" value="<%=file.metadata.description%>">
+			   <input type="text" class="form-control" id="description" name="description" value="<%=file.metadata.description%>">
 			 </div>
 			 <button type="submit" class="btn btn-success">Submit</button>
 				</form>
