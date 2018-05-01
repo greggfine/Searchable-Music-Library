@@ -206,7 +206,16 @@ app.get('/audio/:filename',isLoggedIn, function(req, res){
 
 //SEARCH route
 app.get('/search', isLoggedIn, function(req, res) {
-	res.render('search')
+	gfs.files.find( {"metadata.genre": "jazz"})
+	.toArray(function(err, files){
+	if(!files || files.length === 0){
+		return res.status(404).json({
+			err: 'No file exists'
+		});
+	} else {
+		res.render('search', {files: files});
+		}
+	})
 });
 
 //DISPLAY SEARCH RESULT route

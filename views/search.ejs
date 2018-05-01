@@ -1,107 +1,233 @@
 <% include partials/header %>
-<div class="home-bg ">
-	<div class="row search">
-		<div class="col-md-6 m-auto">
-			<!-- <h1 class="text-center display-4 my-4">HT Music Search</h1> -->
-			<form action="/result" method="GET"">
-				<div class="custom-file mb-6">
-					<!-- <input type="text" name="genre" id="genre" > -->
-					<label for="genre">Genre</label>
-					<select name="genre" id="genre">
-						<option value="acoustic">Acoustic</option>
-						<option value="alternative">Alternative</option>
-						<option value="ambient">Ambient</option>
-						<option value="americana">Americana</option>
-						<option value="blues">Blues</option>
-						<option value="bossa">Bossa</option>
-						<option value="brazilian">Brazilian</option>
-						<option value="breakbeat">Breakbeat</option>
-						<option value="childrens">Childrens</option>
-						<option value="chill">Chill</option>
-						<option value="christmas">Christmas</option>
-						<option value="classical">Classical</option>
-						<option value="country">Country</option>
-						<option value="dance">Dance</option>
-						<option value="downtempo">Downtempo</option>
-						<option value="dubstep">Dubstep</option>
-						<option value="disco">Disco</option>
-						<option value="drums">Drums/Percussion</option>
-						<option value="easy listening">Easy Listening</option>
-						<option value="electronic">Electronic</option>
-						<option value="epic">Epic</option>
-						<option value="funk">Funk</option>
-						<option value="hardcore">Hardcore</option>
-						<option value="hard rock">Hard Rock</option>
-						<option value="hip hop">Hip Hop</option>
-						<option value="holiday">Holiday</option>
-						<option value="house">House</option>
-						<option value="indie">Indie</option>
-						<option value="jazz">Jazz</option>
-						<option value="jungle">Jungle</option>
-						<option value="latin">Latin</option>
-						<option value="lounge">Lounge</option>
-						<option value="mnemonic">Mnemonic</option>
-						<option value="new age">New Age</option>
-						<option value="orchestral">Orchestral</option>
-						<option value="pop">Pop</option>
-						<option value="psychedelic">Psychedelic</option>
-						<option value="rap">Rap</option>
-						<option value="reggae">Reggae</option>
-						<option value="retro">Retro</option>
-						<option value="rock">Rock</option>
-						<option value="ska">Ska</option>
-						<option value="techno">Techno</option>
-						<option value="trip hop">Trip Hop</option>
-						<option value="vocal">Vocal</option>
-						<option value="world">World</option>
-					</select>
-				</div>
-				<div class="custom-file mb-6">
-					<!-- <input type="text" name="length" id="length" > -->
-					<select name="length" id="length">
-						<option value="10">10</option>
-						<option value="15">15</option>
-						<option value="20">20</option>
-						<option value="30">30</option>
-						<option value="60">60</option>
-						<option value="90">90</option>
-					</select>
-					<label for="length">Length</label>
-				</div>
 
-				<div class="custom-file mb-6">
-					<!-- <input type="text" name="bpm" id="bpm" > -->
-					<select name="bpm" id="bpm">
-						<option value="slow">slow</option>
-						<option value="medium">medium</option>
-						<option value="fast">fast</option>
-					</select>
-					<label for="bpm">BPM</label>
-				</div>
+  	<div class="row top-player">	
 
-				<div class="custom-file mb-6">
-					<select name="moods" id="moods">
-						<option value="edgy">edgy</option>
-						<option value="sad">sad</option>
-						<option value="upbeat">upbeat</option>
-					</select>
-					<label for="moods">Moods</label>
-				</div>
+  		<div class="col-md-4 ">
+  			<div class="accordion" id="accordion">
+  			  <div class="card search-card">
 
-				<div class="custom-file mb-6">
-					<select name="instrumentation" id="instrumentation">
-						<option value="guitar">guitar</option>
-						<option value="percussion">percussion</option>
-						<option value="strings">strings</option>
-					</select>
-					<label for="instrumentation">Instrumentation</label>
-				</div>
-					<input type="submit" value="submit"  class="btn btn-success btn-block">
-			</form>
-			<hr>
-			
-		</div>
-	</div>
-</div>
+  			    <div class="card-header" id="headingOne">
+   					<h5 class="mb-0">
+  			         	 <i class="fa fa-chevron-right fa-1x chevron-icon"></i>
+  			       		 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+  			       		 <h3 class="genres-header">Genres</h3>
+  			       		 </button>
+  			        </h5>
+  			     </div><!-- End card-header -->
+
+  			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+  			        <div class="card-body">
+  			     		<form action="/result" method="GET" class="search-form">
+  	     	      			<!-- <label for="genre">Genre</label> -->
+  	     	        		<select class="genre" name="genre" id="genre">
+  			     						<option value="acoustic">Acoustic</option>
+  			     						<option value="alternative">Alternative</option>
+  			     						<option value="ambient">Ambient</option>
+  			     						<option value="americana">Americana</option>
+  			     						<option value="blues">Blues</option>
+  			     						<option value="bossa">Bossa</option>
+  			     						<option value="brazilian">Brazilian</option>
+  			     						<option value="breakbeat">Breakbeat</option>
+  			     						<option value="childrens">Childrens</option>
+  			     						<option value="chill">Chill</option>
+  			     						<option value="christmas">Christmas</option>
+  			     						<option value="classical">Classical</option>
+  			     						<option value="country">Country</option>
+  			     						<option value="dance">Dance</option>
+  			     						<option value="downtempo">Downtempo</option>
+  			     						<option value="dubstep">Dubstep</option>
+  			     						<option value="disco">Disco</option>
+  			     						<option value="drums">Drums/Percussion</option>
+  			     						<option value="easy listening">Easy Listening</option>
+  			     						<option value="electronic">Electronic</option>
+  			     						<option value="epic">Epic</option>
+  			     						<option value="funk">Funk</option>
+  			     						<option value="hardcore">Hardcore</option>
+  			     						<option value="hard rock">Hard Rock</option>
+  			     						<option value="hip hop">Hip Hop</option>
+  			     						<option value="holiday">Holiday</option>
+  			     						<option value="house">House</option>
+  			     						<option value="indie">Indie</option>
+  			     						<option value="jazz" selected="selected">Jazz</option>
+  			     						<option value="jungle">Jungle</option>
+  			     						<option value="latin">Latin</option>
+  			     						<option value="lounge">Lounge</option>
+  			     						<option value="mnemonic">Mnemonic</option>
+  			     						<option value="new age">New Age</option>
+  			     						<option value="orchestral">Orchestral</option>
+  			     						<option value="pop">Pop</option>
+  			     						<option value="psychedelic">Psychedelic</option>
+  			     						<option value="rap">Rap</option>
+  			     						<option value="reggae">Reggae</option>
+  			     						<option value="retro">Retro</option>
+  			     						<option value="rock">Rock</option>
+  			     						<option value="ska">Ska</option>
+  			     						<option value="techno">Techno</option>
+  			     						<option value="trip hop">Trip Hop</option>
+  			     						<option value="vocal">Vocal</option>
+  			     						<option value="world">World</option>
+  	     					</select>
+
+  	     					<input type="submit" value="submit"  class="btn btn-outline-success
+  	     					btn-lg">
+  	     		 	 	</form>
+  	     	  		 </div><!-- End card-body -->
+  	     	    </div><!-- End collapse -->
+
+  			  </div><!-- End card -->
+  			</div><!-- End accordion -->
+  		</div><!-- End col-md-4 -->
+
+  			<div class="col-lg-8">
+
+  				<!-- <div class="master-player"> -->
+  					<i class="fa fa-play fa-4x play-button" id="btn-play" value="Play" disabled="disabled"></i>
+  					<div id="waveform"></div>
+  					<h1 id="track-title"></h1>
+  				<!-- </div> -->
+
+  				<div class="flex-group">
+  					<i class="fa fa-pause fa-4x" id="btn-pause" value="Pause" disabled="disabled"></i>
+  					<i class="fa fa-stop fa-4x" id="btn-stop" value="Stop" disabled="disabled"></i>
+  					
+  					<a href="" id="downloader" download>
+  						<i class="fa fa-download fa-4x download-icon"></i>
+  					</a>
+  				</div><!-- End flex-group -->
+
+  			</div><!-- End col-lg-8 -->
+
+  	</div><!-- End row -->
+
+
+
+<div class="track-scroll">
+
+	<!-- <div class="row">	 -->
+
+
+			<ul class="list-group track-group">
+			<% files.forEach(function(file) {%>
+				<button class="btn btn-track-info" id="current-track" onclick="runIt(this.value)" value="<%= file.filename %>"><%= file.filename %></button>
+				<li  class="list-group-item  track-li"><%= file.metadata.description %></li>
+
+			<% }) %>
+			 </ul>
+
+
+
+	<!-- </div>End row -->
+
+</div>End results
+
+
+
+
+<!-- main wavesurfer.js lib -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.5/wavesurfer.min.js"></script>
+
+
+	<script>
+
+		// Store the 3 buttons in some object
+		 var buttons = {
+		     play: document.getElementById("btn-play"),
+		     pause: document.getElementById("btn-pause"),
+		     stop: document.getElementById("btn-stop")
+		 };
+
+		 var downloader = document.getElementById("downloader");
+
+		 // Create an instance of wave surfer with its configuration
+		 var Spectrum = WaveSurfer.create({
+		     container: '#waveform',
+		     waveColor: '#darkgrey',
+		     // waveColor: '#C9DD4B',
+		     progressColor: '#61892f',
+		     cursorColor: '#999999',
+		     pixelRatio: 1
+		     // scrollParent: true
+		 });
+
+		 // Handle Play button
+		 buttons.play.addEventListener("click", function(){
+		     Spectrum.play();
+
+		     // Enable/Disable respectively buttons
+		     buttons.stop.disabled = false;
+		     buttons.pause.disabled = false;
+		     buttons.play.disabled = true;
+		 }, false);
+
+		 // Handle Pause button
+		 buttons.pause.addEventListener("click", function(){
+		     Spectrum.pause();
+
+		     // Enable/Disable respectively buttons
+		     buttons.pause.disabled = true;
+		     buttons.play.disabled = false;
+		 }, false);
+
+
+		 // Handle Stop button
+		 buttons.stop.addEventListener("click", function(){
+		     Spectrum.stop();
+
+		     // Enable/Disable respectively buttons
+		     buttons.pause.disabled = true;
+		     buttons.play.disabled = false;
+		     buttons.stop.disabled = true;
+		 }, false);
+
+
+		 // Add a listener to enable the play button once it's ready
+		 Spectrum.on('ready', function () {
+		     buttons.play.disabled = false;
+		    
+		 });
+
+	
+		 var trackTitle = document.getElementById('track-title');
+		 // If you want a responsive mode (so when the user resizes the window)
+		 // the spectrum will be still playable
+		 window.addEventListener("resize", function(){
+		     // Get the current progress according to the cursor position
+		     var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
+
+		     // Reset graph
+		     Spectrum.empty();
+		     Spectrum.drawBuffer();
+		     // Set original position
+		     Spectrum.seekTo(currentProgress);
+
+		     // Enable/Disable respectively buttons
+		     buttons.pause.disabled = true;
+		     buttons.play.disabled = false;
+		     buttons.stop.disabled = false;
+		 }, false);
+
+		 // Load the audio file from your domain !
+
+		  var current = document.getElementById("current-track");
+
+		window.onload = function(){
+			// Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.textContent);
+			Spectrum.load('http://localhost:8080/audio/' + current.textContent)
+			// Spectrum.load('https://vast-dusk-24076.herokuapp.com/audio/' + current.textContent)
+			trackTitle.innerHTML = current.textContent;
+		}
+
+		  function runIt(trackName){
+		  	// var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/' + trackName;
+		  	var curTrack = 'http://localhost:8080/audio/' + trackName;
+		  	// var curTrack = 'https://vast-dusk-24076.herokuapp.com/audio/' + trackName;
+			Spectrum.load(curTrack);
+			downloader.setAttribute('href', curTrack);
+			trackTitle.innerHTML = trackName;
+		  }
+
+
+	</script>
+
 
 <% include partials/footer  %>
