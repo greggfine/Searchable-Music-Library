@@ -4,7 +4,7 @@ html, body {
 }
 
 .top-player{
-	/*padding-top: 250px;*/
+	padding-top: 250px;
 	position: fixed;
 	background-color: #fff;
 	width: 100%;
