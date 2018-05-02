@@ -20,10 +20,12 @@ html, body {
 	overflow:hidden; 
 	overflow-y:scroll;
 	width: 1500px;
-	/*float: right;*/
-	margin: auto;
+	float: right;
+	/*margin: auto;*/
 
 }
+
+
 
 .btn-track-info{
 	background-color: #C9DD4B;
@@ -54,6 +56,9 @@ html, body {
 	background-color: #fff;
 }
 
+.pop-up {
+	padding: 20px;
+}
 
 .genres-header {
 	color: #fff;
@@ -138,6 +143,7 @@ html, body {
 	color: #fff;
 }
 
+
 .track-edit {
 	margin-top: 400px;
 	background-color: red;
@@ -163,11 +169,11 @@ html, body {
 }
 
 .home-bg {
-	background-image: url('images/01.jpg');
+	/*background-image: url('images/01.jpg');*/
 	background-repeat: no-repeat;
 	background-size: 2800px 2000px;
 	background-position: right top;
-	background-color: limegreen ;
+	background-color: #C9DD4B ;
 	background-blend-mode: saturation;
 }
 
@@ -199,9 +205,11 @@ html, body {
 }
 
 #track-title {
-	font-size: 1.3rem;
-	color: #6b6e70;
+	font-size: 1.5rem;
+	/*color: #6b6e70;*/
+	color: #61892f;
 	padding-bottom: 50px;
+	font-weight: bold;
 }
 
 .master-player {
