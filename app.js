@@ -120,7 +120,7 @@ app.post("/register", function(req, res){
 
 //  LOGIN ROUTES
 //  render login form
-app.get('/', function(req, res) {
+app.get('/',  function(req, res) {
 	res.render('home');
 });
 
@@ -236,13 +236,13 @@ app.get('/result', isLoggedIn, function(req, res) {
 					)
 		.toArray(function(err, files){
 
-		if(!files || files.length === 0){
-			return res.status(404).json({
-				err: 'No file exists'
-			});
-		} else {
+		// if(!files || files.length === 0){
+			// return res.status(404).json({
+			// 	err: 'No file exists'
+			// });
+		// } else {
 			res.render('results', {files: files});
-			}
+			// }
 		})
 })
 
@@ -264,11 +264,15 @@ app.put("/files/:filename", isLoggedIn, function(req,res){
 	var length = req.body.length;
 	var bpm = req.body.bpm;
 	var description = req.body.description;
+	var id = req.body.id;
+	var trackname = req.body.trackname;
     gfs.files.update({'filename': req.params.filename}, {'$set': {"metadata.genre": genre, 
     	"metadata.available": available, 
     	"metadata.length": length,
     	"metadata.bpm": bpm,
-    	"metadata.description": description
+    	"metadata.description": description,
+    	"metadata.id": id,
+    	"metadata.trackname": trackname
     	 }})
         res.redirect('/tracks');
     })

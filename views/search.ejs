@@ -19,7 +19,7 @@
   			        <div class="card-body">
   			     		<form action="/result" method="GET" class="search-form">
   	     	      			<!-- <label for="genre">Genre</label> -->
-  	     	        		<select class="genre" name="genre" id="genre">
+  	     	        		<select class="genre" name="genre" id="genre" onchange="this.form.submit()">
   			     						<option value="acoustic">Acoustic</option>
   			     						<option value="alternative">Alternative</option>
   			     						<option value="ambient">Ambient</option>
@@ -48,7 +48,7 @@
   			     						<option value="holiday">Holiday</option>
   			     						<option value="house">House</option>
   			     						<option value="indie">Indie</option>
-  			     						<option value="jazz" selected="selected">Jazz</option>
+  			     						<option value="jazz" selected>Jazz</option>
   			     						<option value="jungle">Jungle</option>
   			     						<option value="latin">Latin</option>
   			     						<option value="lounge">Lounge</option>
@@ -68,8 +68,8 @@
   			     						<option value="world">World</option>
   	     					</select>
 
-  	     					<input type="submit" value="submit"  class="btn btn-outline-success
-  	     					btn-lg">
+  	     			<!-- 		<input type="submit" value="submit"  class="btn btn-outline-success
+  	     					btn-lg"> -->
   	     		 	 	</form>
   	     	  		 </div><!-- End card-body -->
   	     	    </div><!-- End collapse -->
