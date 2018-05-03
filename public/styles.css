@@ -45,7 +45,8 @@ html, body {
 
 .search-card {
 	min-width: 350px;
-	background-color: #999999;
+	background-color: #FF7979;
+	/*background-color: #D02525;*/
 }
 
 .chevron-icon {
