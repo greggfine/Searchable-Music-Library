@@ -1,11 +1,10 @@
 <% include partials/header %>
 
-<!-- <div class="home-bg"> -->
 		
 			<div class="index">
 				<div class="row">
 					<div class="col-md-6 m-auto">
-						<h1 class="text-center display-4 my-4">HT Music Library</h1>
+						<!-- <h1 class="text-center display-4 my-4">HT Music Library</h1> -->
 						<form action="/upload" method="POST" enctype="multipart/form-data">
 							<div class="custom-file mb-3">
 								<input type="file" name="file" id="file" class="custom-file-input">
@@ -74,53 +73,72 @@
 								<input type="submit" value="Submit" class="btn btn-success btn-block">
 						</form>
 						<hr>
-						<div id="waveform"></div>
-						<a href="" id="downloader" download>
-							DOWNLOAD TRACK
-						</a>
+
 					
-						<!-- Create action buttons -->
-						<input type="button" id="btn-play" value="Play" disabled="disabled"/>
-						<input type="button" id="btn-pause" value="Pause" disabled="disabled"/>
-						<input type="button" id="btn-stop" value="Stop" disabled="disabled" />
+
+
+
+
+
+
+
+	
+
+	<div class="table-responsive track-cms">
+		<table class="table table-striped table-bordered table-hover table-sm">
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">ID</th>
+		      <th scope="col">Track Name</th>
+		      <th scope="col">Genre</th>
+		      <th scope="col">Date Added</th>
+		      <th scope="col">Edit</th>
+		      <th scope="col">Delete</th>
+		    </tr>
+		  </thead>
+		  <% if(files){ %>
+		<% files.forEach(function(file) {%>
+
+				<% if(file.isImage) { %>
+					<img src="image/<%=file.filename%>" alt="">
+				<%} else { %>
+				<tbody>
+				  <tr>
+				    <th scope="row"><%= file.metadata.id %></th>
+						<td><%= file.filename %></td>
+						<td><%= file.metadata.genre %></td>
+						<td><%= file.metadata.available %></td>
+						<td><%= file.metadata.length %></td>
+						<td><%= file.metadata.bpm %></td>
+						<td><a href="/files/<%=file.filename%>/edit"><i class="fa fa-pencil edit-button"></i> </a></td>
+						<td><form method="POST" action="/files/<%=file._id%>?_method=DELETE"> <button class="trash-button"><i class="fa fa-trash"></i></button></form></td>
+						
+						
+						
+						
 					
-					
-						<% if(files){ %>
-							<% files.forEach(function(file) {%>
-								<div class="card card-body mb-3">
-									<% if(file.isImage) { %>
-										<img src="image/<%=file.filename%>" alt="">
-									<%} else { %>
-									<%= file.filename %>
-									<%= file.metadata.genre %>
-									<%= file.metadata.available %>
-									<%= file.metadata.length %>
-									<%= file.metadata.bpm %>
-									<% } %>%>
-					
-								<form method="POST" action="/files/<%=file._id%>?_method=DELETE">
-									<button class="btn btn-danger btn-block mt-4">Delete</button>
-								</form>
-					
-								<!-- <form method="POST" action="/files/<%=file._id%>?_method=DELETE">
-									<button class="btn btn-warning btn-block mt-4">Edit</button>
-								</form> -->
-					
-								<a href="/files/<%=file.filename%>/edit"><button type="button" class="btn btn-warning"> Edit</button></a>
-					
-								
-					
-					
-					
-								</div>
-							<% })%>
-						<% } else { %>
-							<p>No files to show</p>
-						<% } %>%>
-					</div>
-				</div>
-			</div>
-<!-- </div> -->
+				  </tr>    
+
+
+	
+				<% } %>%>
+
+
+
+		
+				    
+
+	
+
+		<% })%>
+	<% } else { %>
+		<p>No files to show</p>
+	<% } %>
+
+
+	  </tbody>
+	</table>
+
 <% include partials/footer  %>
 
 

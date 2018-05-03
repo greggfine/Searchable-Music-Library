@@ -171,11 +171,11 @@ html, body {
 
 .home-bg {
 	/*background-image: url('images/01.jpg');*/
-	background-repeat: no-repeat;
+/*	background-repeat: no-repeat;
 	background-size: 2800px 2000px;
 	background-position: right top;
 	background-color: #C9DD4B ;
-	background-blend-mode: saturation;
+	background-blend-mode: saturation;*/
 }
 
 .flex-group {
@@ -199,6 +199,21 @@ html, body {
 
 .results {
 	padding-top: 250px;
+}
+
+.trash-button {
+	border: none;
+	cursor: pointer;
+	background-color: #d3d3d300;
+	color: red;
+}
+
+.track-cms {
+	padding-top: 200px;
+}
+
+.edit-button {
+	color: blue;
 }
 
 .index {
