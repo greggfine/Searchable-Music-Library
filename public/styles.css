@@ -28,9 +28,13 @@ html, body {
 
 
 .btn-track-info{
-	background-color: #C9DD4B;
-	height: 45px;
-	text-align: left;
+	background-color: Transparent;
+	   background-repeat:no-repeat;
+	   border: none;
+	   cursor:pointer;
+	   overflow: hidden;
+	   outline:none;
+	   color: firebrick;
 }
 
 .btn-genre-search {
@@ -197,6 +201,16 @@ html, body {
 	font-size: 1.2rem;
 }
 
+.available-span {
+	color: red;
+	padding-left: 50px;
+}
+
+.bpm-span {
+	color: blue;
+	padding-left: 50px;
+}
+
 .results {
 	padding-top: 250px;
 }
@@ -209,7 +223,7 @@ html, body {
 }
 
 .track-cms {
-	padding-top: 200px;
+	padding-top: 50px;
 }
 
 .edit-button {
