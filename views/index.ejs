@@ -1,9 +1,8 @@
 <% include partials/header %>
 
-		
 			<div class="index">
 				<div class="row">
-					<div class="col-md-6 m-auto">
+					<div class="col-md-9 m-auto">
 	
 						<form action="/upload" method="POST" enctype="multipart/form-data">
 							<div class="custom-file mb-3" >
@@ -133,11 +132,6 @@
 						</form>
 
 
-
-
-
-	
-
 	<div class="table-responsive track-cms">
 		<table class="table  table-bordered table-hover table-sm">
 		  <thead class="thead-dark">
@@ -150,59 +144,39 @@
 		      <th scope="col">Length</th>
 		      <th scope="col">BPM</th>
 		      <th scope="col">Description</th>
+		      <th scope="col">Upload Date</th>
 		      <th scope="col">Edit</th>
 		      <th scope="col">Delete</th>
 		    </tr>
 		  </thead>
 		  <% if(files){ %>
-		<% files.forEach(function(file) {%>
-
-				<% if(file.isImage) { %>
-					<img src="image/<%=file.filename%>" alt="">
-				<%} else { %>
-				<tbody>
-				  <tr>
-				    <th scope="row"><%= file.metadata.id %></th>
-						<td><%= file.metadata.trackname %></td>
-						<td><%= file.filename %></td>
-						<td><%= file.metadata.genre %></td>
-						<td><%= file.metadata.available %></td>
-						<td><%= file.metadata.length %></td>
-						<td><%= file.metadata.bpm %></td>
-						<td><%= file.metadata.description %></td>
-						<td><a href="/files/<%=file.filename%>/edit"><i class="fa fa-pencil edit-button"></i> </a></td>
-						<td><form method="POST" action="/files/<%=file._id%>?_method=DELETE"> <button class="trash-button"><i class="fa fa-trash"></i></button></form></td>
-						
-						
-						
-						
-					
-				  </tr>    
-
-
-	
-				<% } %>%>
-
-
-
-		
-				    
-
-	
-
-		<% })%>
-	<% } else { %>
-		<p>No files to show</p>
-	<% } %>
+				<% files.forEach(function(file) {%>
+						<tbody>
+						  <tr>
+						    <th scope="row"><%= Number(file.metadata.id) %></th>
+								<td><%= file.metadata.trackname %></td>
+								<td><%= file.filename %></td>
+								<td><%= file.metadata.genre %></td>
+								<td><%= file.metadata.available %></td>
+								<td><%= file.metadata.length %></td>
+								<td><%= file.metadata.bpm %></td>
+								<td><%= file.metadata.description %></td>
+								<td><%= file.uploadDate.toLocaleDateString() %></td>
+								<td><a href="/files/<%=file.filename%>/edit"><i class="fa fa-pencil edit-button"></i> </a></td>
+								<td>
+									<form method="POST" action="/files/<%=file._id%>?_method=DELETE"> 
+									<button class="trash-button"><i class="fa fa-trash"></i></button>
+									</form>
+								</td>						
+						  </tr>    
+				<% })%>
+		  <% } else {  %>
+				<p>No files to show</p>
+		  <% } %>
 
 
 	  </tbody>
 	</table>
-
-
-
-
-
 
 <% include partials/footer  %>
 

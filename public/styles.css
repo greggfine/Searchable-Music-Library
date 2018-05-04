@@ -144,32 +144,25 @@ html, body {
 	color: #000;
 }
 
-.login-btn {
-	color: #fff;
+
+.available-span {
+	color: red;
+	padding-left: 50px;
+}
+
+.bpm-span {
+	color: blue;
+	padding-left: 50px;
 }
 
 
-.track-edit {
-	margin-top: 400px;
-	background-color: red;
+
+.edit-button {
+	color: blue;
 }
 
-.login-form {
-	font-size: 2rem;
-	width: 200px;
-}
-
-.register-form {
-	padding-top: 400px;
-}
-
-.login {
-	padding-top: 300px;
-}
-
-.search-form {
+.flex-group {
 	display: flex;
-	/*flex-direction: column;*/
 	justify-content: space-around;
 }
 
@@ -181,14 +174,36 @@ html, body {
 	background-color: #C9DD4B ;
 	background-blend-mode: saturation;*/
 }
-
-.flex-group {
-	display: flex;
-	justify-content: space-around;
+.id-span {
+	padding-right: 30px;
+	/*float: right;*/
 }
 
-.search {
-	padding-top: 400px;
+.index {
+	padding-top: 300px;
+}
+
+.length-span {
+	padding-right: 50px;
+	float: right;
+}
+
+.login {
+	padding-top: 300px;
+}
+
+.login-btn {
+	color: #fff;
+}
+
+.login-form {
+	font-size: 2rem;
+	width: 200px;
+}
+
+.master-player {
+	padding-left: 200px;
+	/*width: 600px;*/
 }
 
 .navbar-padding{
@@ -201,37 +216,31 @@ html, body {
 	font-size: 1.2rem;
 }
 
-.available-span {
-	color: red;
-	padding-left: 50px;
-}
-
-.bpm-span {
-	color: blue;
-	padding-left: 50px;
+.register-form {
+	padding-top: 400px;
 }
 
 .results {
 	padding-top: 250px;
 }
 
-.trash-button {
-	border: none;
-	cursor: pointer;
-	background-color: #d3d3d300;
-	color: red;
+.search {
+	padding-top: 400px;
+}
+
+.search-form {
+	display: flex;
+	/*flex-direction: column;*/
+	justify-content: space-around;
 }
 
 .track-cms {
 	padding-top: 50px;
 }
 
-.edit-button {
-	color: blue;
-}
-
-.index {
-	padding-top: 300px;
+.track-edit {
+	margin-top: 400px;
+	background-color: red;
 }
 
 #track-title {
@@ -242,24 +251,18 @@ html, body {
 	font-weight: bold;
 }
 
-.master-player {
-	padding-left: 200px;
-	/*width: 600px;*/
+.trash-button {
+	border: none;
+	cursor: pointer;
+	background-color: #d3d3d300;
+	color: red;
 }
+
 
 #waveform {
 	overflow: hidden;
 }
 
-.length-span {
-	padding-right: 50px;
-	float: right;
-}
-
-.id-span {
-	padding-right: 30px;
-	/*float: right;*/
-}
 
 /*body {
 	background: #666;
