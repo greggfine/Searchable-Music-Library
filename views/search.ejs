@@ -142,7 +142,7 @@
 		    <tr>
 		      <th scope="col">ID</th>
 		      <th scope="col">Trackname</th>
-		      <th scope="col">Filename</th>
+		      <!-- <th scope="col">Filename</th> -->
 		      <th scope="col">Genre</th>
 		      <th scope="col">Available</th>
 		      <th scope="col">Length</th>
@@ -157,10 +157,9 @@
 				<tbody>
 				  <tr>
 				    <th scope="row"><%= file.metadata.id %></th>
-						<td><%= file.metadata.trackname %></td>
 						<td >
-							<button class="btn btn-track-info" id="current-track" onclick="runIt(this.value)" value="<%= file.filename %>">
-								<strong><%= file.filename %></strong></button></td>
+							<button class="btn btn-track-info" id="current-track" onclick="runIt(this.value, this.innerHTML)" value="<%= file.filename %>">
+								<strong><%= file.metadata.trackname %></strong></button></td>
 						<td><%= file.metadata.genre %></td>
 						<td><%= file.metadata.available %></td>
 						<td><%= file.metadata.length %></td>

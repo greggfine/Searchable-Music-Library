@@ -86,11 +86,12 @@ window.onload = function(){
 	trackTitle.innerHTML = current.textContent;
 }
 
-  function runIt(trackName){
+  function runIt(trackName, data){
+    console.log(data)
   	// var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/' + trackName;
   	var curTrack = 'http://localhost:8080/audio/' + trackName;
   	// var curTrack = 'https://vast-dusk-24076.herokuapp.com/audio/' + trackName;
 	Spectrum.load(curTrack);
 	downloader.setAttribute('href', curTrack);
-	trackTitle.innerHTML = trackName;
+	trackTitle.innerHTML = data;
   }
