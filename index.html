@@ -143,16 +143,7 @@
 
 
 	<div class="table-responsive track-cms">
-		<table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="http://localhost:8080/files" data-search="true" data-pagination="true">
-
-
-			<thead>
-				<tr>
-					<th data-field="_id">ID</th>
-					<th data-field="Team">Team</th>
-					<th data-field="PTS">PTS</th>
-				</tr>
-			</thead>
+		<!-- <table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="nba_data.json" data-search="true" data-pagination="true"> -->
 		<!--   <thead class="thead-dark">
 		    <tr>
 		      <th scope="col">ID</th>
@@ -193,6 +184,15 @@
 				<p>No files to show</p>
 		  <% } %>
 	  </tbody> -->
+	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="discard.json" data-search="true" data-pagination="true">
+
+
+	  	<thead>
+	  		<tr>
+	  			<th data-field="metadata.trackname">Trackname</th>
+	  			<th data-field="metadata.genre">Genre</th>
+	  		</tr>
+	  	</thead>
 	</table>
 
 
