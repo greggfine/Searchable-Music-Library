@@ -81,7 +81,7 @@
 
 window.onload = function(){
 	// Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.textContent);
-    Spectrum.load('http://127.0.0.1:8080/audio/' + current.textContent)
+    Spectrum.load('http://127.0.0.1:8080/audio/' + current.value)
 	// Spectrum.load('http://localhost:8080/audio/' + current.textContent)
 	// Spectrum.load('https://vast-dusk-24076.herokuapp.com/audio/' + current.textContent)
 	trackTitle.innerHTML = current.textContent;
