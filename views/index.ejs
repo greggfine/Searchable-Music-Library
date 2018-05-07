@@ -4,23 +4,11 @@
 	<meta charset="UTF-8">
 	<title>CMS</title>
 
-	
-
-	<!-- Latest compiled and minified CSS -->
-<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-	Latest compiled and minified CSS
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css"> -->
-
-	<!-- <link rel="stylesheet" href="index-styles.css"> -->
-
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-table.min.css">
 </head>
-<body>
+<body >
 
 			<div class="index">
 				<div class="row">
@@ -133,8 +121,6 @@
 									</select>
 								</div>
 
-								
-
 								<input type="submit" value="Submit" class="btn btn-success btn-block"
 								style="width: 100px">
 						
@@ -143,16 +129,7 @@
 
 
 	<div class="table-responsive track-cms">
-		<table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="http://localhost:8080/files" data-search="true" data-pagination="true">
-
-
-			<thead>
-				<tr>
-					<th data-field="_id">ID</th>
-					<th data-field="Team">Team</th>
-					<th data-field="PTS">PTS</th>
-				</tr>
-			</thead>
+		<!-- <table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="nba_data.json" data-search="true" data-pagination="true"> -->
 		<!--   <thead class="thead-dark">
 		    <tr>
 		      <th scope="col">ID</th>
@@ -193,21 +170,36 @@
 				<p>No files to show</p>
 		  <% } %>
 	  </tbody> -->
+	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="http://127.0.0.1:8080/files" data-search="true" data-pagination="true" data-show-columns="true" data-detail-view="true" >
+
+
+	  	<thead>
+	  		<tr>
+	  			<th data-field="metadata.trackname" data-sortable="true">Trackname</th>
+	  			<th data-field="filename" data-sortable="true">Filename</th>
+	  			<th data-field="metadata.genre" data-sortable="true">Genre</th>
+	  			<th data-field="metadata.available" data-sortable="true">Available</th>
+	  			<th data-field="metadata.length" data-sortable="true">Length</th>
+	  			<th data-field="metadata.bpm" data-sortable="true">BPM</th>
+	  			<th data-field="metadata.description" data-sortable="true">Description</th>
+	  			<th data-field="metadata.id" data-sortable="true">ID</th>
+	  			<th data-field="uploadDate" data-sortable="true">Upload Date</th>
+	  			
+	  		<!-- <% if(files){ %>
+				<% files.forEach(function(file) {%>
+	  			<td><a href="/files/<%=file.filename%>/edit"><i class="fa fa-pencil edit-button"></i> </a></td>
+	  			<td>
+	  				<form method="POST" action="/files/<%=file._id%>?_method=DELETE"> 
+	  				<button class="trash-button"><i class="fa fa-trash"></i></button>
+	  				</form>
+	  			</td>	 -->
+	  		</tr>
+	<!--   				<% })%>
+	  		  <% } else {  %>
+	  				<p>No files to show</p>
+	  		  <% } %> -->
+	  	</thead>
 	</table>
-
-
-
-
-<!--  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-	<!-- Latest compiled and minified JavaScript -->
-<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script> -->
-
-	<!-- Latest compiled and minified Locales -->
-<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
- -->
-
-	<!-- Latest compiled and minified JavaScript -->
-<!-- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 
 <script src="js/jQuery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -215,7 +207,3 @@
 
 </body>
 </html>
-
-			
-
-
