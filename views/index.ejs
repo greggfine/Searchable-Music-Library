@@ -170,40 +170,75 @@
 				<p>No files to show</p>
 		  <% } %>
 	  </tbody> -->
-	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="http://127.0.0.1:8080/files" data-search="true" data-pagination="true" data-show-columns="true" data-detail-view="true" >
+	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="http://127.0.0.1:8080/files" data-search="true" data-pagination="true" data-show-columns="true" data-detail-view="true" id="table">
 
 
 	  	<thead>
 	  		<tr>
-	  			<th data-field="metadata.trackname" data-sortable="true">Trackname</th>
-	  			<th data-field="filename" data-sortable="true">Filename</th>
+	  			<th data-field="metadata.trackname"  data-sortable="true">Trackname</th>
+	  			<th data-field="filename" data-sortable="true" >Filename
+	  			</th>
 	  			<th data-field="metadata.genre" data-sortable="true">Genre</th>
 	  			<th data-field="metadata.available" data-sortable="true">Available</th>
 	  			<th data-field="metadata.length" data-sortable="true">Length</th>
 	  			<th data-field="metadata.bpm" data-sortable="true">BPM</th>
 	  			<th data-field="metadata.description" data-sortable="true">Description</th>
-	  			<th data-field="metadata.id" data-sortable="true">ID</th>
-	  			<th data-field="uploadDate" data-sortable="true">Upload Date</th>
-	  			
-	  		<!-- <% if(files){ %>
+	  			<th data-field="metadata.id" data-sortable="true" >ID</th>
+	  			<th data-field="_id" data-sortable="true" >File ID</th>
+	  			<th data-field="uploadDate" data-sortable="true" > Upload Date</th>
+	  			<th  data-field="edit" data-sortable="false"  >Edit</th>
+
+	  	<!-- 	<% if(files){ %>
 				<% files.forEach(function(file) {%>
-	  			<td><a href="/files/<%=file.filename%>/edit"><i class="fa fa-pencil edit-button"></i> </a></td>
+			 -->
+				
+				    <!-- <th scope="row"><%= Number(file.metadata.id) %></th> -->
+<!-- 	  			<td><a href="/files/<%=file.filename%>/edit"><i class="fa fa-pencil edit-button"></i> </a></td>
 	  			<td>
 	  				<form method="POST" action="/files/<%=file._id%>?_method=DELETE"> 
 	  				<button class="trash-button"><i class="fa fa-trash"></i></button>
 	  				</form>
-	  			</td>	 -->
-	  		</tr>
-	<!--   				<% })%>
+	  			</td>	
+	  		
+	  				<% })%>
 	  		  <% } else {  %>
 	  				<p>No files to show</p>
 	  		  <% } %> -->
 	  	</thead>
+
 	</table>
 
 <script src="js/jQuery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap-table.min.js"></script>
+
+<script>
+
+	$('#table').bootstrapTable({
+	    onClickCell: function (field, value, row, $element) {
+	   	 	if(field === "filename") {
+	        $.ajax({
+	          method: "GET",
+	          url: "/files/" + value + "/edit",
+	          complete : function(){
+	                  window.location.replace(this.url)
+	              }
+	          })  
+	    	 } else if(field === "_id"){
+	    	 	$.ajax({
+	    	 	method: "POST",
+	    	 	url: "files/" + value + "?_method=DELETE",
+	    	 	complete : function(){
+	    	 	        window.location.replace("http://127.0.0.1:8080/tracks")
+	    	 	    }
+	    	 	})
+	    	 }
+	    	} 
+	    })
+
+	
+
+</script>
 
 </body>
 </html>
