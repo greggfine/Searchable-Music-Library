@@ -170,7 +170,7 @@
 				<p>No files to show</p>
 		  <% } %>
 	  </tbody> -->
-	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="http://127.0.0.1:8080/files" data-search="true" data-pagination="true" data-show-columns="true" data-detail-view="true" id="table">
+	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" data-url="http://127.0.0.1:8080/files" data-search="true" data-pagination="true" data-show-columns="true" data-detail-view="false" id="table">
 
 
 	  	<thead>
@@ -185,27 +185,10 @@
 	  			<th data-field="metadata.description" data-sortable="true">Description</th>
 	  			<th data-field="metadata.id" data-sortable="true" >ID</th>
 	  			<th data-field="_id" data-sortable="true" >File ID</th>
-	  			<th data-field="uploadDate" data-sortable="true" > Upload Date</th>
-	  			<th  data-field="edit" data-sortable="false"  >Edit</th>
-
-	  	<!-- 	<% if(files){ %>
-				<% files.forEach(function(file) {%>
-			 -->
-				
-				    <!-- <th scope="row"><%= Number(file.metadata.id) %></th> -->
-<!-- 	  			<td><a href="/files/<%=file.filename%>/edit"><i class="fa fa-pencil edit-button"></i> </a></td>
-	  			<td>
-	  				<form method="POST" action="/files/<%=file._id%>?_method=DELETE"> 
-	  				<button class="trash-button"><i class="fa fa-trash"></i></button>
-	  				</form>
-	  			</td>	
-	  		
-	  				<% })%>
-	  		  <% } else {  %>
-	  				<p>No files to show</p>
-	  		  <% } %> -->
+	  			<th data-field="uploadDate" data-sortable="true" data-formatter="formatter"> Upload Date</th>
+	  			<th data-field="edit" data-sortable="false" data-cell-style="editStyle">Edit</th>
+	  			<th data-field="delete" data-sortable="false" data-cell-style="trashStyle">Delete</th>
 	  	</thead>
-
 	</table>
 
 <script src="js/jQuery-3.3.1.min.js"></script>
@@ -236,6 +219,33 @@
 	    	} 
 	    })
 
+	// function editStyle(value, row, index, field) {
+	// 	console.log(value, row, index, field)
+	// 	if(field === "edit") {
+	//   return {
+	//     classes: 'fa fa-pencil',
+	//     css: {"color": "blue"}
+	//   }
+	// }
+	// }
+
+	function trashStyle(value, row, index, field) {
+		// console.log(value, row, index, field)
+		if(field === "delete") {
+
+		  return {
+		    classes: 'fa fa-trash',
+		    css: {"color": "red", "cursor": "pointer"}
+		  };
+	  }
+	}
+
+	function formatter(value, row, index, field) {
+	  console.log(value, row, index, field)
+	  return value;
+	}
+
+	// Tue May 08 2018 15:18:42 GMT-0400 (EDT)
 	
 
 </script>

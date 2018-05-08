@@ -15,58 +15,62 @@
   			        </h5>
   			     </div><!-- End card-header -->
 
+             <h3 id="selected-genre" style="display: none" value=<% genre %>><%= genre %></h3>
+
   			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
   			        <div class="card-body">
   			     		<form  action="/result" method="GET" class="search-form">
   	     	      			<!-- <label for="genre">Genre</label> -->
-  	     	        		<select class="genre" name="genre" id="genre" onchange="this.form.submit()" >
-  			     						<option value="acoustic">Acoustic</option>
-  			     						<option value="alternative">Alternative</option>
-  			     						<option value="ambient">Ambient</option>
-  			     						<option value="americana">Americana</option>
-  			     						<option value="blues">Blues</option>
-  			     						<option value="bossa">Bossa</option>
-  			     						<option value="brazilian">Brazilian</option>
-  			     						<option value="breakbeat">Breakbeat</option>
-  			     						<option value="childrens">Childrens</option>
-  			     						<option value="chill">Chill</option>
-  			     						<option value="christmas">Christmas</option>
-  			     						<option value="classical">Classical</option>
-  			     						<option value="country">Country</option>
-  			     						<option value="dance">Dance</option>
-  			     						<option value="downtempo">Downtempo</option>
-  			     						<option value="dubstep">Dubstep</option>
-  			     						<option value="disco">Disco</option>
-  			     						<option value="drums">Drums/Percussion</option>
-  			     						<option value="easy listening">Easy Listening</option>
-  			     						<option value="electronic">Electronic</option>
-  			     						<option value="epic">Epic</option>
-  			     						<option value="funk">Funk</option>
-  			     						<option value="hardcore">Hardcore</option>
-  			     						<option value="hard rock">Hard Rock</option>
-  			     						<option value="hip hop">Hip Hop</option>
-  			     						<option value="holiday">Holiday</option>
-  			     						<option value="house">House</option>
-  			     						<option value="indie">Indie</option>
-  			     						<option value="jazz">Jazz</option>
-  			     						<option value="jungle">Jungle</option>
-  			     						<option value="latin">Latin</option>
-  			     						<option value="lounge">Lounge</option>
-  			     						<option value="mnemonic">Mnemonic</option>
-  			     						<option value="new age">New Age</option>
-  			     						<option value="orchestral">Orchestral</option>
-  			     						<option value="pop">Pop</option>
-  			     						<option value="psychedelic">Psychedelic</option>
-  			     						<option value="rap">Rap</option>
-  			     						<option value="reggae">Reggae</option>
-  			     						<option value="retro">Retro</option>
-  			     						<option value="rock">Rock</option>
-  			     						<option value="ska">Ska</option>
-  			     						<option value="techno">Techno</option>
-  			     						<option value="trip hop">Trip Hop</option>
-  			     						<option value="vocal">Vocal</option>
-  			     						<option value="world">World</option>
+  	     	        		<select class="genre" name="genre" id="genre" onchange="this.form.submit()">
+  			     						<option value="acoustic">acoustic</option>
+  			     						<option value="alternative">alternative</option>
+  			     						<option value="ambient">ambient</option>
+  			     						<option value="americana">americana</option>
+  			     						<option value="blues">blues</option>
+  			     						<option value="bossa">bossa</option>
+  			     						<option value="brazilian">brazilian</option>
+  			     						<option value="breakbeat">breakbeat</option>
+  			     						<option value="childrens">childrens</option>
+  			     						<option value="chill">chill</option>
+  			     						<option value="christmas">christmas</option>
+  			     						<option value="classical">classical</option>
+  			     						<option value="country">country</option>
+  			     						<option value="dance">dance</option>
+  			     						<option value="downtempo">downtempo</option>
+  			     						<option value="dubstep">dubstep</option>
+  			     						<option value="disco">disco</option>
+  			     						<option value="drums/percussion">drums/percussion</option>
+  			     						<option value="easy listening">easy listening</option>
+  			     						<option value="electronic">electronic</option>
+  			     						<option value="epic">epic</option>
+  			     						<option value="funk">funk</option>
+  			     						<option value="hardcore">hardcore</option>
+  			     						<option value="hard rock">hard rock</option>
+  			     						<option value="hip hop">hip hop</option>
+  			     						<option value="holiday">holiday</option>
+  			     						<option value="house">house</option>
+  			     						<option value="indie">indie</option>
+  			     						<option value="jazz">jazz</option>
+  			     						<option value="jungle">jungle</option>
+  			     						<option value="latin">latin</option>
+  			     						<option value="lounge">lounge</option>
+  			     						<option value="mnemonic">mnemonic</option>
+  			     						<option value="new age">new age</option>
+  			     						<option value="orchestral">orchestral</option>
+  			     						<option value="pop">pop</option>
+  			     						<option value="psychedelic">psychedelic</option>
+  			     						<option value="rap">rap</option>
+  			     						<option value="reggae">reggae</option>
+  			     						<option value="retro">retro</option>
+  			     						<option value="rock">rock</option>
+  			     						<option value="ska">ska</option>
+  			     						<option value="techno">techno</option>
+  			     						<option value="trip hop">trip hop</option>
+  			     						<option value="vocal">vocal</option>
+  			     						<option value="world">world</option>
   	     					</select>
+
+                  
 
   	     					<!-- <input type="submit" value="submit"  class="btn btn-outline-success
   	     					btn-lg"> -->
@@ -77,7 +81,7 @@
   			  </div><!-- End card -->
 
 
-						  <div class="card search-card">
+						 <!--  <div class="card search-card">
 
 						    <div class="card-header" id="headingOne">
 			 					<h5 class="mb-0">
@@ -86,12 +90,12 @@
 						       		 <h3 class="genres-header">Length</h3>
 						       		 </button>
 						        </h5>
-						     </div><!-- End card-header -->
+						     </div> -->
 
-						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+					<!-- 	    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						        <div class="card-body">
 						     		<form  action="/result" method="GET" class="search-form">
-				     	      			<!-- <label for="genre">Genre</label> -->
+				     	      			
 				     	        		<select class="genre" name="tempo" id="tempo" onchange="this.form.submit()" >
 						     						<option value="30">00:30</option>
 						     						<option value="60">00:60</option>
@@ -100,10 +104,10 @@
 				     					</select>
 
 				     		 	 	</form>
-				     	  		 </div><!-- End card-body -->
-				     	    </div><!-- End collapse -->
+				     	  		 </div>
+				     	    </div> -->
 
-						  </div><!-- End card -->
+						  <!-- </div> -->
 
 
 
@@ -130,8 +134,6 @@
   			</div><!-- End col-lg-8 -->
 
   	</div><!-- End row -->
-
-
 
 <div class="track-scroll">
 
@@ -178,5 +180,28 @@
 
 </div>
 
+<script>
+
+  var selectedGenre = document.getElementById('selected-genre');
+
+  var myGenre = document.getElementById('genre');
+
+  function setSelectedIndex(s, v) {
+
+      for ( var i = 0; i < s.options.length; i++ ) {
+
+            // console.log(s)
+          if ( s.options[i].text == v ) {
+
+                s.options[i].selected = true;
+
+              return;
+          }
+      }
+  }
+
+  setSelectedIndex(myGenre, selectedGenre.textContent);
+
+</script>
 
 <% include partials/footer  %>

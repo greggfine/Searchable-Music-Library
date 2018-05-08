@@ -222,12 +222,10 @@ h1:after {
 .search-card {
 	min-width: 350px;
 	background-color: #FF7979;
-	/*background-color: #D02525;*/
 }
 
 .search-form {
 	display: flex;
-	/*flex-direction: column;*/
 	justify-content: space-around;
 }
 

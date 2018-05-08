@@ -219,11 +219,12 @@ app.get('/search', isLoggedIn, function(req, res) {
 });
 
 //DISPLAY SEARCH RESULT route
-app.get('/result', isLoggedIn, function(req, res) {
+app.get('/result', isLoggedIn, function(req, res, value) {
 		var genre = req.query.genre;
 		var length = req.query.length;
 		var available = req.query.available;
 		var bpm = req.query.bpm;
+		// console.log(genre)
 		// var description = req.query.description;
 		gfs.files.find(
 					{
@@ -241,7 +242,7 @@ app.get('/result', isLoggedIn, function(req, res) {
 			// 	err: 'No file exists'
 			// });
 		// } else {
-			res.render('results', {files: files});
+			res.render('results', {files: files, genre: genre});
 			// }
 		})
 })
