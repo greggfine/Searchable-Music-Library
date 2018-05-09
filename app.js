@@ -131,7 +131,7 @@ app.get('/login', function(req, res) {
 // LOGIN Logic
 // Middleware
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/search",
+    successRedirect: "/result",
     failureRedirect: "/login"
 }) ,function(req, res){
 });
