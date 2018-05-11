@@ -117,6 +117,10 @@ h1:after {
 	padding-left: 400px;
 }
 
+.home-login {
+	width: 300px;
+}
+
 .home-login:hover {
 	background-color: lawngreen;
 	color: #000;
@@ -207,7 +211,9 @@ h1:after {
 
 .search-card {
 	min-width: 350px;
-	background-color: #FF7979;
+	background-color: /*lightgreen*/;
+	background-color: mediumseagreen;
+	/*background-color: #FF7979;*/
 }
 
 .search-form {
