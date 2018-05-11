@@ -11,7 +11,6 @@
  var Spectrum = WaveSurfer.create({
      container: '#waveform',
      waveColor: '#darkgrey',
-     // waveColor: '#C9DD4B',
      progressColor: '#61892f',
      cursorColor: '#999999',
      pixelRatio: 1,
@@ -80,17 +79,16 @@
   var current = document.getElementById("current-track");
 
 window.onload = function(){
-    // Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.value);
-    Spectrum.load('http://127.0.0.1:8080/audio/' + current.value)
+    Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.value);
+    // Spectrum.load('http://127.0.0.1:8080/audio/' + current.value)
 	// Spectrum.load('http://localhost:8080/audio/' + current.textContent)
 	// Spectrum.load('https://vast-dusk-24076.herokuapp.com/audio/' + current.textContent)
 	trackTitle.innerHTML = current.textContent;
 }
 
   function runIt(trackName, data){
-    console.log(data)
-    // var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/' + trackName;
-    var curTrack = 'http://127.0.0.1:8080/audio/' + trackName;
+    var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/' + trackName;
+    // var curTrack = 'http://127.0.0.1:8080/audio/' + trackName;
   	// var curTrack = 'http://localhost:8080/audio/' + trackName;
   	// var curTrack = 'https://vast-dusk-24076.herokuapp.com/audio/' + trackName;
 	Spectrum.load(curTrack);
