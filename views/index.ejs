@@ -183,10 +183,10 @@
 		  <% } %>
 	  </tbody> -->
 	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" 
-	  data-url="https://immense-atoll-44421.herokuapp.com/files" data-search="true" data-pagination="true"
+	  data-url="http://127.0.0.1:8080/files" data-search="true" data-pagination="true" 
+
 	  data-show-columns="true" data-detail-view="false" id="table">
 
-	  <!-- data-url="http://127.0.0.1:8080/files" data-search="true" data-pagination="true"  -->
 
 	  	<thead>
 	  		<tr>
@@ -227,8 +227,8 @@
 	    	 	method: "POST",
 	    	 	url: "files/" + value + "?_method=DELETE",
 	    	 	complete : function(){
-	    	 	        window.location.replace("https://immense-atoll-44421.herokuapp.com/tracks")
-	    	 	        // window.location.replace("http://127.0.0.1:8080/tracks")
+	    	 	        // window.location.replace("https://immense-atoll-44421.herokuapp.com/tracks")
+	    	 	        window.location.replace("http://127.0.0.1:8080/tracks")
 	    	 	    }
 	    	 	})
 	    	 }
