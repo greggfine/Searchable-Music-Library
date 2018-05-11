@@ -73,7 +73,6 @@ h1 a {
 	text-decoration: none;
 	color: #ffffff;
 	position: absolute;
-
 	-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,0)), to(rgba(0,0,0,1)));
 	text-shadow: 0 2px 0 #e9e9e9;
 	-webkit-transition: all .3s;
@@ -86,19 +85,15 @@ h1:after {
 	content : attr(data-title);
 }
 
-
 .home-bg {
-	/*background-image: url('images/01.jpg');*/
-/*	background-repeat: no-repeat;
-	background-size: 2800px 2000px;
+	background-image: url('images/01.jpg');
+	background-repeat: no-repeat;
 	background-position: right top;
-	background-color: #C9DD4B ;
-	background-blend-mode: saturation;*/
+	background-color: #61892f;
+	background-blend-mode: screen;
 }
 
 .home-login {
-/*	position: relative;
-	left: -100px;*/
 	color: #000;
 	font-size: 1.7rem;
 	background-color: #fff;
@@ -108,13 +103,11 @@ h1:after {
 }
 
 .ht-header {
-	/*color: black;*/
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translateX(-50%);
 	font-size: 4rem;
-	/*text-shadow: 6px 4px 12px #0000004a;*/
 	letter-spacing: 6px
 }
 
@@ -124,20 +117,14 @@ h1:after {
 	padding-left: 400px;
 }
 
-
 .home-login:hover {
 	background-color: lawngreen;
-	/*background-color: #6b6e70;*/
 	color: #000;
 }
 
+
 .id-span {
 	padding-right: 30px;
-	/*float: right;*/
-}
-
-.index {
-	padding-top: 300px;
 }
 
 .length-span {
@@ -169,7 +156,6 @@ h1:after {
 
 .master-player {
 	padding-left: 200px;
-	/*width: 600px;*/
 }
 
 .music-library-title {
@@ -242,8 +228,6 @@ h1:after {
 	border-bottom: 5px solid lightgrey;
 }
 
-
-
 .track-cms {
 	padding-top: 50px;
 }
@@ -261,18 +245,14 @@ h1:after {
 	overflow-y:scroll;
 	width: 1500px;
 	float: right;
-	/*margin: auto;*/
-
 }
 
 .track-scroll {
 	padding-top: 700px;
-	/*border: 5px solid lightgrey;*/
 }
 
 #track-title {
 	font-size: 1.5rem;
-	/*color: #6b6e70;*/
 	color: #61892f;
 	padding-bottom: 50px;
 	font-weight: bold;
@@ -285,7 +265,6 @@ h1:after {
 	color: red;
 }
 
-
 .video__item {
 	position: absolute;
 	left: 50%;
@@ -295,12 +274,9 @@ h1:after {
 	box-shadow: 15px 10px 5px black;
 }
 
-
 #waveform {
 	overflow: hidden;
 }
-
-
 
 
 /* 

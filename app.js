@@ -1,6 +1,4 @@
 const express = require('express');
-// const fs = require('fs');
-// const http = require('http');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bodyParser = require('body-parser');
@@ -17,8 +15,6 @@ const methodOverride = require('method-override');
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
-
-// // app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));

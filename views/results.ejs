@@ -20,7 +20,6 @@
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                 <form  action="/result" method="GET" class="search-form">
-                      <!-- <label for="genre">Genre</label> -->
                       <select class="genre" name="genre" id="genre" onchange="this.form.submit()">
                         <option value="" selected></option>
                         <option value="acoustic">acoustic</option>
@@ -74,47 +73,11 @@
                         <option value="vocal">vocal</option>
                         <option value="world">world</option>
                   </select>
-
-                  
-
-                  <!-- <input type="submit" value="submit"  class="btn btn-outline-success
-                  btn-lg"> -->
                 </form>
                  </div><!-- End card-body -->
               </div><!-- End collapse -->
 
           </div><!-- End card -->
-
-
-             <!--  <div class="card search-card">
-
-                <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                       <i class="fa fa-chevron-right fa-1x chevron-icon"></i>
-                       <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                       <h3 class="genres-header">Length</h3>
-                       </button>
-                    </h5>
-                 </div> -->
-
-          <!--      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                    <form  action="/result" method="GET" class="search-form">
-                          
-                          <select class="genre" name="tempo" id="tempo" onchange="this.form.submit()" >
-                            <option value="30">00:30</option>
-                            <option value="60">00:60</option>
-                            <option value="90">00:90</option>
-          
-                      </select>
-
-                    </form>
-                     </div>
-                  </div> -->
-
-              <!-- </div> -->
-
-
 
         </div><!-- End accordion -->
       </div><!-- End col-md-4 -->
@@ -150,7 +113,6 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Trackname</th>
-          <!-- <th scope="col">Genre</th> -->
           <th scope="col">Available</th>
           <th scope="col">Length</th>
           <th scope="col">BPM</th>
@@ -168,7 +130,6 @@
               <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" value="<%= file.filename %>">
                 <strong><%= file.metadata.trackname %></strong></button>
             </td>
-            <!-- <td><%= file.metadata.genre %></td> -->
             <td><%= file.metadata.available %></td>
             <td><%= file.metadata.length %></td>
             <td><%= file.metadata.bpm %></td>
@@ -195,7 +156,6 @@
 
       for ( var i = 0; i < s.options.length; i++ ) {
 
-            // console.log(s)
           if ( s.options[i].text == v ) {
 
                 s.options[i].selected = true;
