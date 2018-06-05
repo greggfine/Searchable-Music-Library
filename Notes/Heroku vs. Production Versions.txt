@@ -1,0 +1,10 @@
+To push new version to Heroku:
+	git push heroku master
+
+
+Heroku vs. Production differences:
+	index.ejs:
+			Lines 146, 198
+
+	public/scripts/wavesurfer.js:
+			Lines 82, 91
