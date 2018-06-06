@@ -1,16 +1,16 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const passport = require('passport');
-const bodyParser = require('body-parser');
-const User = require('./models/user');
-const LocalStrategy = require('passport-local');
-const passportLocalMongoose = require('passport-local-mongoose');
-const path = require('path');
-const crypto = require('crypto');
-const multer = require('multer');
-const GridFsStorage = require('multer-gridfs-storage');
-const Grid = require('gridfs-stream');
-const methodOverride = require('method-override');
+const express 				= require('express'),
+	  mongoose 			    = require('mongoose'),
+	  passport 				= require('passport'),
+	  bodyParser 			= require('body-parser'),
+	  User 					= require('./models/user'),
+	  LocalStrategy 		= require('passport-local'),
+	  passportLocalMongoose = require('passport-local-mongoose'),
+	  path 					= require('path'),
+	  crypto 				= require('crypto'),
+	  multer 				= require('multer'),
+	  GridFsStorage 		= require('multer-gridfs-storage'),
+	  Grid 					= require('gridfs-stream'),
+	  methodOverride 		= require('method-override');
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use(require('express-session')({
-	secret: "Rusty is the best and cutest dog in the world",
+	secret: 'Rusty is the best and cutest dog in the world',
 	resave: false,
 	saveUninitialized: false
 }));
@@ -31,10 +31,9 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-mongoose.connect('mongodb://gregg:gregg@ds025239.mlab.com:25239/mongouploads');
 // Mongo URI
 const mongoURI='mongodb://gregg:gregg@ds025239.mlab.com:25239/mongouploads';
-
+mongoose.connect(mongoURI);
 // Create mongo connection
 const conn = mongoose.createConnection(mongoURI);
 
@@ -70,31 +69,11 @@ const storage = new GridFsStorage({
 });
 const upload = multer({ storage });
 
+
 // ==================
-//  	ROUTES
+//  	REGISTER
 // ==================
 
-// @route GET/
-// @desc Loads form
-
-app.get('/tracks', isLoggedIn, function(req, res) {
-	gfs.files.find().toArray(function(err, files){
-		// Check if files
-		if(!files || files.length === 0){
-			res.render('index', {files: false});
-			} else {
-				files.map(file => {
-					if(file.contentType === 'audio/mp3') 
-					{
-						file.isAudio = true;
-					} else {
-						file.isAudio = false;
-					}
-				});
-				res.render('index', {files: files});
-		}
-	})
-});
 
 // Show sign up form
 app.get('/register', function(req, res) {
@@ -102,17 +81,23 @@ app.get('/register', function(req, res) {
 });
 
 //  Handling User Sign Up
-app.post("/register", function(req, res){
+app.post('/register', function(req, res){
     User.register(new User({username: req.body.username}), req.body.password, function(err, user){
         if(err){
             console.log(err);
             return res.render('register');
         }
-        passport.authenticate("local")(req, res, function(){
-           res.redirect("/");
+        passport.authenticate('local')(req, res, function(){
+           res.redirect('/');
         });
     });
 });
+
+
+// ==================
+//  	HOME/LOGIN
+// ==================
+
 
 //  LOGIN ROUTES
 //  render login form
@@ -120,15 +105,11 @@ app.get('/',  function(req, res) {
 	res.render('home');
 });
 
-app.get('/login', function(req, res) {
-	res.render('login');
-});
-
 // LOGIN Logic
 // Middleware
-app.post("/login", passport.authenticate("local", {
-    successRedirect: "/result",
-    failureRedirect: "/login"
+app.post('/', passport.authenticate('local', {
+    successRedirect: '/search',
+    failureRedirect: '/'
 }) ,function(req, res){
 });
 
@@ -141,109 +122,68 @@ function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()){
 		return next();
 	}
-	res.redirect('/login');
+	res.redirect('/');
 }
 
-// @route POST/upload
-// @desc Uploads file to DB
-app.post('/upload', upload.single('file'), isLoggedIn, function(req, res) {
-	res.redirect('/tracks');
-});
 
-// @route GET /files
-// @desc Display all files in JSON
-app.get('/files', isLoggedIn, function(req, res){
-	gfs.files.find().toArray(function(err, files){
-		if(!files || files.length === 0){
-			return res.status(404).json({
-				err: 'No files exist'
-			});
-		}
-		return res.json(files);
-	})
-})
 
-// @route GET /files/:filename
-// @desc Display single file object
-app.get('/files/:filename', isLoggedIn, function(req, res){
-	gfs.files.findOne({filename: req.params.filename}, function(err, file){
-		if(!file || file.length === 0){
-			return res.status(404).json({
-				err: 'No file exists'
-			});
-		}
-		return res.json(file);
-	});
-});
 
-// @route GET /audio/:filename
-// @desc Display Audio
-app.get('/audio/:filename',isLoggedIn, function(req, res){
-	gfs.files.findOne({filename: req.params.filename}, function(err, file){
 
-		if(!file || file.length === 0){
-			return res.status(404).json({
-				err: 'No file exists'
-			});
-		}
 
-		if(file.contentType === 'audio/mp3') {
-			var name = file.filename;
 
-			const readstream = gfs.createReadStream(file.filename);
-			readstream.pipe(res);
-		} else {
-			res.status(404).json({
-				err: 'Not an audio file'
-			});
-		}
-	});
-});
 
-//SEARCH route
-app.get('/search', isLoggedIn, function(req, res) {
-	gfs.files.find( {"metadata.genre": "jazz"})
-	.toArray(function(err, files){
-	if(!files || files.length === 0){
-		return res.status(404).json({
-			err: 'No file exists'
-		});
-	} else {
-		res.render('search', {files: files});
-		}
-	})
-});
 
-//DISPLAY SEARCH RESULT route
-app.get('/result', isLoggedIn, function(req, res, value) {
-		var genre = req.query.genre;
-		var length = req.query.length;
-		var available = req.query.available;
-		var bpm = req.query.bpm;
-		// console.log(genre)
-		// var description = req.query.description;
+// ==================
+//  	SEARCH
+// ==================
+app.get('/search', isLoggedIn, function(req, res, value) {
+		var genre 		= req.query.genre,
+		    length 		= req.query.length,
+		    available 	= req.query.available,
+		    bpm 		= req.query.bpm;
 		gfs.files.find(
 					{
-						 // "metadata.genre": genre ,  "metadata.length": length ,
-							// 	 "metadata.available": available  
-								$or: [ {"metadata.genre": genre }, { "metadata.length": length },
-										{ "metadata.available": available },
-										{ "metadata.bpm": bpm }]
-					}
-					)
-		.toArray(function(err, files){
+						$or: [ 
+								{ 'metadata.genre': genre }, 
+								{ 'metadata.length': length },
+								{ 'metadata.available': available },
+								{ 'metadata.bpm': bpm }
+							 ]
+					})
+				  .toArray(function(err, files){
+					res.render('search', {files: files, genre: genre});
+				}) })
 
-		// if(!files || files.length === 0){
-			// return res.status(404).json({
-			// 	err: 'No file exists'
-			// });
-		// } else {
-			res.render('results', {files: files, genre: genre});
-			// }
-		})
-})
 
-// EDIT route
+
+// ==================
+//  	DISPLAY CMS
+// ==================
+app.get('/cms', isLoggedIn, function(req, res) {
+	gfs.files.find().toArray(function(err, files){
+		if(!files || files.length === 0){
+			res.render('cms', {files: false});
+		} else {
+			files.map(file => {
+				if(file.contentType === 'audio/mp3') 
+					{file.isAudio = true;} else {
+						file.isAudio = false;}});
+				res.render('cms', {files: files});}
+	}); });
+
+
+// ==================
+//  	UPLOAD FILE
+// ==================
+app.post('/upload', upload.single('file'), isLoggedIn, function(req, res) {
+	res.redirect('/cms');
+});
+
+
+
+// ==========================
+//  	DISPLAY UPDATE PAGE
+// ==========================
 app.get('/files/:filename/edit', isLoggedIn, function(req, res) {
 	gfs.files.findOne({filename: req.params.filename}, function(err, file) {
 		if(err) {
@@ -251,46 +191,101 @@ app.get('/files/:filename/edit', isLoggedIn, function(req, res) {
 		} else {
 			res.render('edit', {file: file})
 		}
-	})
-})
+	}) })
 
-//UPDATE ROUTE
-app.put("/files/:filename", isLoggedIn, function(req,res){
-	var genre = req.body.genre;
-	var available = req.body.available;
-	var length = req.body.length;
-	var bpm = req.body.bpm;
-	var description = req.body.description;
-	var id = req.body.id;
-	var trackname = req.body.trackname;
-    gfs.files.update({'filename': req.params.filename}, {'$set': {"metadata.genre": genre, 
-    	"metadata.available": available, 
-    	"metadata.length": length,
-    	"metadata.bpm": bpm,
-    	"metadata.description": description,
-    	"metadata.id": id,
-    	"metadata.trackname": trackname
-    	 }})
-        res.redirect('/tracks');
+
+// ==================
+//  	UPDATE 
+// ==================
+
+app.put('/files/:filename', isLoggedIn, function(req,res){
+	var genre       = req.body.genre,
+	 	available   = req.body.available,
+		length      = req.body.length,
+		bpm         = req.body.bpm,
+	    description = req.body.description,
+	    id 			= req.body.id,
+	    trackname   = req.body.trackname;
+    gfs.files.update({'filename': req.params.filename}, {'$set': {
+	    	'metadata.genre': 		genre, 
+	    	'metadata.available':   available, 
+	    	'metadata.length':      length,
+	    	'metadata.bpm': 		bpm,
+	    	'metadata.description': description,
+	    	'metadata.id': 			id,
+	    	'metadata.trackname':   trackname
+    	}})
+        res.redirect('/cms');
     })
 
-//  @route DELETE /files/:id
-//  @desc Delete file
+
+// ==================
+//  	DELETE 
+// ==================
+
 app.delete('/files/:id', isLoggedIn, function(req, res){
 	gfs.remove({_id: req.params.id, root: 'uploads'}, (err, gridStore) => {
 		if(err) {
 			return res.status(404).json({err: err});
 		}
-		res.redirect('/tracks');
+		res.redirect('/cms');
 	});
 });
 
-// app.listen(process.env.PORT || 3000, function() {
-// 	console.log('The server is running');
-// });
+
+
+
+// ================================
+//  	DATABASE FILES/JSON
+// ================================
+
+// Display all file objects
+app.get('/files', isLoggedIn, function(req, res){
+	gfs.files.find().toArray(function(err, files){
+		if(!files || files.length === 0){
+			return res.status(404).json({
+				err: 'No files exist'
+			});
+		}
+		return res.json(files); }); });
+
+// Display single file object
+app.get('/files/:filename', isLoggedIn, function(req, res){
+	gfs.files.findOne({filename: req.params.filename}, function(err, file){
+		if(!file || file.length === 0){
+			return res.status(404).json({
+				err: 'No file exists'
+			});
+		}
+		return res.json(file); }); });
+
+// Play single file audio
+app.get('/audio/:filename',isLoggedIn, function(req, res){
+	gfs.files.findOne({filename: req.params.filename}, function(err, file){
+		if(!file || file.length === 0){
+			return res.status(404).json({
+				err: 'No file exists'
+			}); }
+
+		if(file.contentType === 'audio/mp3') {
+			var name = file.filename;
+			const readstream = gfs.createReadStream(file.filename);
+			readstream.pipe(res);
+		} else {
+			res.status(404).json({
+				err: 'Not an audio file'
+			}); } }); });
+
+
+
+
+
+
+// ================================
+//  	SETUP SERVER PORT
+// ================================
 
 var port = process.env.PORT || 8080;
-
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });

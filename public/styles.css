@@ -51,12 +51,18 @@ html, body {
 }
 
 .flex-group {
-	display: flex;
-	justify-content: space-around;
+/*	display: flex;
+	justify-content: space-around;*/
+	/*width: 550px;*/
+	/*float: right;*/
 }
 
 .genres-header {
 	color: #fff;
+}
+
+.genre-searcher {
+	width: 50px;
 }
 
 h1 {
@@ -282,6 +288,11 @@ h1:after {
 
 #waveform {
 	overflow: hidden;
+}
+
+.waveform-player {
+	margin-left: -400px;
+	padding-top: 100px;
 }
 
 
