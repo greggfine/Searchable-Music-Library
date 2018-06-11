@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CMS</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-table.min.css">
+</head>
+<body >
+
+			<div class="index">
+				<div class="row whole-file">
+					<div class="col-md-9 m-auto">
+	
+<div class="container">
+	<form action="/upload" method="POST" enctype="multipart/form-data" >
+		<div class="custom-file mb-3 " >
+		
+			<input type="file" name="file" id="file" class="form-control-file" >
+	
+			<label for="file" ></label>
+	
+			<div class="form-group">
+				<input type="text" name="trackname" id="trackname">
+				<label for="trackname">Track Name</label>
+			</div>
+	
+			<div class="form-group">
+				<input type="text" name="id" id="id" >
+				<label for="id">ID</label>
+			</div>
+	
+			<label for="genre">Genre</label>
+	
+			<select class="custom-select" id="genre" name="genre" multiple="multiple" style="height: 200px">
+			         <option value="acoustic">Acoustic</option>
+			         <option value="alternative">Alternative</option>
+			         <option value="ambient">Ambient</option>
+			         <option value="americana">Americana</option>
+			         <option value="blues">Blues</option>
+			         <option value="bossa">Bossa</option>
+			         <option value="brazilian">Brazilian</option>
+			         <option value="breakbeat">Breakbeat</option>
+			         <option value="childrens">Childrens</option>
+			         <option value="chill">Chill</option>
+			         <option value="christmas">Christmas</option>
+			         <option value="classical">Classical</option>
+			         <option value="country">Country</option>
+			         <option value="dance">Dance</option>
+			         <option value="downtempo">Downtempo</option>
+			         <option value="dubstep">Dubstep</option>
+			         <option value="disco">Disco</option>
+			         <option value="drums">Drums/Percussion</option>
+			         <option value="easy listening">Easy Listening</option>
+			         <option value="eighties">Eighties</option>
+			         <option value="electronic">Electronic</option>
+			         <option value="epic">Epic</option>
+			         <option value="fanfare">Fanfare</option>
+			         <option value="funk">Funk</option>
+			         <option value="halloween">Halloween</option>
+			         <option value="hardcore">Hardcore</option>
+			         <option value="hard rock">Hard Rock</option>
+			         <option value="hip hop">Hip Hop</option>
+			         <option value="holiday">Holiday</option>
+			         <option value="house">House</option>
+			         <option value="indie">Indie</option>
+			         <option value="jazz" selected>Jazz</option>
+			         <option value="jungle">Jungle</option>
+			         <option value="latin">Latin</option>
+			         <option value="lounge">Lounge</option>
+			         <option value="march">March</option>
+			         <option value="mnemonic">Mnemonic</option>
+			         <option value="new age">New Age</option>
+			         <option value="orchestral">Orchestral</option>
+			         <option value="pop">Pop</option>
+			         <option value="psychedelic">Psychedelic</option>
+			         <option value="rap">Rap</option>
+			         <option value="reggae">Reggae</option>
+			         <option value="retro">Retro</option>
+			         <option value="rock">Rock</option>
+			         <option value="ska">Ska</option>
+			         <option value="soul">Soul</option>
+			         <option value="techno">Techno</option>
+			         <option value="trip hop">Trip Hop</option>
+			         <option value="vocal">Vocal</option>
+			         <option value="world">World</option>
+			         <option value="zydeco">Zydeco</option>
+			       </select>
+						
+			<div class="form-group">								
+				<label for="available">Available</label>
+				<select name="available" id="available">
+					<option value=""></option>
+					<option value="yes">yes</option>
+					<option value="no">no</option>
+				</select>
+			</div>
+	
+			<div class="form-group">
+				<label for="length">Length</label>
+				<select name="length" id="length">
+					<option value=""></option>
+					<option value="00:07">00:07</option>
+					<option value="00:15">00:15</option>
+					<option value="00:20">00:20</option>
+					<option value="00:25">00:25</option>
+					<option value="00:30">00:30</option>
+					<option value="00:40">00:40</option>
+					<option value="00:45">00:45</option>
+					<option value="00:60">00:60</option>
+					<option value="00:70">00:70</option>
+					<option value="00:80">00:80</option>
+					<option value="00:90">00:90</option>
+					<option value="00:90">01:20</option>
+				</select>
+	
+			</div>
+	
+			<div class="form-group">
+				  <label for="description">Description</label>
+				  <textarea class="form-control" name="description" id="description" rows="1"></textarea>
+			</div>
+			<div class="form-group">
+	
+				<label for="bpm">Tempo</label>
+				<select name="bpm" id="bpm">
+					<option value=""></option>
+					<option value="slow">slow</option>
+					<option value="medium">medium</option>
+					<option value="fast">fast</option>
+				</select>
+			</div>
+	
+			<input type="submit" value="Submit" class="btn btn-success btn-block"
+			style="width: 100px">
+	
+		</div>
+	</form>
+</div>
+
+	<div class="table-responsive track-cms">
+		
+<!-- 	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" 
+	  data-url="https://immense-atoll-44421.herokuapp.com/files" data-search="true" data-pagination="true" 
+	  data-show-columns="true" data-detail-view="false" id="table" > -->
+
+	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" 
+	  data-url="http://localhost:8080/files" data-search="true" data-pagination="true" 
+	  data-show-columns="true" data-detail-view="false" id="table" >
+
+	  	<thead>
+	  		<tr>
+	  			<th data-field="metadata.trackname"  data-sortable="true">Trackname</th>
+	  			<th data-field="filename" data-sortable="true" >Filename
+	  			</th>
+	  			<th data-field="metadata.genre" data-sortable="true">Genre</th>
+	  			<th data-field="metadata.available" data-sortable="true">Available</th>
+	  			<th data-field="metadata.length" data-sortable="true">Length</th>
+	  			<th data-field="metadata.bpm" data-sortable="true">BPM</th>
+	  			<th data-field="metadata.description" data-sortable="true">Description</th>
+	  			<th data-field="metadata.id" data-sortable="true" >ID</th>
+	  			<th data-field="_id" data-sortable="true" >File ID</th>
+	  			<th data-field="uploadDate" data-sortable="true" data-formatter="formatter"> Upload Date</th>
+	  			<th data-field="edit" data-sortable="false" data-cell-style="editStyle">Edit</th>
+	  			<th data-field="delete" data-sortable="false" data-cell-style="trashStyle">Delete</th>
+	  	</thead>
+	</table>
+
+<!-- <script src="js/jQuery-3.3.1.min.js"></script> -->
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-table.min.js"></script>
+
+<script>
+
+	$('#table').bootstrapTable({
+	    onClickCell: function (field, value, row, $element) {
+	   	 	if(field === "filename") {
+	        $.ajax({
+	          method: "GET",
+	          url: "/files/" + value + "/edit",
+	          complete : function(){
+	                  window.location.replace(this.url)
+	              }
+	          })  
+	    	 } else if(field === "_id"){
+	    	 	$.ajax({
+	    	 	method: "POST",
+	    	 	url: "files/" + value + "?_method=DELETE",
+	    	 	complete : function(){
+	    	 	        // window.location.replace("https://immense-atoll-44421.herokuapp.com/tracks")
+	    	 	        window.location.replace("http://localhost:8080/tracks")
+	    	 	    }
+	    	 	})
+	    	 }
+	    	} 
+	    })
+
+	function trashStyle(value, row, index, field) {
+		if(field === "delete") {
+		  return {
+		    classes: 'fa fa-trash',
+		    css: {"color": "red", "cursor": "pointer"}
+		  };
+	  }
+	}
+
+	function formatter(value, row, index, field) {
+	  return value;
+	}
+
+
+</script>
+
+</body>
+</html>
