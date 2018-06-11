@@ -13,7 +13,9 @@
      waveColor: '#darkgrey',
      progressColor: '#61892f',
      cursorColor: '#999999',
+     height: 64,
      pixelRatio: 1,
+     responsive: true,
      scrollParent: false
  });
 
