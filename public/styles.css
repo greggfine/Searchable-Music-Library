@@ -1,6 +1,8 @@
-html, body {
-	font-size: 16px;
-	font-family: Arial;
+body {
+	font-family: Arial, sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	background-color: #f1f1f1;
 }
 
 .available-span {
@@ -22,15 +24,7 @@ html, body {
     color: #F5F5F5;
 }
 
-.btn-track-info{
-	background-color: Transparent;
-	   background-repeat:no-repeat;
-	   border: none;
-	   cursor:pointer;
-	   overflow: hidden;
-	   outline:none;
-	   color: firebrick;
-}
+
 
 .btn-genre-search {
 	background-color: #61892f;
@@ -39,34 +33,80 @@ html, body {
 
 .chevron-icon {
 	color: #fff;
+	font-size: 2rem;
+}
+
+.container {
+	max-width: 1920px;
+	margin: auto;
+}
+
+#controls {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	border: 2px solid;
+	border-radius: 5px;
+	padding: 20px;
+	box-shadow: 7px 8px 0px 0px black;
+	/*justify-content: flex-end;*/
+}
+
+#controls i {
+	padding: 10px 40px;
+}
+
+#info-display {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	-ms-align-items: center;
+	align-items: center;
+	margin: 50px 0;
+	/*border: 1px solid;*/
+
 }
 
 .download-icon {
-	padding-bottom: 100px;
+	/*padding-bottom: 100px;*/
 	color: darkorange;
-	/*color: seagreen;*/
-	/*color: #61892f;*/
 }
 
 .edit-button {
 	color: blue;
 }
 
-.flex-group {
-/*	display: flex;
-	justify-content: space-around;*/
-	/*width: 550px;*/
-	/*float: right;*/
+/*footer {
+	background-color: lightblue;
+	height: 300px;
+}*/
+
+.genre {
+	font-size: 1.2rem;
 }
+
+#genres-box {
+	background-color: mediumseagreen;
+	padding: 20px;
+}
+
 
 .genres-header {
 	color: #fff;
+	font-size: 2rem;
 }
 
-/*.genre-searcher {
-	width: 50px;
+#genre-selector {
+	padding: 20px;
 }
-*/
+
+
 h1 {
 	position: relative;
 	font-size: 200px;
@@ -145,7 +185,7 @@ h1:after {
 }
 
 .liner {
-	display: inline;
+	/*display: inline;*/
 }
 
 .login {
@@ -165,10 +205,22 @@ h1:after {
 	width: 50%;
 }
 
-/*.logout-icon {
-	padding-right: 8px;
+#logo {
+	width: 180px;
+	height: 180px;
+}
+
+.logout{
+	list-style-type: none;
+	color: #000;
 	font-size: 2rem;
-}*/
+	/*border: 1px solid;*/
+	width: 100%;
+	display: block;
+	text-align: center;
+	/*line-height: 300px;*/
+/*	justify-content: flex-end;*/
+}
 
 .master-player {
 	padding-left: 200px;
@@ -181,25 +233,11 @@ h1:after {
 	color: green;
 }
 
-/*.navbar-padding{
-	padding-left: 60px;
-	padding-right: 100px;
-}*/
-
-/*.navbar-border {
-	border-bottom: 1.5px solid rgba(0, 0, 0, .4);
-}*/
-
-.nav-item-padding{
-	padding-right: 60px;
-	font-size: 1.2rem;
+nav {
+	background-color: #fff;
 }
 
-/*.play-button {
-	padding-right: 20px;
-	float: left;
-	line-height: 100px;
-}*/
+
 
 .player {
 	padding-top: 900px;
@@ -222,16 +260,51 @@ h1:after {
 }
 
 .search-card {
-	min-width: 350px;
-	background-color: /*lightgreen*/;
-	background-color: mediumseagreen;
-	/*background-color: #FF7979;*/
+	max-width: 650px;
+	border: 2px solid green;
+	margin-bottom: 70px;
 }
 
 .search-form {
 	display: flex;
 	justify-content: space-around;
 }
+
+table {
+	width: 75%;
+	margin: 100px 0;
+}
+
+#table-header-row{
+	background-color: #000;
+	color: #fff;
+}
+
+#table-header-row th{
+		padding: 20px;
+		font-size: 1.5rem
+}
+
+#table-body-row td {
+	border: 1px solid;
+	padding: 10px;
+	font-size: 1.5rem
+}
+
+
+
+.btn-track-info{
+/*	background-color: Transparent;
+	   background-repeat:no-repeat;*/
+	   border: none;
+	   cursor:pointer;
+	   /*overflow: hidden;*/
+	   outline:none;
+	   color: firebrick;
+	   font-size: 1.5rem;
+}
+
+
 
 .show{
 	background-color: #fff;
@@ -246,24 +319,12 @@ h1:after {
 	border-bottom: 5px solid lightgrey;
 }
 
-/*.track-cms {
-	padding-top: 50px;
-}*/
 
 .track-edit {
 	margin-top: 400px;
 	background-color: red;
 }
 
-/*.track-group{
-	min-height: 200px; 
-	height: 1600px; 
-	max-height: auto;
-	overflow:hidden; 
-	overflow-y:scroll;
-	width: 1500px;
-	float: right;
-}*/
 
 .track-scroll {
 	padding-top: 800px;
@@ -272,7 +333,7 @@ h1:after {
 #track-title {
 	font-size: 1.5rem;
 	color: #61892f;
-	padding-bottom: 50px;
+	/*padding-bottom: 50px;*/
 	font-weight: bold;
 }
 
@@ -294,12 +355,16 @@ h1:after {
 
 #waveform {
 	overflow: hidden;
+	margin-top: 60px;
 }
 
-/*.waveform-player {
-	margin-left: -400px;
-	padding-top: 100px;
-}*/
+#waveform-group {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
 
 
 /* 
