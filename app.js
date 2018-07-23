@@ -179,6 +179,11 @@ app.post('/upload', upload.single('file'), isLoggedIn, function(req, res) {
 	res.redirect('/cms');
 });
 
+app.get('/filemanager', isLoggedIn, function(req, res) {
+	res.render("file_manager") 
+});
+
+
 
 
 // ==========================

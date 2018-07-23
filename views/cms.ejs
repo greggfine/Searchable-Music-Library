@@ -3,9 +3,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>CMS</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/bootstrap-table.min.css">
 		<link rel="stylesheet" href="cms-styles.css">
 	</head>
 	<body >
@@ -153,98 +150,11 @@
 		
 			</div>
 		</form>
+
+		<a href="/filemanager" style="color: #000; font-size: 2rem; padding-left: 220px">File Manager</a>
 	</div>
 
 
-
-
-
-		<!-- <div class="table-responsive track-cms"> -->
-			
-	<!-- 	  <table class="table  table-bordered table-hover table-sm" data-toggle="table" 
-		  data-url="https://immense-atoll-44421.herokuapp.com/files" data-search="true" data-pagination="true" 
-		  data-show-columns="true" data-detail-view="false" id="table" >
-	 -->
-
-	 
-		 <div class="table-container">
-		 	 <table class="table  table-bordered table-hover table-sm " data-toggle="table" 
-		 	data-url="http://localhost:8080/files" data-search="true" data-pagination="true" 
-		 	data-show-columns="true" data-detail-view="false" id="table" >
-		 	
-		 		<thead>
-		 			<tr>
-		 				<th data-field="metadata.trackname"  data-sortable="true">Trackname</th>
-		 				<th data-field="filename" data-sortable="true" >Filename
-		 				</th>
-		 				<th data-field="metadata.genre" data-sortable="true">Genre</th>
-		 				<th data-field="metadata.available" data-sortable="true">Available</th>
-		 				<th data-field="metadata.length" data-sortable="true">Length</th>
-		 				<th data-field="metadata.bpm" data-sortable="true">BPM</th>
-		 				<th data-field="metadata.description" data-sortable="true">Description</th>
-		 				<th data-field="metadata.id" data-sortable="true" >ID</th>
-		 				<th data-field="_id" data-sortable="true" >File ID</th>
-		 				<th data-field="uploadDate" data-sortable="true" data-formatter="formatter"> Upload Date</th>
-		 				<th data-field="edit" data-sortable="false" data-cell-style="editStyle">Edit</th>
-		 				<th data-field="delete" data-sortable="false" data-cell-style="trashStyle">Delete</th>
-		 		</thead>
-		 			</table>
-		 </div>
-
-
-
-
-
-
-	<!-- <script src="js/jQuery-3.3.1.min.js"></script> -->
-
-	<script
-	  src="https://code.jquery.com/jquery-3.3.1.min.js"
-	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	  crossorigin="anonymous"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-table.min.js"></script>
-
-	<script>
-
-		$('#table').bootstrapTable({
-		    onClickCell: function (field, value, row, $element) {
-		   	 	if(field === "filename") {
-		        $.ajax({
-		          method: "GET",
-		          url: "/files/" + value + "/edit",
-		          complete : function(){
-		                  window.location.replace(this.url)
-		              }
-		          })  
-		    	 } else if(field === "_id"){
-		    	 	$.ajax({
-		    	 	method: "POST",
-		    	 	url: "files/" + value + "?_method=DELETE",
-		    	 	complete : function(){
-		    	 	        // window.location.replace("https://immense-atoll-44421.herokuapp.com/cms")
-		    	 	        window.location.replace("http://localhost:8080/cms")
-		    	 	    }
-		    	 	})
-		    	 }
-		    	} 
-		    })
-
-		function trashStyle(value, row, index, field) {
-			if(field === "delete") {
-			  return {
-			    classes: 'fa fa-trash',
-			    css: {"color": "red", "cursor": "pointer"}
-			  };
-		  }
-		}
-
-		function formatter(value, row, index, field) {
-		  return value;
-		}
-
-
-	</script>
 
 	</body>
 </html>

@@ -12,19 +12,19 @@ body {
 
 .cms-controls {
 	display: grid;
-	grid-template-rows: 20px 80px 80px 160px 120px 80px;
+	grid-template-rows: 20px 120px 120px 160px 120px 260px;
 	grid-template-columns: repeat(8, 1fr);
 	padding: 0 50px;
-	/*margin: -50px 50px;*/
 }
 
 
 #cms-grid {
 	border-radius: 15px;
 	border: 1px solid;
-	margin: 20px auto;
+	margin: 60px auto 60px auto;
 	display: grid;
 	max-width: 1620px;
+	background-color: #fefefe;
 
 }
 
@@ -39,9 +39,10 @@ body {
 }
 
 #cms-grid-header h1 {
-	font-size: 1.8rem;
-	padding: 0 10px;
+	font-size: 2.2rem;
+	padding: 20px;
 	line-height: 20px;
+	margin: 0;
 }
 
 #cms-file-entry {
@@ -57,6 +58,7 @@ body {
 label {
 	padding-right: 20px;
 }
+
 
 #cms-track-name {
 	grid-row: 3/span 1;
@@ -122,8 +124,12 @@ label {
 	height: 40px;
 }
 
+.table-container {
+	max-width: 80%;
+	margin: 50px auto;
+}
+
 .table-container table{
-	max-width: 1620px;
-	margin: auto;
-	min-height: 600px;
+
+	min-height: 1000px;
 }
