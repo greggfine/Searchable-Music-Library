@@ -118,7 +118,11 @@
     <tbody>
       <tr id="table-body-row">
        <td >
-        <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" value="<%= file.filename %>"><strong><%= file.metadata.trackname %></strong>
+        <!-- <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
+        value="<%= file.filename %>"><strong><%= file.metadata.trackname %></strong>
+        </button> -->
+        <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
+        value="<%= file.filename %>"><strong><%= file.filename %></strong>
         </button>
        </td>
        <td><%= file.metadata.length %></td>

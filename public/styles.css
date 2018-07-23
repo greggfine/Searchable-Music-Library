@@ -2,7 +2,8 @@ body {
 	font-family: Arial, sans-serif;
 	box-sizing: border-box;
 	margin: 0;
-	background-color: #f1f1f1;
+	/* background-color: blue; */
+	/* background-color: #f1f1f1; */
 }
 
 .available-span {
@@ -30,6 +31,17 @@ body {
 	background-color: #61892f;
 	color: #fff;
 }
+
+#btn-stop:hover, #btn-play:hover, #btn-pause:hover {
+	cursor: pointer;
+	/* color: blue; */
+}
+
+/* #btn-stop:hover {
+	color: blue;
+} */
+
+
 
 .chevron-icon {
 	color: #fff;
@@ -76,6 +88,12 @@ body {
 .download-icon {
 	/*padding-bottom: 100px;*/
 	color: darkorange;
+	opacity: .9;
+}
+
+.download-icon:hover {
+	transform: scale(1.2);
+	opacity: 1;
 }
 
 .edit-button {

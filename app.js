@@ -17,7 +17,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use(require('express-session')({
 	secret: 'Rusty is the best and cutest dog in the world',
@@ -211,7 +211,9 @@ app.put('/files/:filename', isLoggedIn, function(req,res){
 	    description = req.body.description,
 	    id 			= req.body.id,
 	    trackname   = req.body.trackname;
+	    filename   = req.body.filename;
     gfs.files.update({'filename': req.params.filename}, {'$set': {
+			'filename': filename,
 	    	'metadata.genre': 		genre, 
 	    	'metadata.available':   available, 
 	    	'metadata.length':      length,

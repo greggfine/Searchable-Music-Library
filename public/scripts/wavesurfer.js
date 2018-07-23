@@ -27,6 +27,8 @@
      buttons.stop.disabled = false;
      buttons.pause.disabled = false;
      buttons.play.disabled = true;
+     buttons.play.style.color = 'blue';
+     buttons.pause.style.color = 'black';
  }, false);
 
  // Handle Pause button
@@ -36,6 +38,8 @@
      // Enable/Disable respectively buttons
      buttons.pause.disabled = true;
      buttons.play.disabled = false;
+     buttons.play.style.color = 'black';
+     buttons.pause.style.color = 'grey';
  }, false);
 
 
@@ -47,6 +51,7 @@
      buttons.pause.disabled = true;
      buttons.play.disabled = false;
      buttons.stop.disabled = true;
+     buttons.play.style.color = 'black';
  }, false);
 
 
@@ -86,7 +91,8 @@ window.onload = function(){
 
     // Spectrum.load('http://127.0.0.1:8080/audio/' + current.value)
 	// Spectrum.load('https://vast-dusk-24076.herokuapp.com/audio/' + current.textContent)
-	trackTitle.innerHTML = current.textContent;
+    trackTitle.innerHTML = current.textContent;
+    downloader.setAttribute('href', 'http://localhost:8080/audio/' + current.textContent);
 }
 
   function runIt(trackName, data){
