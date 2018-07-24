@@ -16,7 +16,7 @@
      height: 64,
      pixelRatio: 1,
      responsive: true,
-     scrollParent: false
+     scrollParent: false,
  });
 
  // Handle Play button
@@ -102,7 +102,20 @@ window.onload = function(){
     
     // var curTrack = 'http://127.0.0.1:8080/audio/' + trackName;
   	// var curTrack = 'https://vast-dusk-24076.herokuapp.com/audio/' + trackName;
-	Spectrum.load(curTrack);
+    Spectrum.load(curTrack);
+
+    const volumeSlider = document.getElementById('volume-slider');
+    volumeSlider.addEventListener('input', function(e){
+        Spectrum.setVolume(e.target.value);
+    })
+
+    const timeDisplay = document.getElementById('time-display');
+
+
+    setInterval(function(){
+       timeDisplay.textContent = (Math.floor(Spectrum.getCurrentTime())) + 'sec'
+    }, 50)
+
 	downloader.setAttribute('href', curTrack);
 	trackTitle.innerHTML = data;
   }

@@ -328,6 +328,11 @@ table {
 	background-color: #fff;
 }
 
+#time-display {
+	border: 3px solid red;
+	padding: 20px;
+}
+
 .top-player{
 	padding-top: 270px;
 	position: fixed;

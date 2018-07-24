@@ -18,6 +18,14 @@
       <div id="info-display">
 
         <h2 id="track-title" style="font-size: 2rem; color: black; letter-spacing: 5px"></h2>
+
+        <div id="volume"> 
+          <label for="volume-slider"><strong>VOLUME</strong></label>
+         <input type="range" id="volume-slider" min=0 max=1 step=".01">
+        </div> 
+
+        <div id="time-display"></div>
+
         <div id="controls">
           <i class="fa fa-play fa-2x play-button" id="btn-play" value="Play" disabled="disabled"></i>
           <i class="fa fa-pause fa-2x" id="btn-pause" value="Pause" disabled="disabled"></i>
@@ -27,6 +35,7 @@
           </a>
         </div>
       </div>
+      
 
 
 
