@@ -17,6 +17,8 @@
      pixelRatio: 1,
      responsive: true,
      scrollParent: false,
+     backend: 'WebAudio'
+    //  backend: 'MediaElement'
  });
 
  // Handle Play button

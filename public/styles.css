@@ -223,6 +223,45 @@ h1:after {
 	width: 50%;
 }
 
+#login-header {
+	font-size: 6rem;
+}
+
+#login-inputs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	transform: translateY(-25%);
+	/* border: 1px solid #000; */
+}
+
+#login-inputs input {
+	padding: 10px;
+	margin: 10px;
+	width: 300px;
+}
+
+#login-inputs button {
+	margin-top: 10px;
+	border-radius: 7px;
+	padding: .75rem 2rem;
+	background-color: green;
+	color: #fff;
+	box-shadow: 3px 4px 0px 0px #a8c884;
+	font-size: 1.2rem;
+}
+
+#login-inputs button:hover {
+	color: green;
+	background-color: #eee;
+}
+
+#login-logo {
+	margin-left: 10%;
+}
+
 #logo {
 	width: 180px;
 	height: 180px;
@@ -253,6 +292,7 @@ h1:after {
 
 nav {
 	background-color: #fff;
+	height: 200px;
 }
 
 
