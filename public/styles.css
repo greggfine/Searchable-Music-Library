@@ -53,7 +53,8 @@ body {
 }
 
 .container {
-	max-width: 1920px;
+	max-width: 90%;
+	/* max-width: 1920px; */
 	margin: auto;
 }
 
@@ -76,7 +77,7 @@ body {
 }
 
 #current-track {
-	font-size: 1.2rem;
+	font-size: 1rem;
 }
 
 #info-display {
@@ -86,6 +87,7 @@ body {
 	display: -o-flex;
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
 	width: 100%;
 	-ms-align-items: center;
 	align-items: center;
@@ -320,6 +322,7 @@ h1:after {
 	color: #fff;
 	background-color: rgb(8, 145, 8);
 }
+
 
 .master-player {
 	padding-left: 200px;
@@ -601,6 +604,97 @@ input[type=range] {
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
+}
+
+
+
+
+@media screen and (max-width: 600px){
+	#info-display {
+		flex-direction: column;
+		justify-content: center;
+		width: 95%;
+		-ms-align-items: center;
+		align-items: center;
+		margin: 50px 0;
+		border: none;
+		padding: 10px;
+		box-shadow: none;
+		background-color: #fff;
+	}
+
+	#logo {
+		width: 70px;
+		height: 70px;
+		padding: 5px;
+		/* margin: auto;
+		display: block; */
+	}
+
+	#controls {
+		border: 1px solid #ccc;
+		padding: 30px 10px 10px 10px;
+		box-shadow: none;
+	}
+
+	.container {
+		max-width: 95%;
+		margin: auto;
+	}
+
+	#current-track {
+		font-size: .75rem;
+	}
+
+	footer {
+		height: 100px;
+	}
+	
+	footer p {
+		text-align: center;
+		font-size: .70rem;
+	}
+
+	#genres-box {
+		padding: 5px;
+	}
+
+	#waveform {
+		margin: 10px auto 40px auto;
+	}
+
+	.search-card {
+		border: 1px solid green;
+		margin: 30px auto 20px auto;
+	}
+
+	table {
+		/* width: 55%; */
+		/* margin: 100px 0; */
+		margin:  60px auto;
+		/* max-width: 40px; */
+	}
+
+	#table-header-row th{
+		padding: 10px;
+		font-size: .75rem
+	}
+
+	#table-body-row td {
+		padding: 5px;
+		font-size: .70rem
+	}
+
+	#track-title {
+		font-size: 1.4rem;
+		max-width: 400px;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	#time-display {
+	padding: 20px;
+	}
 }
 
 
