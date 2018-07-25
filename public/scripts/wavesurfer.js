@@ -119,5 +119,13 @@ window.onload = function(){
     }, 50)
 
 	downloader.setAttribute('href', curTrack);
-	trackTitle.innerHTML = data;
+    trackTitle.innerHTML = data;
+    
+    // var responsiveWave = Spectrum.util.debounce(function() {
+    //   Spectrum.empty();
+    //   Spectrum.drawBuffer();
+    // }, 150);
+    
+    // window.addEventListener('resize', responsiveWave);
   }
+

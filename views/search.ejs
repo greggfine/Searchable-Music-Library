@@ -131,7 +131,7 @@
         value="<%= file.filename %>"><strong><%= file.metadata.trackname %></strong>
         </button> -->
         <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
-        value="<%= file.filename %>"><strong><%= file.filename %></strong>
+        value="<%= file.filename %>"><strong><%= file.filename.replace('_HiddenTigerMusic.mp3', '') %></strong>
         </button>
        </td>
        <td><%= file.metadata.length %></td>
