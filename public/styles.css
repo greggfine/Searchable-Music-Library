@@ -15,7 +15,7 @@ html, body {
 
 #body {
 	/* padding:10px; */
-	padding-bottom:150px;   /* Height of the footer */
+	padding-bottom:250px;   /* Height of the footer */
 	/* margin-left: -10px; */
 	margin: auto;
  }
@@ -60,6 +60,7 @@ html, body {
 .chevron-icon {
 	color: #fff;
 	font-size: 1.5rem;
+	padding-left: 10px;
 }
 
 .container {
@@ -150,7 +151,7 @@ html, body {
 
 footer {
 	background-color: rgba(249, 250, 243, .4);
-	height: 150px;
+	height: 250px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -440,6 +441,25 @@ nav {
 	justify-content: space-around;
 }
 
+#social-icons {
+	display: flex;
+	/* border: 1px solid #000; */
+	font-size: 2rem;
+	margin: auto;
+	justify-content: space-between;
+}
+
+#social-icons a {
+	padding: 0 20px 0 20px;
+	margin-right: 10px;
+	color: #000;
+}
+
+#social-icons a:hover {
+	color: red;
+	cursor: pointer;
+}
+
 #speaker-icon {
 	color: green;
 	position: absolute;
@@ -537,6 +557,23 @@ table {
 	cursor: pointer;
 	background-color: #d3d3d300;
 	color: red;
+}
+
+#username, #password {
+    border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.8);
+	margin: 0 0 10px 0;
+	font-size: 1rem;
 }
 
 .video__item {

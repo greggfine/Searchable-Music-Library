@@ -27,6 +27,11 @@
 								<label for="trackname">Track Name</label>
 								<input type="text" name="trackname" id="trackname" value="<%=file.metadata.trackname%>">
 							</div> -->
+
+							<div id="cms-track-alt">
+									<label for="alt">Alt Title</label>
+									<input type="text" name="alt" id="alt" value="<%=file.metadata.alt%>" >
+							</div>
 					
 							<div id="cms-track-id">
 								<label for="id">ID</label>
@@ -40,10 +45,9 @@
 						
 								<p>_HiddenTigerMusic.mp3</p>
 			
-								<div class="genre">
+								<!-- <div class="genre">
 									<label for="genre">Genre</label>
 									<select class="custom-select" id="genre"  name="genre" multiple="multiple" style="height: 100px">
-									<!-- <select class="custom-select" id="genre"  value="<%=file.metadata.genre%>" name="genre" multiple="multiple" style="height: 100px"> -->
 											 <option value="<%=file.metadata.genre%>" selected><%=file.metadata.genre%></option>
 											 <option value="acoustic">Acoustic</option>
 											 <option value="alternative">Alternative</option>
@@ -99,7 +103,187 @@
 											 <option value="zydeco">Zydeco</option>
 										   </select>
 								</div>
-			
+			 -->
+
+			 <div class="genre">
+					<label for="genre">Genre 1</label>
+					<select class="custom-select" id="genre"  name="genre">
+					<!-- <select class="custom-select" id="genre"  value="<%=file.metadata.genre%>" name="genre" multiple="multiple" style="height: 100px"> -->
+							 <option value="<%=file.metadata.genre%>" selected><%=file.metadata.genre%></option>
+							 <option value="acoustic">Acoustic</option>
+							 <option value="alternative">Alternative</option>
+							 <option value="ambient">Ambient</option>
+							 <option value="americana">Americana</option>
+							 <option value="blues">Blues</option>
+							 <option value="bossa">Bossa</option>
+							 <option value="brazilian">Brazilian</option>
+							 <option value="breakbeat">Breakbeat</option>
+							 <option value="childrens">Childrens</option>
+							 <option value="chill">Chill</option>
+							 <option value="christmas">Christmas</option>
+							 <option value="classical">Classical</option>
+							 <option value="country">Country</option>
+							 <option value="dance">Dance</option>
+							 <option value="downtempo">Downtempo</option>
+							 <option value="dubstep">Dubstep</option>
+							 <option value="disco">Disco</option>
+							 <option value="drums">Drums/Percussion</option>
+							 <option value="easy listening">Easy Listening</option>
+							 <option value="eighties">Eighties</option>
+							 <option value="electronic">Electronic</option>
+							 <option value="epic">Epic</option>
+							 <option value="fanfare">Fanfare</option>
+							 <option value="funk">Funk</option>
+							 <option value="halloween">Halloween</option>
+							 <option value="hardcore">Hardcore</option>
+							 <option value="hard rock">Hard Rock</option>
+							 <option value="hip hop">Hip Hop</option>
+							 <option value="holiday">Holiday</option>
+							 <option value="house">House</option>
+							 <option value="indie">Indie</option>
+							 <option value="jazz">Jazz</option>
+							 <option value="jungle">Jungle</option>
+							 <option value="latin">Latin</option>
+							 <option value="lounge">Lounge</option>
+							 <option value="march">March</option>
+							 <option value="mnemonic">Mnemonic</option>
+							 <option value="new age">New Age</option>
+							 <option value="orchestral">Orchestral</option>
+							 <option value="pop">Pop</option>
+							 <option value="psychedelic">Psychedelic</option>
+							 <option value="rap">Rap</option>
+							 <option value="reggae">Reggae</option>
+							 <option value="retro">Retro</option>
+							 <option value="rock">Rock</option>
+							 <option value="ska">Ska</option>
+							 <option value="soul">Soul</option>
+							 <option value="techno">Techno</option>
+							 <option value="trip hop">Trip Hop</option>
+							 <option value="vocal">Vocal</option>
+							 <option value="world">World</option>
+							 <option value="zydeco">Zydeco</option>
+						   </select>
+				</div>
+
+				<div class="genre2">
+						<label for="genre2">Genre 2</label>
+						<select class="custom-select" id="genre2"  name="genre2">
+						<!-- <select class="custom-select" id="genre"  value="<%=file.metadata.genre%>" name="genre" multiple="multiple" style="height: 100px"> -->
+								 <option value="<%=file.metadata.genre2%>" selected><%=file.metadata.genre2%></option>
+								 <option value="acoustic">Acoustic</option>
+								 <option value="alternative">Alternative</option>
+								 <option value="ambient">Ambient</option>
+								 <option value="americana">Americana</option>
+								 <option value="blues">Blues</option>
+								 <option value="bossa">Bossa</option>
+								 <option value="brazilian">Brazilian</option>
+								 <option value="breakbeat">Breakbeat</option>
+								 <option value="childrens">Childrens</option>
+								 <option value="chill">Chill</option>
+								 <option value="christmas">Christmas</option>
+								 <option value="classical">Classical</option>
+								 <option value="country">Country</option>
+								 <option value="dance">Dance</option>
+								 <option value="downtempo">Downtempo</option>
+								 <option value="dubstep">Dubstep</option>
+								 <option value="disco">Disco</option>
+								 <option value="drums">Drums/Percussion</option>
+								 <option value="easy listening">Easy Listening</option>
+								 <option value="eighties">Eighties</option>
+								 <option value="electronic">Electronic</option>
+								 <option value="epic">Epic</option>
+								 <option value="fanfare">Fanfare</option>
+								 <option value="funk">Funk</option>
+								 <option value="halloween">Halloween</option>
+								 <option value="hardcore">Hardcore</option>
+								 <option value="hard rock">Hard Rock</option>
+								 <option value="hip hop">Hip Hop</option>
+								 <option value="holiday">Holiday</option>
+								 <option value="house">House</option>
+								 <option value="indie">Indie</option>
+								 <option value="jazz">Jazz</option>
+								 <option value="jungle">Jungle</option>
+								 <option value="latin">Latin</option>
+								 <option value="lounge">Lounge</option>
+								 <option value="march">March</option>
+								 <option value="mnemonic">Mnemonic</option>
+								 <option value="new age">New Age</option>
+								 <option value="orchestral">Orchestral</option>
+								 <option value="pop">Pop</option>
+								 <option value="psychedelic">Psychedelic</option>
+								 <option value="rap">Rap</option>
+								 <option value="reggae">Reggae</option>
+								 <option value="retro">Retro</option>
+								 <option value="rock">Rock</option>
+								 <option value="ska">Ska</option>
+								 <option value="soul">Soul</option>
+								 <option value="techno">Techno</option>
+								 <option value="trip hop">Trip Hop</option>
+								 <option value="vocal">Vocal</option>
+								 <option value="world">World</option>
+								 <option value="zydeco">Zydeco</option>
+							   </select>
+					</div>
+
+					<div class="genre3">
+							<label for="genre3">Genre 3</label>
+							<select class="custom-select" id="genre3"  name="genre3">
+							<!-- <select class="custom-select" id="genre"  value="<%=file.metadata.genre%>" name="genre" multiple="multiple" style="height: 100px"> -->
+									 <option value="<%=file.metadata.genre3%>" selected><%=file.metadata.genre3%></option>
+									 <option value="acoustic">Acoustic</option>
+									 <option value="alternative">Alternative</option>
+									 <option value="ambient">Ambient</option>
+									 <option value="americana">Americana</option>
+									 <option value="blues">Blues</option>
+									 <option value="bossa">Bossa</option>
+									 <option value="brazilian">Brazilian</option>
+									 <option value="breakbeat">Breakbeat</option>
+									 <option value="childrens">Childrens</option>
+									 <option value="chill">Chill</option>
+									 <option value="christmas">Christmas</option>
+									 <option value="classical">Classical</option>
+									 <option value="country">Country</option>
+									 <option value="dance">Dance</option>
+									 <option value="downtempo">Downtempo</option>
+									 <option value="dubstep">Dubstep</option>
+									 <option value="disco">Disco</option>
+									 <option value="drums">Drums/Percussion</option>
+									 <option value="easy listening">Easy Listening</option>
+									 <option value="eighties">Eighties</option>
+									 <option value="electronic">Electronic</option>
+									 <option value="epic">Epic</option>
+									 <option value="fanfare">Fanfare</option>
+									 <option value="funk">Funk</option>
+									 <option value="halloween">Halloween</option>
+									 <option value="hardcore">Hardcore</option>
+									 <option value="hard rock">Hard Rock</option>
+									 <option value="hip hop">Hip Hop</option>
+									 <option value="holiday">Holiday</option>
+									 <option value="house">House</option>
+									 <option value="indie">Indie</option>
+									 <option value="jazz">Jazz</option>
+									 <option value="jungle">Jungle</option>
+									 <option value="latin">Latin</option>
+									 <option value="lounge">Lounge</option>
+									 <option value="march">March</option>
+									 <option value="mnemonic">Mnemonic</option>
+									 <option value="new age">New Age</option>
+									 <option value="orchestral">Orchestral</option>
+									 <option value="pop">Pop</option>
+									 <option value="psychedelic">Psychedelic</option>
+									 <option value="rap">Rap</option>
+									 <option value="reggae">Reggae</option>
+									 <option value="retro">Retro</option>
+									 <option value="rock">Rock</option>
+									 <option value="ska">Ska</option>
+									 <option value="soul">Soul</option>
+									 <option value="techno">Techno</option>
+									 <option value="trip hop">Trip Hop</option>
+									 <option value="vocal">Vocal</option>
+									 <option value="world">World</option>
+									 <option value="zydeco">Zydeco</option>
+								   </select>
+						</div>
 											
 								<div class="available">
 									<label for="available">Available</label>

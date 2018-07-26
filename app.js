@@ -138,6 +138,8 @@ function isLoggedIn(req, res, next) {
 // ==================
 app.get('/search', isLoggedIn, function(req, res, value) {
 		var genre 		= req.query.genre,
+		    // genre2 		= req.query.genre2,
+		    // genre3 		= req.query.genre3,
 		    length 		= req.query.length,
 		    available 	= req.query.available,
 		    bpm 		= req.query.bpm;
@@ -145,6 +147,8 @@ app.get('/search', isLoggedIn, function(req, res, value) {
 					{
 						$or: [ 
 								{ 'metadata.genre': genre }, 
+								{ 'metadata.genre2': genre }, 
+								{ 'metadata.genre3': genre }, 
 								{ 'metadata.length': length },
 								{ 'metadata.available': available },
 								{ 'metadata.bpm': bpm }
@@ -204,23 +208,29 @@ app.get('/files/:filename/edit', isLoggedIn, function(req, res) {
 // ==================
 
 app.put('/files/:filename', isLoggedIn, function(req,res){
-	var genre       = req.body.genre,
+	var genre1       = req.body.genre1,
+	    genre2       = req.body.genre2,
+	    genre3       = req.body.genre3,
 	 	available   = req.body.available,
 		length      = req.body.length,
 		bpm         = req.body.bpm,
 	    description = req.body.description,
 	    id 			= req.body.id,
-	    trackname   = req.body.trackname;
-	    filename   = req.body.filename;
+		trackname   = req.body.trackname;
+		alt 	    = req.body.alt;
+	    filename    = req.body.filename;
     gfs.files.update({'filename': req.params.filename}, {'$set': {
 			'filename': filename,
-	    	'metadata.genre': 		genre, 
+	    	'metadata.genre1': 		genre1, 
+	    	'metadata.genre2': 		genre2, 
+	    	'metadata.genre3': 		genre3, 
 	    	'metadata.available':   available, 
 	    	'metadata.length':      length,
 	    	'metadata.bpm': 		bpm,
 	    	'metadata.description': description,
 	    	'metadata.id': 			id,
-	    	'metadata.trackname':   trackname
+	    	'metadata.trackname':   trackname,
+	    	'metadata.alt':   	    alt
     	}})
         res.redirect('/filemanager');
     })
