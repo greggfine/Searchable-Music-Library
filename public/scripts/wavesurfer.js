@@ -1,7 +1,6 @@
 // Store the 3 buttons in some object
  var buttons = {
      play: document.getElementById("btn-play"),
-     pause: document.getElementById("btn-pause"),
      stop: document.getElementById("btn-stop")
  };
 
@@ -17,85 +16,27 @@
      pixelRatio: 1,
      responsive: true,
      scrollParent: false,
-     backend: 'WebAudio'
-    //  backend: 'MediaElement'
+     barWidth: 1
  });
-
- // Handle Play button
- buttons.play.addEventListener("click", function(){
-     Spectrum.play();
-
-     // Enable/Disable respectively buttons
-     buttons.stop.disabled = false;
-     buttons.pause.disabled = false;
-     buttons.play.disabled = true;
-     buttons.play.style.color = 'blue';
-     buttons.pause.style.color = 'black';
- }, false);
-
- // Handle Pause button
- buttons.pause.addEventListener("click", function(){
-     Spectrum.pause();
-
-     // Enable/Disable respectively buttons
-     buttons.pause.disabled = true;
-     buttons.play.disabled = false;
-     buttons.play.style.color = 'black';
-     buttons.pause.style.color = 'grey';
- }, false);
-
-
- // Handle Stop button
- buttons.stop.addEventListener("click", function(){
-     Spectrum.stop();
-
-     // Enable/Disable respectively buttons
-     buttons.pause.disabled = true;
-     buttons.play.disabled = false;
-     buttons.stop.disabled = true;
-     buttons.play.style.color = 'black';
- }, false);
-
-
- // Add a listener to enable the play button once it's ready
- Spectrum.on('ready', function () {
-     buttons.play.disabled = false;
-    
- });
-
 
  var trackTitle = document.getElementById('track-title');
- // If you want a responsive mode (so when the user resizes the window)
- // the spectrum will be still playable
- window.addEventListener("resize", function(){
-     // Get the current progress according to the cursor position
-     var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
+ var current = document.getElementById("current-track");
 
-     // Reset graph
-     Spectrum.empty();
-     Spectrum.drawBuffer();
-     // Set original position
-     Spectrum.seekTo(currentProgress);
 
-     // Enable/Disable respectively buttons
-     buttons.pause.disabled = true;
-     buttons.play.disabled = false;
-     buttons.stop.disabled = false;
- }, false);
 
- // Load the audio file from your domain !
 
-  var current = document.getElementById("current-track");
 
-window.onload = function(){
-    // Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.value);
-	Spectrum.load('http://localhost:8080/audio/' + current.textContent)
 
-    // Spectrum.load('http://127.0.0.1:8080/audio/' + current.value)
-	// Spectrum.load('https://vast-dusk-24076.herokuapp.com/audio/' + current.textContent)
-    trackTitle.innerHTML = current.textContent;
-    downloader.setAttribute('href', 'http://localhost:8080/audio/' + current.textContent);
-}
+
+
+
+
+
+
+
+//  let playState = false;
+
+
 
   function runIt(trackName, data){
     // var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/' + trackName;
@@ -104,28 +45,108 @@ window.onload = function(){
     
     // var curTrack = 'http://127.0.0.1:8080/audio/' + trackName;
   	// var curTrack = 'https://vast-dusk-24076.herokuapp.com/audio/' + trackName;
-    Spectrum.load(curTrack);
+      
+      Spectrum.load(curTrack);
 
+
+      document.getElementById('progress').style.display = 'block';
+
+    Spectrum.on('loading', function (percents) {
+        document.getElementById('progress').innerHTML = `${percents}% loading...`;
+        // buttons.play.style.color = 'black';
+
+      });  
+    Spectrum.on('ready', function (percents) {
+        document.getElementById('progress').style.display = 'none';
+        // Spectrum.play();
+        // playState = true;
+        // buttons.play.style.color = 'red';
+    });  
+
+    var playState = false;
+    buttons.play.classList.remove('fa-pause');
+    buttons.play.classList.add('fa-play');
+
+
+
+    buttons.play.addEventListener("click", function(e){
+        if(!playState){
+            playState = true;
+            Spectrum.play();
+            //  e.target.classList.remove('fa-play')
+            e.target.classList.add('fa-pause')
+            // e.target.style.color = 'grey'
+           //  buttons.stop.disabled = false;
+           //  buttons.play.disabled = true;
+   
+        } else{
+           playState = false;
+           Spectrum.pause();
+           e.target.classList.remove('fa-pause')
+           e.target.classList.add('fa-play')
+           // e.target.classList.add('fa-play')
+           // e.target.style.color = 'grey'
+           // e.target.classList.remove('fa-play')
+           // buttons.play.disabled = false;
+        }
+    });
+   
+    buttons.stop.addEventListener("click", function(){
+        playState = false;
+        Spectrum.stop();
+        buttons.play.classList.remove('fa-pause')
+        buttons.pause.classList.add('fa-play')
+       //  buttons.play.disabled = false;
+       //  buttons.stop.disabled = true;
+       //  buttons.play.style.color = 'black';
+    }, false);
+   
+    
     const volumeSlider = document.getElementById('volume-slider');
     volumeSlider.addEventListener('input', function(e){
         Spectrum.setVolume(e.target.value);
     })
 
-    const timeDisplay = document.getElementById('time-display');
 
-
-    setInterval(function(){
-       timeDisplay.textContent = (Math.floor(Spectrum.getCurrentTime())) + 'sec'
-    }, 50)
 
 	downloader.setAttribute('href', curTrack);
     trackTitle.innerHTML = data;
     
-    // var responsiveWave = Spectrum.util.debounce(function() {
-    //   Spectrum.empty();
-    //   Spectrum.drawBuffer();
-    // }, 150);
-    
-    // window.addEventListener('resize', responsiveWave);
   }
+
+
+
+
+
+
+   
+ window.onload = function(){
+     // Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.value);
+     Spectrum.load('http://localhost:8080/audio/' + current.textContent)
+ 
+     // Spectrum.load('http://127.0.0.1:8080/audio/' + current.value)
+     // Spectrum.load('https://vast-dusk-24076.herokuapp.com/audio/' + current.textContent)
+     trackTitle.innerHTML = current.textContent;
+     downloader.setAttribute('href', 'http://localhost:8080/audio/' + current.textContent);
+
+     buttons.play.classList.add('fa-play');
+ }
+ 
+
+
+   // If you want a responsive mode (so when the user resizes the window)
+ // the spectrum will be still playable
+ window.addEventListener("resize", function(){
+    // Get the current progress according to the cursor position
+    var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
+
+
+    // Set original position
+    Spectrum.seekTo(currentProgress);
+
+    // buttons.pause.disabled = true;
+    // buttons.play.disabled = false;
+    // buttons.stop.disabled = false;
+}, false);
+
 

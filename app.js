@@ -222,7 +222,7 @@ app.put('/files/:filename', isLoggedIn, function(req,res){
 	    	'metadata.id': 			id,
 	    	'metadata.trackname':   trackname
     	}})
-        res.redirect('/cms');
+        res.redirect('/filemanager');
     })
 
 
