@@ -16,7 +16,7 @@
      pixelRatio: 1,
      responsive: true,
      scrollParent: false,
-     barWidth: 1
+    //  barWidth: 3
  });
 
  var trackTitle = document.getElementById('track-title');

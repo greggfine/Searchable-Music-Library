@@ -23,6 +23,9 @@
           <!-- <img id="image-box-pexel" src="images/pexels/structure-light-led-movement-158826.jpg" alt=""> -->
         </div>
 
+
+    <div id="body">
+
       <div id="info-display">
 
         <h2 id="track-title" ></h2>
@@ -117,45 +120,47 @@
 
  </div>
   
+ <!-- <div id="table-grouping"> -->
+   <table>
+      <!-- <p id="message"><i>Click a track name to play...</i></p> -->
+      <thead>
+        <tr id="table-header-row">
+          <th>Trackname</th>
+          <th>Length</th>
+          <th>BPM</th>
+          <th>Description</th>
+        </tr>
+      </thead>
 
+      <% if(files){ %>
+      <% files.forEach(function(file) {%>
+    
+      <tbody>
+        <tr id="table-body-row">
+        <td >
+          <!-- <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
+          value="<%= file.filename %>"><strong><%= file.metadata.trackname %></strong>
+          </button> -->
+          <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
+          value="<%= file.filename %>"><strong><%= file.filename.replace('_HiddenTigerMusic.mp3', '') %></strong>
+          </button>
+        </td>
+        <td><%= file.metadata.length %></td>
+        <td><%= file.metadata.bpm %></td>
+        <td><%= file.metadata.description %></td>             
+        </tr> 
 
-  <table>
-    <thead>
-      <tr id="table-header-row">
-        <th>Trackname</th>
-        <th>Length</th>
-        <th>BPM</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+      <% })%>
+      <% } else {  %>
+        <p>No files to show</p>
+      <% } %>
+      </tbody>
+    </table>
+<!-- </div> -->
 
-    <% if(files){ %>
-    <% files.forEach(function(file) {%>
-  
-    <tbody>
-      <tr id="table-body-row">
-       <td >
-        <!-- <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
-        value="<%= file.filename %>"><strong><%= file.metadata.trackname %></strong>
-        </button> -->
-        <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
-        value="<%= file.filename %>"><strong><%= file.filename.replace('_HiddenTigerMusic.mp3', '') %></strong>
-        </button>
-       </td>
-       <td><%= file.metadata.length %></td>
-       <td><%= file.metadata.bpm %></td>
-       <td><%= file.metadata.description %></td>             
-      </tr> 
+</div>    
 
-    <% })%>
-    <% } else {  %>
-       <p>No files to show</p>
-    <% } %>
-    </tbody>
-  </table>
-
-
-<footer>
+<footer class="home-bg">
   <a href="/logout" class="logout" >
     <i class="fa fa-sign-out" id="logout-icon"> <span> Logout</span> </i>
   </a>
