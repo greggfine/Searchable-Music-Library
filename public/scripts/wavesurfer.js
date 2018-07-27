@@ -62,6 +62,45 @@
         // buttons.play.style.color = 'red';
     });  
 
+
+    // =============== TIME DISPLAY  =========================
+
+    // var formatTime = function (time) {
+    //     return [
+    //         Math.floor((time % 3600) / 60), // minutes
+    //         ('00' + Math.floor(time % 60)).slice(-2) // seconds
+    //     ].join(':');
+    // };
+
+    var formatTime = function (time) {
+        return [
+            Math.floor((time % 3600) / 60), // minutes
+            ('00' + Math.floor(time % 60)).slice(-2) // seconds
+        ].join(':');
+    };
+    
+    
+
+    const timeDisplay = document.getElementById('time-display');
+    const timeDisplay2 = document.getElementById('time-display2');
+
+
+    // Show current time
+ Spectrum.on('audioprocess', function () {
+    timeDisplay.textContent = ( formatTime(Spectrum.getCurrentTime()) );
+});
+
+// Show clip duration
+  Spectrum.on('ready', function () {
+    timeDisplay2.textContent = ( formatTime(Spectrum.getDuration()) );
+});
+
+// =============== TIME DISPLAY  =========================
+
+
+
+
+
     var playState = false;
     buttons.play.classList.remove('fa-pause');
     buttons.play.classList.add('fa-play');
@@ -110,6 +149,12 @@
 
 	downloader.setAttribute('href', curTrack);
     trackTitle.innerHTML = data;
+
+
+
+    // setInterval(function(){
+    //    timeDisplay.textContent = (Math.floor(Spectrum.getCurrentTime())) + 'sec'
+    // }, 50)
     
   }
 

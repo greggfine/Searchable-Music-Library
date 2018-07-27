@@ -532,9 +532,9 @@ table {
 	font-size: 1rem
 }
 
-#time-display::before {
+/* #time-display::before {
 	content: '00:'
-}
+} */
 
 .top-player{
 	padding-top: 270px;
