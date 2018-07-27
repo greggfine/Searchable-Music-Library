@@ -3,7 +3,7 @@ To push new version to Heroku:
 
 
 Heroku vs. Production differences:
-	index.ejs:
+	index.ejs:  (filemanager)
 			Lines 146, 198
 
 	public/scripts/wavesurfer.js:

@@ -2,6 +2,11 @@ html {
 	font-size: 16px;
 }
 
+.available {
+	grid-row: 4/span 1;
+	grid-column: 5/6;
+}
+
 body {
 	margin: 0;
 	-webkit-box-sizing: border-box;
@@ -10,14 +15,26 @@ body {
 	color: #000;
 }
 
+.bpm {
+	grid-row: 4/span 1;
+	grid-column: 7/9;
+}
+
 .cms-controls {
 	display: grid;
 	grid-template-rows: 20px 120px 120px 160px 120px 260px;
 	grid-template-columns: repeat(8, 1fr);
 	padding: 0 50px;
-	
 }
 
+#cms-file-entry {
+	grid-row: 2/span 1;
+}
+
+#cms-file-entry input{
+	margin-left: 20px;
+	color: red;
+}
 
 #cms-grid {
 	border-radius: 15px;
@@ -26,11 +43,9 @@ body {
 	display: grid;
 	max-width: 1620px;
 	background-color: #fefefe;
-
 }
 
 #cms-grid-header {
-	/*text-shadow: 3px 1px 5px grey;*/
 	color: #fff;
 	background-color: lightgrey;
 	grid-column: 1/span 8;
@@ -45,21 +60,6 @@ body {
 	line-height: 20px;
 	margin: 0;
 }
-
-#cms-file-entry {
-	grid-row: 2/span 1;
-}
-
-#cms-file-entry input{
-	margin-left: 20px;
-	color: red;
-}
-
-
-label {
-	padding-right: 20px;
-}
-
 
 #cms-track-alt {
 	grid-row: 3/span 1;
@@ -79,6 +79,14 @@ label {
 		width: 50%;
 }
 
+.description {
+	grid-row: 5/span 1;
+	grid-column: 1/span 9;
+}
+
+.description textarea{
+	width: 100%;
+}
 
 .genre {
 	grid-row: 4/span 1;
@@ -95,33 +103,13 @@ label {
 	grid-column: 3/4;
 }
 
-/* .genre label, .genre2 label, .genre3 label {
-	position: relative;
-	top: -80px;
-} */
-
-.available {
-	grid-row: 4/span 1;
-	grid-column: 5/6;
+label {
+	padding-right: 20px;
 }
 
 .length {
 	grid-row: 4/span 1;
 	grid-column: 6/7;
-}
-
-.bpm {
-	grid-row: 4/span 1;
-	grid-column: 7/9;
-}
-
-.description {
-	grid-row: 5/span 1;
-	grid-column: 1/span 9;
-}
-
-.description textarea{
-	width: 100%;
 }
 
 #submit-btn {
