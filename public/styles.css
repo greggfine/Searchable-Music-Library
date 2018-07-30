@@ -313,7 +313,8 @@ h1:after {
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
+	/* justify-content: space-around; */
 	flex-wrap: wrap;
 	width: 90%;
 	-ms-align-items: center;
@@ -329,6 +330,27 @@ h1:after {
 	border-radius: 10px;
 	/* border: 1px solid #000; */
 }
+
+#time-display-current-time {
+	padding-right: 5px;
+}
+
+#time-display-duration {
+	/* padding-right: 300px;	 */
+	font-weight: 500;
+}
+
+#time-display-group{
+	display: flex;
+	justify-content: center;
+	letter-spacing: 2px;
+}
+
+#title-duration{
+	/* text-align: center; */
+	padding-right: 300px;
+}
+
 
 input[type=range] {
 	-webkit-appearance: none;
@@ -632,6 +654,10 @@ table {
 	background-color: #fff;
 }
 
+
+
+
+
 .top-player{
 	padding-top: 270px;
 	position: fixed;
@@ -656,7 +682,7 @@ table {
 	/* color: #61892f; */
 	font-weight: bold;
 	/* text-shadow: 2px 2px var(--green1); */
-
+	flex-basis: 300px;
 }
 
 .trash-button {
@@ -843,9 +869,9 @@ table {
 		font-weight: bold;
 	}
 
-	#time-display {
+	/* #time-display {
 	padding: 20px;
-	}
+	} */
 
 	#waveform {
 		margin: 10px auto 40px auto;

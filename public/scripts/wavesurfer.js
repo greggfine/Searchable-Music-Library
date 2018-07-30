@@ -91,8 +91,8 @@
     
     
 
-    const timeDisplay = document.getElementById('time-display');
-    const timeDisplay2 = document.getElementById('time-display2');
+    const timeDisplay = document.getElementById('time-display-current-time');
+    const timeDisplay2 = document.getElementById('time-display-duration');
 
 
     // Show current time
@@ -102,7 +102,7 @@
 
 // Show clip duration
   Spectrum.on('ready', function () {
-    timeDisplay2.textContent = ( formatTime(Spectrum.getDuration()) );
+    timeDisplay2.textContent = '/ ' + ( formatTime(Spectrum.getDuration()) );
 });
 
 // =============== TIME DISPLAY  =========================
