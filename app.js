@@ -138,8 +138,6 @@ function isLoggedIn(req, res, next) {
 // ==================
 app.get('/search', isLoggedIn, function(req, res, value) {
 		var genre 		= req.query.genre,
-		    // genre2 		= req.query.genre2,
-		    // genre3 		= req.query.genre3,
 		    length 		= req.query.length,
 		    available 	= req.query.available,
 		    bpm 		= req.query.bpm;

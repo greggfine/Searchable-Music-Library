@@ -23,8 +23,8 @@ html, body {
 	background-repeat: no-repeat;
 	background-blend-mode: color-burn; */
 
-	background-image: url('images/01.jpg');
-	background-size: 2520px 1690px;
+	background-image: url('images/01b.jpg');
+	background-size: 3360px 1932px;
 	background-repeat: no-repeat;
 	background-position: right top;
 	/* background-color: 	hsl(437, 90%, 36%); */
@@ -247,9 +247,10 @@ h1:after {
 	content : attr(data-title);
 }
 
+
 .home-bg {
-	background-image: url('images/01.jpg');
-	background-size: 2520px 1690px;
+	background-image: url('images/01b.jpg');
+	background-size: 2560px 1132px;
 	background-repeat: no-repeat;
 	background-position: right top;
 	/* background-color: 	hsl(437, 90%, 36%); */
