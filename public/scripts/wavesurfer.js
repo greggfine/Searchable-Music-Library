@@ -1,3 +1,10 @@
+// --green1: rgb(195,211,178);
+// --green2: rgb(161,184,141);
+// --green3: rgb(68,89,66);
+// --tan: rgb(218,210,186);
+// --red: rgb(179,34,48);
+
+
 // Store the 3 buttons in some object
  var buttons = {
      play: document.getElementById("btn-play"),
@@ -9,8 +16,11 @@
  // Create an instance of wave surfer with its configuration
  var Spectrum = WaveSurfer.create({
      container: '#waveform',
-     waveColor: '#darkgrey',
-     progressColor: '#61892f',
+     progressColor: 'rgb(68,89,66)',
+    //  waveColor: 'rgb(195,211,178)',
+    //  waveColor: '#darkgrey',
+    waveColor: 'grey',
+    //  progressColor: '#61892f',
      cursorColor: '#999999',
      height: 44,
      pixelRatio: 1,
