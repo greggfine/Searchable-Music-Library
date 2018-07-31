@@ -4,16 +4,10 @@
   <meta charset="UTF-8">
   <title>HT Music Library</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Arimo:400,700|Fredericka+the+Great" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Voces" rel="stylesheet"> -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
-
 
   <header>
         <div id="waveform">
@@ -33,12 +27,6 @@
                 <p id="time-display-current-time"></p><p id="time-display-duration"></p>
               </div>
             </div>
-            
-     
-           
-
-            <!-- <span id="time-display" style="margin-right:-100px"></span>/
-            <span id="time-display2" style="margin-left:-100px"></span> -->
 
             <div id="controls">
               <i class="fa fa-play  play-button" id="btn-play" value="Play" disabled="disabled"></i>
@@ -51,13 +39,9 @@
                 <input type="range" id="volume-slider" min=0 max=1 step=".01">
                 <i class="fa fa-volume-up" id="speaker-icon"></i>
               </div> 
-          
-
+        
             </div>
 
-           
-
-           
          </div>
 
        </div>
@@ -70,7 +54,6 @@
 
  <div class="search-card">
 
-   
    <div id="genres-box">
      <i class="fa fa-chevron-right fa-1x chevron-icon"></i>
      <span class="genres-header">Genres</span>
@@ -137,12 +120,9 @@
     </div>
     </form>
 
-
  </div>
   
- <!-- <div id="table-grouping"> -->
    <table>
-      <!-- <p id="message"><i>Click a track name to play...</i></p> -->
       <thead>
         <tr id="table-header-row">
           <th>Trackname</th>
@@ -158,9 +138,6 @@
       <tbody>
         <tr id="table-body-row">
         <td >
-          <!-- <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
-          value="<%= file.filename %>"><strong><%= file.metadata.trackname %></strong>
-          </button> -->
           <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
           value="<%= file.filename %>"><strong><%= file.filename.replace('_HiddenTigerMusic.mp3', '') %></strong>
         </button>
@@ -212,9 +189,6 @@
     setSelectedIndex(myGenre, selectedGenre.textContent);
 </script>
   
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.5/wavesurfer.min.js"></script>
 <script src="scripts/wavesurfer.js"></script>
 </body>

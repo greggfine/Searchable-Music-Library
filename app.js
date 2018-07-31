@@ -108,7 +108,7 @@ app.get('/',  function(req, res) {
 // LOGIN Logic
 // Middleware
 app.post('/', passport.authenticate('local', {
-    successRedirect: '/search',
+    successRedirect: '/search', 
     failureRedirect: '/'
 }) ,function(req, res){
 });
@@ -136,25 +136,72 @@ function isLoggedIn(req, res, next) {
 // ==================
 //  	SEARCH
 // ==================
+// app.get('/search', isLoggedIn, function(req, res, value) {
+// 		var genre 		= req.query.genre,
+// 		    length 		= req.query.length,
+// 		    available 	= req.query.available,
+// 		    bpm 		= req.query.bpm;
+// 		gfs.files.find(
+// 					{
+// 						$or: [ 
+// 								{ 'metadata.genre': genre }, 
+// 								{ 'metadata.genre2': genre }, 
+// 								{ 'metadata.genre3': genre }, 
+// 								{ 'metadata.length': length },
+// 								{ 'metadata.available': available },
+// 								{ 'metadata.bpm': bpm }
+// 							 ]
+// 					})
+// 				  .toArray(function(err, files){
+// 					res.render('search', {files: files, genre: genre});
+// 				}) })
+
+
 app.get('/search', isLoggedIn, function(req, res, value) {
-		var genre 		= req.query.genre,
-		    length 		= req.query.length,
-		    available 	= req.query.available,
-		    bpm 		= req.query.bpm;
-		gfs.files.find(
-					{
-						$or: [ 
-								{ 'metadata.genre': genre }, 
-								{ 'metadata.genre2': genre }, 
-								{ 'metadata.genre3': genre }, 
-								{ 'metadata.length': length },
-								{ 'metadata.available': available },
-								{ 'metadata.bpm': bpm }
-							 ]
-					})
-				  .toArray(function(err, files){
-					res.render('search', {files: files, genre: genre});
-				}) })
+	var genre 		= req.query.genre,
+		length 		= req.query.length,
+		available 	= req.query.available,
+		bpm 		= req.query.bpm;
+		// if(!genre){
+		// 	gfs.files.find({
+		// 		'metadata.bpm': 'slow'
+		// 	})
+		// 	.toArray(function(err, files){
+		// 		res.render('search', {files: files, genre: genre});
+		// 	}) 
+			
+
+		// }
+		//  else {
+			gfs.files.find(
+				{  
+					// 'metadata.genre': { $in: ['acoustic', 'holiday']}
+					// 'metadata.bpm': 'fast',
+					'metadata.genre': genre,
+					
+					$or: [ 
+							{ 'metadata.genre': genre }, 
+							{ 'metadata.genre2': genre }, 
+							{ 'metadata.genre3': genre }, 
+					// 		{ 'metadata.length': length },
+					// 		{ 'metadata.available': available },
+					// 		{ 'metadata.bpm': bpm }
+						 ]
+				})
+
+
+
+			  .toArray(function(err, files){
+				res.render('search', {files: files, genre: genre});
+			}) 
+		// }
+
+
+})
+
+
+
+
 
 
 
