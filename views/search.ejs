@@ -52,108 +52,179 @@
  <div id="body">
 
 
- <div class="search-card">
 
-   <div id="genres-box">
-     <i class="fa fa-chevron-right fa-1x chevron-icon"></i>
-     <span class="genres-header">Genres</span>
-    </div>
+<div id="selection-boxes">
+  <div class="search-card">
+
+    <div id="genres-box">
+      <i class="fa fa-chevron-right fa-1x chevron-icon"></i>
+      <span class="genres-header">Genres</span>
+      </div>
+      
     
+      <div id="genre-selector">
+        <h3 id="selected-genre" style="display: none" value=<% genre %>><%= genre %></h3>
+        <form  action="/search" method="GET" class="search-form">
+          <select class="genre" name="genre" id="genre" onchange="this.form.submit()">
+            <option selected disabled>Choose a genre</option>
+            <option value="acoustic">acoustic</option>
+            <option value="alternative">alternative</option>
+            <option value="ambient">ambient</option>
+            <option value="americana">americana</option>
+            <option value="blues">blues</option>
+            <option value="bossa">bossa</option>
+            <option value="brazilian">brazilian</option>
+            <option value="breakbeat">breakbeat</option>
+            <option value="childrens">childrens</option>
+            <option value="chill">chill</option>
+            <option value="christmas">christmas</option>
+            <option value="classical">classical</option>
+            <option value="country">country</option>
+            <option value="dance">dance</option>
+            <option value="downtempo">downtempo</option>
+            <option value="dubstep">dubstep</option>
+            <option value="disco">disco</option>
+            <option value="drums/percussion">drums/percussion</option>
+            <option value="easy listening">easy listening</option>
+            <option value="eighties">eighties</option>
+            <option value="electronic">electronic</option>
+            <option value="epic">epic</option>
+            <option value="fanfare">fanfare</option>
+            <option value="funk">funk</option>
+            <option value="halloween">halloween</option>
+            <option value="hardcore">hardcore</option>
+            <option value="hard rock">hard rock</option>
+            <option value="hip hop">hip hop</option>
+            <option value="holiday">holiday</option>
+            <option value="house">house</option>
+            <option value="indie">indie</option>
+            <option value="jazz">jazz</option>
+            <option value="jungle">jungle</option>
+            <option value="latin">latin</option>
+            <option value="lounge">lounge</option>
+            <option value="march">march</option>
+            <option value="mnemonic">mnemonic</option>
+            <option value="new age">new age</option>
+            <option value="orchestral">orchestral</option>
+            <option value="pop">pop</option>
+            <option value="psychedelic">psychedelic</option>
+            <option value="rap">rap</option>
+            <option value="reggae">reggae</option>
+            <option value="retro">retro</option>
+            <option value="rock">rock</option>
+            <option value="ska">ska</option>
+            <option value="soul">soul</option>
+            <option value="techno">techno</option>
+            <option value="trip hop">trip hop</option>
+            <option value="vocal">vocal</option>
+            <option value="world">world</option>
+            <option value="zydeco">zydeco</option>
+        </select>
+        </form>
+      </div>
+
+  </div> 
+
+
+
+  <div class="search-card">
+
+      <div id="genres-box">
+        <i class="fa fa-chevron-right fa-1x chevron-icon"></i>
+        <span class="genres-header">BPM</span>
+      </div>
+      
+    
+      <div id="genre-selector">
+        <h3 id="selected-genre" style="display: none" value=<% bpm %>><%= bpm %></h3>
+        <form  action="/search" method="GET" class="search-form">
+          <select class="genre" name="bpm" id="bpm" onchange="this.form.submit()">
+            <option selected disabled>Choose a tempo</option>
+            <option value="slow">slow</option>
+            <option value="medium">medium</option>
+            <option value="fast">fast</option>
+          
+          </select>
+        </form>
+      </div>
   
-    <div id="genre-selector">
-      <h3 id="selected-genre" style="display: none" value=<% genre %>><%= genre %></h3>
-      <form  action="/search" method="GET" class="search-form">
-        <select class="genre" name="genre" id="genre" onchange="this.form.submit()">
-          <option selected disabled>Choose a genre</option>
-          <option value="acoustic">acoustic</option>
-          <option value="alternative">alternative</option>
-          <option value="ambient">ambient</option>
-          <option value="americana">americana</option>
-          <option value="blues">blues</option>
-                <option value="bossa">bossa</option>
-                <option value="brazilian">brazilian</option>
-                <option value="breakbeat">breakbeat</option>
-                <option value="childrens">childrens</option>
-                <option value="chill">chill</option>
-                <option value="christmas">christmas</option>
-                <option value="classical">classical</option>
-                <option value="country">country</option>
-                <option value="dance">dance</option>
-                <option value="downtempo">downtempo</option>
-                <option value="dubstep">dubstep</option>
-                <option value="disco">disco</option>
-                <option value="drums/percussion">drums/percussion</option>
-                <option value="easy listening">easy listening</option>
-                <option value="eighties">eighties</option>
-                <option value="electronic">electronic</option>
-                <option value="epic">epic</option>
-                <option value="fanfare">fanfare</option>
-                <option value="funk">funk</option>
-                <option value="halloween">halloween</option>
-                <option value="hardcore">hardcore</option>
-                <option value="hard rock">hard rock</option>
-                <option value="hip hop">hip hop</option>
-                <option value="holiday">holiday</option>
-                <option value="house">house</option>
-                <option value="indie">indie</option>
-                <option value="jazz">jazz</option>
-                <option value="jungle">jungle</option>
-                <option value="latin">latin</option>
-                <option value="lounge">lounge</option>
-                <option value="march">march</option>
-                <option value="mnemonic">mnemonic</option>
-                <option value="new age">new age</option>
-                <option value="orchestral">orchestral</option>
-                <option value="pop">pop</option>
-                <option value="psychedelic">psychedelic</option>
-                <option value="rap">rap</option>
-                <option value="reggae">reggae</option>
-                <option value="retro">retro</option>
-                <option value="rock">rock</option>
-                <option value="ska">ska</option>
-                <option value="soul">soul</option>
-                <option value="techno">techno</option>
-                <option value="trip hop">trip hop</option>
-                <option value="vocal">vocal</option>
-                <option value="world">world</option>
-                <option value="zydeco">zydeco</option></select>
     </div>
-    </form>
 
- </div>
-  
-   <table>
-      <thead>
-        <tr id="table-header-row">
-          <th>Trackname</th>
-          <th>Length</th>
-          <th>BPM</th>
-          <th>Description</th>
-        </tr>
-      </thead>
 
-      <% if(files){ %>
-      <% files.forEach(function(file) {%>
+
+
+    <div class="search-card">
+
+        <div id="genres-box">
+          <i class="fa fa-chevron-right fa-1x chevron-icon"></i>
+          <span class="genres-header">Length</span>
+        </div>
+        
+      
+        <div id="genre-selector">
+          <h3 id="selected-genre" style="display: none" value=<% length %>><%= length %></h3>
+          <form  action="/search" method="GET" class="search-form">
+            <select class="genre" name="length" id="length" onchange="this.form.submit()">
+              <option selected disabled>Choose a Length</option>
+              <option value="00:07">00:07</option>
+              <option value="00:15">00:15</option>
+              <option value="00:20">00:20</option>
+              <option value="00:25">00:25</option>
+              <option value="00:30">00:30</option>
+              <option value="00:40">00:40</option>
+              <option value="00:45">00:45</option>
+              <option value="00:55">00:55</option>
+              <option value="00:60">00:60</option>
+              <option value="00:70">00:70</option>
+              <option value="00:80">00:80</option>
+              <option value="00:90">00:90</option>
+              <option value="00:90">01:20</option>
+            
+            </select>
+          </form>
+        </div>
     
-      <tbody>
-        <tr id="table-body-row">
-        <td >
-          <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
-          value="<%= file.filename %>"><strong><%= file.filename.replace('_HiddenTigerMusic.mp3', '') %></strong>
-        </button>
-      </td>
-      <td><%= file.metadata.length %></td>
-      <td><%= file.metadata.bpm %></td>
-      <td><%= file.metadata.description %></td>             
-    </tr> 
-    
-    <!-- <img src="images/pexels/swirl.jpg" alt="" id="genre-img">   -->
-      <% })%>
-      <% } else {  %>
-        <p>No files to show</p>
-      <% } %>
-      </tbody>
-    </table>
+      </div>
+
+  </div>
+
+
+  <div id="table-constrain">
+    <table >
+        <thead>
+          <tr id="table-header-row">
+            <th>Trackname</th>
+            <th>Length</th>
+            <th>BPM</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <% if(files){ %>
+        <% files.forEach(function(file) {%>
+      
+        <tbody >
+          <tr id="table-body-row">
+          <td >
+            <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
+            value="<%= file.filename %>"><strong><%= file.filename.replace('_HiddenTigerMusic.mp3', '') %></strong>
+          </button>
+        </td>
+        <td><%= file.metadata.length %></td>
+        <td><%= file.metadata.bpm %></td>
+        <td><%= file.metadata.description %></td>             
+      </tr> 
+      
+      <!-- <img src="images/pexels/swirl.jpg" alt="" id="genre-img">   -->
+        <% })%>
+        <% } else {  %>
+          <p>No files to show</p>
+        <% } %>
+        </tbody>
+      </table>
+
+
+  </div>
 <!-- </div> -->
 
 </div>    
@@ -191,5 +262,7 @@
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.5/wavesurfer.min.js"></script>
 <script src="scripts/wavesurfer.js"></script>
+
+
 </body>
 </html>

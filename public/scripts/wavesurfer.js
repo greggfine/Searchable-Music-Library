@@ -10,6 +10,7 @@ const timeDisplay = document.getElementById('time-display-current-time');
 const timeDisplay2 = document.getElementById('time-display-duration');
 const volumeSlider = document.getElementById('volume-slider');
 
+
 const Spectrum = WaveSurfer.create({
      container: '#waveform',
      progressColor: 'rgb(68,89,66)',

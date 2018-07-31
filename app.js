@@ -159,9 +159,11 @@ function isLoggedIn(req, res, next) {
 
 app.get('/search', isLoggedIn, function(req, res, value) {
 	var genre 		= req.query.genre,
-		length 		= req.query.length,
-		available 	= req.query.available,
+		genre2		= req.query.genre,
+		genre3		= req.query.genre,
+		length		= req.query.length,
 		bpm 		= req.query.bpm;
+	
 		// if(!genre){
 		// 	gfs.files.find({
 		// 		'metadata.bpm': 'slow'
@@ -173,29 +175,54 @@ app.get('/search', isLoggedIn, function(req, res, value) {
 
 		// }
 		//  else {
+
+
+		if(!genre && !bpm && !length){
+			gfs.files.find({
+				'metada.genre': 'rock',
+
+			})
+			.toArray(function(err, files){
+				res.render('search', {files, genre, bpm, length});
+			}) 
+		} else if(genre){
+
+
 			gfs.files.find(
 				{  
-					// 'metadata.genre': { $in: ['acoustic', 'holiday']}
-					// 'metadata.bpm': 'fast',
-					'metadata.genre': genre,
-					
 					$or: [ 
 							{ 'metadata.genre': genre }, 
-							{ 'metadata.genre2': genre }, 
-							{ 'metadata.genre3': genre }, 
-					// 		{ 'metadata.length': length },
-					// 		{ 'metadata.available': available },
-					// 		{ 'metadata.bpm': bpm }
+							{ 'metadata.genre2': genre2 }, 
+							{ 'metadata.genre3': genre3 }
 						 ]
 				})
-
-
-
 			  .toArray(function(err, files){
-				res.render('search', {files: files, genre: genre});
+				res.render('search', {files, genre, bpm, length});
 			}) 
-		// }
+		} else if(length){
 
+
+			gfs.files.find(
+				{ 'metadata.length': length }
+				)
+			  .toArray(function(err, files){
+				res.render('search', {files, genre, bpm, length});
+			}) 
+		} 
+		
+		
+		
+		
+		
+		
+		else{
+			gfs.files.find(
+				{ 'metadata.bpm': bpm }
+				)
+			  .toArray(function(err, files){
+				res.render('search', {files, genre, bpm, length});
+			}) 
+		}
 
 })
 
