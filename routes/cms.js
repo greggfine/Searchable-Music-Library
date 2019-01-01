@@ -64,9 +64,6 @@ router.get('/', function (req, res) {
     });
 });
 
-router.get('/filemanager', (req, res) => {
-    res.render("file_manager")
-});
 
 
 // ==================

@@ -75,6 +75,9 @@ function isLoggedIn(req, res, next) {
 
 app.use(isLoggedIn);
 
+app.get('/filemanager', (req, res) => {
+	res.render("file_manager")
+});
 
 var port = process.env.PORT || 8080;
 app.listen(port, () => console.log('Our app is running on http://localhost:' + port));
