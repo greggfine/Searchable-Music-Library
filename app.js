@@ -280,7 +280,7 @@ app.get('/files/:filename/edit', isLoggedIn, function(req, res) {
 // ==================
 
 app.put('/files/:filename', isLoggedIn, function(req,res){
-	var genre1       = req.body.genre1,
+	var genre       = req.body.genre,
 	    genre2       = req.body.genre2,
 	    genre3       = req.body.genre3,
 	 	available   = req.body.available,
@@ -293,7 +293,7 @@ app.put('/files/:filename', isLoggedIn, function(req,res){
 	    filename    = req.body.filename;
     gfs.files.update({'filename': req.params.filename}, {'$set': {
 			'filename': filename,
-	    	'metadata.genre1': 		genre1, 
+	    	'metadata.genre': 		genre, 
 	    	'metadata.genre2': 		genre2, 
 	    	'metadata.genre3': 		genre3, 
 	    	'metadata.available':   available, 

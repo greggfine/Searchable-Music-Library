@@ -1,18 +1,17 @@
 <% include partials/header %>
 
-<body class="home-bg">
+<body>
 	
-	<nav  style="background-color: white;">
+	<nav  style="background-color: white; width: 100%" >
 
 		<a href="/" id="login-logo">
 			<img src="images/logo.svg" width="180" height="180" alt="Hidden Tiger Music Logo">
 		</a>
 
-		<form action="/" method="POST" autocomplete="on">
+	</nav>
 
-			
-			
-			<div id="login-inputs">
+		<form  action="/" method="POST" autocomplete="on">
+			<div id="login-inputs" >
 				<h1 id="login-header">Hidden Tiger Music Search</h1>
 				<div>
 					<input value="tiger" id="username" name="username" placeholder="Username"  type="text" required="" autofocus>
@@ -23,13 +22,9 @@
 				</div>
 
 				<div>
-					<button type="submit" >Login</button>
+					<button type="submit">Login</button>
 				</div>
 			</div>
-
-
 		</form>
 		
-	</nav>
-
 <% include partials/footer  %>

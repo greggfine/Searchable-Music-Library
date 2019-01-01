@@ -10,36 +10,52 @@ html {
 }
 
 body {
-		/* border: 5px dotted red; */
-
 	font-size: 16px;
 	font-family: 'Arial', sans-serif;
-	/* font-family: 'Voces', cursive; */
-	/* font-family: 'Roboto Mono', monospace; */
 	margin: 0;
 	padding:0;
-   /* height:100%; */
-   /* background-color: #009700; */
-
-
-
-   /* background-color: var(--green1); */
-	/* background: linear-gradient(to top, var(--green1), #fff); */
-	/* background-color: #00a000;
-	background-image: url('/images/pexels/pexels-photo-904784.jpeg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-blend-mode: color-burn; */
-
+	background-color: 	hsl(437, 90%, 36%);
+	background-size: 3360px 1932px;
 	background-image: url('images/01b.jpg');
-	/* background-size: 3360px 1932px; */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: right top;
-	/* background-color: 	hsl(437, 90%, 36%); */
 	background-color: #61892f;
 	background-blend-mode: screen;
+}
 
+#login-inputs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+#login-inputs button {
+	margin-top: 30px;
+	border-radius: 7px;
+	padding: .75rem 2rem;
+	background-color: green;
+	color: #fff;
+	box-shadow: 3px 4px 0px 0px #a8c884;
+	font-size: 1.2rem;
+}
+
+#login-inputs button:hover {
+	color: green;
+	background-color: #eee;
+	cursor: pointer
+}
+
+#login-inputs input {
+	padding: 10px;
+	margin: 10px;
+	width: 300px;
+}
+
+#login-logo {
+	padding: 50px;
 }
 
 .available-span {
@@ -243,8 +259,8 @@ h1 {
 	font-size: 200px;
 	margin-top: 0;
 	font-family: 'Myriad Pro', 'Myriad', helvetica, arial, sans-serif;
-	text-shadow: 2px 3px 3px #292929;
-	letter-spacing: -7px;
+	text-shadow: 0px 1px 3px #292929b3;
+	letter-spacing: -3px;
 	-webkit-text-stroke: 1px white;
 }
 
@@ -266,13 +282,20 @@ h1:after {
 
 
 .home-bg {
-	background-image: url('images/01b.jpg');
-	background-size: 2560px 1132px;
-	background-repeat: no-repeat;
-	background-position: right top;
 	/* background-color: 	hsl(437, 90%, 36%); */
+	background-image: url('images/01b.jpg');
+	/* background-size: 2560px 1132px; */
+	background-repeat: no-repeat;
+	/* background-position: right top; */
 	background-color: #61892f;
 	background-blend-mode: screen;
+	border: 5px solid red;
+}
+
+nav {
+	/* background-color: #fff; */
+	height: 200px;
+	position: fixed;
 }
 
 .home-login {
@@ -347,6 +370,7 @@ h1:after {
 	border-radius: 10px;
 	border: 1px inset rgba(0,0,0,0.1);
 }
+
 
 #time-display-current-time {
 	padding-right: 5px;
@@ -475,47 +499,14 @@ input[type=range] {
 }
 
 #login-header {
-	font-size: 6rem;
+	font-size: 5.5rem;
 }
 
 .login-image {
 	width: 50%;
 }
 
-#login-inputs {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	transform: translateY(-25%);
-}
 
-#login-inputs button {
-	margin-top: 10px;
-	border-radius: 7px;
-	padding: .75rem 2rem;
-	background-color: green;
-	color: #fff;
-	box-shadow: 3px 4px 0px 0px #a8c884;
-	font-size: 1.2rem;
-}
-
-#login-inputs button:hover {
-	color: green;
-	background-color: #eee;
-	cursor: pointer
-}
-
-#login-inputs input {
-	padding: 10px;
-	margin: 10px;
-	width: 300px;
-}
-
-#login-logo {
-	margin-left: 10%;
-}
 
 #logo {
 	width: 150px;
@@ -567,10 +558,7 @@ input[type=range] {
 	color: green;
 }
 
-nav {
-	background-color: #fff;
-	height: 200px;
-}
+
 
 
 
@@ -823,6 +811,10 @@ table {
 		align-items: center;
 	}
 
+	#login-header {
+		font-size: 4.5rem;
+	}
+
 	#logo {
 		width: 100px;
 		height: 100px;
@@ -874,6 +866,18 @@ table {
 		padding: 5px;
 	}
 
+	h1 {
+		position: relative;
+		font-size: 200px;
+		max-width: 350px;
+		margin-top: 0;
+		font-family: 'Myriad Pro', 'Myriad', helvetica, arial, sans-serif;
+		text-shadow: 0px 0px 0px #29292940;
+		letter-spacing: -5px;
+		-webkit-text-stroke: 1px white;
+		text-align: left;
+	}
+
 	#info-display {
 		flex-direction: column;
 		justify-content: center;
@@ -882,6 +886,10 @@ table {
 		padding: 10px;
 		box-shadow: none;
 		background-color: #fff;
+	}
+
+	#login-header {
+		font-size: 3.8rem;
 	}
 
 	#logo {
