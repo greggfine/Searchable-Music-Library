@@ -41,68 +41,118 @@ window.addEventListener("resize", function(){
 
 
 function runIt(trackName, data){
-    // var curTrack = 'https://immense-atoll-44421.herokuapp.com/audio/' + trackName;
-    const curTrack = 'http://localhost:8080/audio/' + trackName;
-    let playState = false;
-    
-    Spectrum.load(curTrack);
-    
-    document.getElementById('progress').style.display = 'block';
-    
-    Spectrum.on('loading', function (percents) {
-        document.getElementById('progress').innerHTML = `${percents}% loading...`;
-    });  
+                                 // var curTrack = `https://immense-atoll-44421.herokuapp.com/files/audio/trackName${trackName}`;
+                                 const curTrack = `http://localhost:8080/files/audio/${trackName}`;
 
+                                 let playState = false;
 
-    Spectrum.on('ready', function (percents) {
-        playState = true;
-        Spectrum.play();
-        document.getElementById('progress').style.display = 'none';
-        buttons.play.classList.add('fa-pause')
-    });  
+                                 Spectrum.load(curTrack);
 
-    buttons.play.addEventListener("click", function(e){
-        if(!playState){
-            Spectrum.play();
-            playState = true;
-            e.target.classList.add('fa-pause')
-        } else{
-            Spectrum.pause();
-            playState = false;
-            e.target.classList.remove('fa-pause')
-            e.target.classList.add('fa-play')
-        }
-    });
+                                 document.getElementById("progress").style.display = "block";
 
-    buttons.stop.addEventListener("click", function(){
-        Spectrum.stop();
-        playState = false;
-        buttons.play.classList.remove('fa-pause')
-        buttons.pause.classList.add('fa-play')
-    }); 
+                                 Spectrum.on(
+                                   "loading",
+                                   function(
+                                     percents
+                                   ) {
+                                     document.getElementById(
+                                       "progress"
+                                     ).innerHTML = `${percents}% loading...`;
+                                   }
+                                 );
 
-    volumeSlider.addEventListener('input', function(e){
-        Spectrum.setVolume(e.target.value);
-    })
+                                 Spectrum.on(
+                                   "ready",
+                                   function(
+                                     percents
+                                   ) {
+                                     playState = true;
+                                     Spectrum.play();
+                                     document.getElementById(
+                                       "progress"
+                                     ).style.display =
+                                       "none";
+                                     buttons.play.classList.add(
+                                       "fa-pause"
+                                     );
+                                   }
+                                 );
 
-	downloader.setAttribute('href', curTrack);
-    trackTitle.innerHTML = data;
+                                 buttons.play.addEventListener(
+                                   "click",
+                                   function(e) {
+                                     if (
+                                       !playState
+                                     ) {
+                                       Spectrum.play();
+                                       playState = true;
+                                       e.target.classList.add(
+                                         "fa-pause"
+                                       );
+                                     } else {
+                                       Spectrum.pause();
+                                       playState = false;
+                                       e.target.classList.remove(
+                                         "fa-pause"
+                                       );
+                                       e.target.classList.add(
+                                         "fa-play"
+                                       );
+                                     }
+                                   }
+                                 );
 
-    // =============== TIME DISPLAY  =========================
-    var formatTime = function (time) {
-        return [
-            Math.floor((time % 3600) / 60), // minutes
-            ('00' + Math.floor(time % 60)).slice(-2) // seconds
-        ].join(':');
-    };
+                                 buttons.stop.addEventListener(
+                                   "click",
+                                   function() {
+                                     Spectrum.stop();
+                                     playState = false;
+                                     buttons.play.classList.remove(
+                                       "fa-pause"
+                                     );
+                                     buttons.pause.classList.add(
+                                       "fa-play"
+                                     );
+                                   }
+                                 );
 
-        // Show current time
-    Spectrum.on('audioprocess', function () {
-        timeDisplay.textContent = ( formatTime(Spectrum.getCurrentTime()) );
-    });
+                                 volumeSlider.addEventListener(
+                                   "input",
+                                   function(e) {
+                                     Spectrum.setVolume(
+                                       e.target
+                                         .value
+                                     );
+                                   }
+                                 );
 
-    // Show clip duration
-    Spectrum.on('ready', function () {
-        timeDisplay2.textContent = '/ ' + ( formatTime(Spectrum.getDuration()) );
-    });
-}
+                                 downloader.setAttribute("href", curTrack);
+                                 trackTitle.innerHTML = data;
+
+                                 // =============== TIME DISPLAY  =========================
+                                 var formatTime = function(time) {
+                                   return [Math.floor((time % 3600) / 60), ("00" + Math.floor(time % 60)).slice(-2)].join(":"); // minutes // seconds
+                                 };
+
+                                 // Show current time
+                                 Spectrum.on(
+                                   "audioprocess",
+                                   function() {
+                                     timeDisplay.textContent = formatTime(
+                                       Spectrum.getCurrentTime()
+                                     );
+                                   }
+                                 );
+
+                                 // Show clip duration
+                                 Spectrum.on(
+                                   "ready",
+                                   function() {
+                                     timeDisplay2.textContent =
+                                       "/ " +
+                                       formatTime(
+                                         Spectrum.getDuration()
+                                       );
+                                   }
+                                 );
+                               }
