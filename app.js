@@ -1,6 +1,6 @@
 const express 				= require('express'),
 	  app					= express(),
-	  mongoose 			    = require('mongoose'),
+	//   mongoose 			    = require('mongoose'),
 	  passport 				= require('passport'),
 	  User 					= require('./models/user'),
 	  LocalStrategy 		= require('passport-local'),
@@ -12,15 +12,12 @@ const register  = require('./routes/register'),
 	  files	    = require('./routes/files');
 	  cms	    = require('./routes/cms');
 
-
 app.use(helmet());
-
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-
 
 // ====================================
 //  	PASSPORT AUTH
@@ -36,7 +33,6 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
 
 // ==================
 //  	HOME/LOGIN
@@ -80,4 +76,4 @@ app.get('/filemanager', (req, res) => {
 });
 
 var port = process.env.PORT || 8080;
-app.listen(port, () => console.log('Our app is running on http://localhost:' + port));
+app.listen(port, () => console.log(`Our app is running on http://localhost:${port}`));

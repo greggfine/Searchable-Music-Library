@@ -1,15 +1,17 @@
-const buttons = {
-    play: document.getElementById("btn-play"),
-    stop: document.getElementById("btn-stop")
-};
+// function(){
 
-const downloader = document.getElementById("downloader");
-const trackTitle = document.getElementById('track-title');
-const current = document.getElementById("current-track");
-const timeDisplay = document.getElementById('time-display-current-time');
-const timeDisplay2 = document.getElementById('time-display-duration');
-const volumeSlider = document.getElementById('volume-slider');
-
+var cacheDOM = {
+   downloader: document.getElementById("downloader"),
+   trackTitle: document.getElementById('track-title'),
+   current: document.getElementById("current-track"),
+   timeDisplay: document.getElementById('time-display-current-time'),
+   timeDisplay2: document.getElementById('time-display-duration'),
+   volumeSlider: document.getElementById('volume-slider'),
+   buttons: {
+     play: document.getElementById("btn-play"),
+     stop: document.getElementById("btn-stop")
+   }
+}
 
 const Spectrum = WaveSurfer.create({
      container: '#waveform',
@@ -22,137 +24,93 @@ const Spectrum = WaveSurfer.create({
      scrollParent: false,
 });
 
-window.onload = function(){
-    //  Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + current.textContent)
-    Spectrum.load('http://localhost:8080/audio/' + current.textContent);
+window.onload = () => {
+    //  Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + cacheDOM.current.textContent)
+    Spectrum.load('http://localhost:8080/audio/' + cacheDOM.current.textContent);
 
-    trackTitle.innerHTML = current.textContent;
-   //  downloader.setAttribute('href', 'https://immense-atoll-44421.herokuapp.com/audio/' + current.textContent);
-    downloader.setAttribute('href', 'http://localhost:8080/audio/' + current.textContent);
+    cacheDOM.trackTitle.innerHTML = cacheDOM.current.textContent;
+   //  downloader.setAttribute('href', 'https://immense-atoll-44421.herokuapp.com/audio/' + cacheDOM.current.textContent);
+    downloader.setAttribute('href', 'http://localhost:8080/audio/' + cacheDOM.current.textContent);
 
-    buttons.play.classList.add('fa-play');
+    cacheDOM.buttons.play.classList.add('fa-play');
 }
 
-window.addEventListener("resize", function(){
+window.addEventListener("resize", () => {
    const currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
    Spectrum.seekTo(currentProgress);
 }, false);
 
 
 
-function runIt(trackName, data){
-                                 // var curTrack = `https://immense-atoll-44421.herokuapp.com/files/audio/trackName${trackName}`;
-                                 const curTrack = `http://localhost:8080/files/audio/${trackName}`;
+function loadTrack(trackName, data) {
+  var progress = document.getElementById("progress");
 
-                                 let playState = false;
+  // var curTrack = `https://immense-atoll-44421.herokuapp.com/files/audio/trackName${trackName}`;
+  const curTrack = `http://localhost:8080/files/audio/${trackName}`;
 
-                                 Spectrum.load(curTrack);
+  let playState = false;
 
-                                 document.getElementById("progress").style.display = "block";
+  //  Create the waveform for the currently selected track
+  Spectrum.load(curTrack);
 
-                                 Spectrum.on(
-                                   "loading",
-                                   function(
-                                     percents
-                                   ) {
-                                     document.getElementById(
-                                       "progress"
-                                     ).innerHTML = `${percents}% loading...`;
-                                   }
-                                 );
+  //  document.getElementById("progress").style.display = "block";
 
-                                 Spectrum.on(
-                                   "ready",
-                                   function(
-                                     percents
-                                   ) {
-                                     playState = true;
-                                     Spectrum.play();
-                                     document.getElementById(
-                                       "progress"
-                                     ).style.display =
-                                       "none";
-                                     buttons.play.classList.add(
-                                       "fa-pause"
-                                     );
-                                   }
-                                 );
+  Spectrum.on("loading", percents => {
+    progress.innerHTML = `${percents}% loading...`;
+  });
 
-                                 buttons.play.addEventListener(
-                                   "click",
-                                   function(e) {
-                                     if (
-                                       !playState
-                                     ) {
-                                       Spectrum.play();
-                                       playState = true;
-                                       e.target.classList.add(
-                                         "fa-pause"
-                                       );
-                                     } else {
-                                       Spectrum.pause();
-                                       playState = false;
-                                       e.target.classList.remove(
-                                         "fa-pause"
-                                       );
-                                       e.target.classList.add(
-                                         "fa-play"
-                                       );
-                                     }
-                                   }
-                                 );
+  Spectrum.on("ready", percents => {
+    playState = true;
+    Spectrum.play();
+    document.getElementById("progress").style.display = "none";
+    cacheDOM.buttons.play.classList.add("fa-pause");
+  });
 
-                                 buttons.stop.addEventListener(
-                                   "click",
-                                   function() {
-                                     Spectrum.stop();
-                                     playState = false;
-                                     buttons.play.classList.remove(
-                                       "fa-pause"
-                                     );
-                                     buttons.pause.classList.add(
-                                       "fa-play"
-                                     );
-                                   }
-                                 );
+  cacheDOM.buttons.play.addEventListener("click", e => {
+    if (!playState) {
+      Spectrum.play();
+      playState = true;
+      e.target.classList.add("fa-pause");
+    } else {
+      Spectrum.pause();
+      playState = false;
+      e.target.classList.remove("fa-pause");
+      e.target.classList.add("fa-play");
+    }
+  });
 
-                                 volumeSlider.addEventListener(
-                                   "input",
-                                   function(e) {
-                                     Spectrum.setVolume(
-                                       e.target
-                                         .value
-                                     );
-                                   }
-                                 );
+  cacheDOM.buttons.stop.addEventListener("click", () => {
+    Spectrum.stop();
+    playState = false;
+    cacheDOM.buttons.play.classList.remove("fa-pause");
+    cacheDOM.buttons.pause.classList.add("fa-play");
+  });
 
-                                 downloader.setAttribute("href", curTrack);
-                                 trackTitle.innerHTML = data;
+  cacheDOM.volumeSlider.addEventListener("input", e => {
+    Spectrum.setVolume(e.target.value);
+  });
 
-                                 // =============== TIME DISPLAY  =========================
-                                 var formatTime = function(time) {
-                                   return [Math.floor((time % 3600) / 60), ("00" + Math.floor(time % 60)).slice(-2)].join(":"); // minutes // seconds
-                                 };
+  downloader.setAttribute("href", curTrack);
+  cacheDOM.trackTitle.innerHTML = data;
 
-                                 // Show current time
-                                 Spectrum.on(
-                                   "audioprocess",
-                                   function() {
-                                     timeDisplay.textContent = formatTime(
-                                       Spectrum.getCurrentTime()
-                                     );
-                                   }
-                                 );
+  // =============== TIME DISPLAY  =========================
+  var formatTime = function(time) {
+    return [
+      Math.floor((time % 3600) / 60),
+      ("00" + Math.floor(time % 60)).slice(-2)
+    ].join(":"); // minutes // seconds
+  };
 
-                                 // Show clip duration
-                                 Spectrum.on(
-                                   "ready",
-                                   function() {
-                                     timeDisplay2.textContent =
-                                       "/ " +
-                                       formatTime(
-                                         Spectrum.getDuration()
-                                       );
-                                   }
-                                 );
-                               }
+  // Show current time
+  Spectrum.on("audioprocess", () => {
+    cacheDOM.timeDisplay.textContent = formatTime(Spectrum.getCurrentTime());
+  });
+
+  // Show clip duration
+  Spectrum.on("ready", () => {
+    cacheDOM.timeDisplay2.textContent =
+      "/ " + formatTime(Spectrum.getDuration());
+  });
+}
+
+// } ();

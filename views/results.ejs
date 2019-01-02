@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 
-
     <div class="row top-player">  
 
       <div class="col-md-4 ">
@@ -151,27 +150,5 @@
 
 </div>
 
-<script>
-
-  var selectedGenre = document.getElementById('selected-genre');
-
-  var myGenre = document.getElementById('genre');
-
-  function setSelectedIndex(s, v) {
-
-      for ( var i = 0; i < s.options.length; i++ ) {
-
-          if ( s.options[i].text == v ) {
-
-                s.options[i].selected = true;
-
-              return;
-          }
-      }
-  }
-
-  setSelectedIndex(myGenre, selectedGenre.textContent);
-
-</script>
 
 <% include partials/footer  %>

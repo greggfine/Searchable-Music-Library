@@ -10,9 +10,9 @@ mongoose.connect(mongoURI);
 const conn = mongoose.createConnection(mongoURI);
 
 // Init gfs
-let gfs;
+var gfs;
 
-conn.once('open', function () {
+conn.once('open', () => {
     // Init stream
     gfs = Grid(conn.db, mongoose.mongo);
     gfs.collection('uploads');

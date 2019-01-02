@@ -12,7 +12,7 @@ mongoose.connect(mongoURI);
 const conn = mongoose.createConnection(mongoURI);
 
 // Init gfs
-let gfs;
+var gfs;
 
 conn.once('open', () => {
     // Init stream

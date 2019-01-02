@@ -59,7 +59,8 @@
       
     
       <div id="genre-selector">
-        <h3 id="selected-genre" style="display: none" value=<% genre %>><%= genre %></h3>
+        <h3 class="selected-list" id="list-genre" style="display: none" value=<% genre %>><%= genre %></h3>
+        <!-- <h3 id="selected-genre" style="display: none" value=<% genre %>><%= genre %></h3> -->
         <form  action="/search" method="GET" class="search-form">
           <select class="genre" name="genre" id="genre" onchange="this.form.submit()">
             <option selected disabled>Choose a genre</option>
@@ -134,7 +135,8 @@
       
     
       <div id="genre-selector">
-        <h3 id="selected-genre" style="display: none" value=<% bpm %>><%= bpm %></h3>
+        <h3 class="selected-list" id="list-bpm" style="display: none" value=<% bpm %>><%= bpm %></h3>
+        <!-- <h3 id="selected-genre" style="display: none" value=<% bpm %>><%= bpm %></h3> -->
         <form  action="/search" method="GET" class="search-form">
           <select class="genre" name="bpm" id="bpm" onchange="this.form.submit()">
             <option selected disabled>Choose a tempo</option>
@@ -150,7 +152,6 @@
 
 
 
-
     <div class="search-card">
 
         <div id="genres-box">
@@ -160,7 +161,8 @@
         
       
         <div id="genre-selector">
-          <h3 id="selected-genre" style="display: none" value=<% length %>><%= length %></h3>
+          <h3 class="selected-list" id="list-length" style="display: none" value=<% length %>><%= length %></h3>
+          <!-- <h3 id="selected-genre" style="display: none" value=<% length %>><%= length %></h3> -->
           <form  action="/search" method="GET" class="search-form">
             <select class="genre" name="length" id="length" onchange="this.form.submit()">
               <option selected disabled>Choose a Length</option>
@@ -187,42 +189,40 @@
   </div>
 
 
-  <div id="table-constrain">
-    <table >
-        <thead>
-          <tr id="table-header-row">
-            <th>Trackname</th>
-            <th>Length</th>
-            <th>BPM</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-
-        <% if(files){ %>
-        <% files.forEach(function(file) {%>
-      
-        <tbody >
-          <tr id="table-body-row">
-          <td >
-            <button class="btn btn-track-info"  id="current-track" onclick="runIt(this.value, this.innerHTML)" 
-            value="<%= file.filename %>"><strong><%= file.filename.replace('_HiddenTigerMusic.mp3', '') %></strong>
-          </button>
-        </td>
-        <td><%= file.metadata.length %></td>
-        <td><%= file.metadata.bpm %></td>
-        <td><%= file.metadata.description %></td>             
-      </tr> 
-      
-      <!-- <img src="images/pexels/swirl.jpg" alt="" id="genre-img">   -->
-        <% })%>
-        <% } else {  %>
-          <p>No files to show</p>
-        <% } %>
-        </tbody>
-      </table>
-
-
+  <div id="results-container">
+      <ul id="results-header">
+        <li>Trackname</li>
+        <li>Length</li>
+        <li>BPM</li>
+        <li>Description</li>
+      </ul>
+  
+      <% if(files){ %>
+      <% files.forEach(function(file) {%>
+  
+        <ul id="results-body">
+          <li>
+            <button class="btn btn-track-info" id="current-track" 
+                    onclick="loadTrack(this.value, this.innerHTML)" 
+                    value="<%= file.filename %>">
+                    <strong>
+                      <%= file.filename.replace('_HiddenTigerMusic.mp3', '') %>
+                    </strong>
+            </button>
+          </li>
+          <li><%= file.metadata.length %></li>
+          <li><%= file.metadata.bpm %></li>
+          <li><%= file.metadata.description %></li>
+        </ul>
+           
+      <% })%>
+      <% } else {  %>
+      <p>No files to show</p>
+      <% } %>
   </div>
+
+
+  
 <!-- </div> -->
 
 </div>    
@@ -242,22 +242,7 @@
 
 </div>
 
-
-<script>
-    var selectedGenre = document.getElementById('selected-genre');
-    var myGenre = document.getElementById('genre');
-
-    function setSelectedIndex(s, v) {
-        for ( var i = 0; i < s.options.length; i++ ) {
-            if ( s.options[i].text == v ) {
-                 s.options[i].selected = true;
-                 return;
-                }
-            }
-        }
-    setSelectedIndex(myGenre, selectedGenre.textContent);
-</script>
-  
+<script src="scripts/dropdown_display.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.5/wavesurfer.min.js"></script>
 <script src="scripts/wavesurfer.js"></script>
 
