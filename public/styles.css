@@ -544,8 +544,8 @@ input[type=range] {
 }
 
 #logout-icon:hover {
-	color: var(--red);
-	/* color: green; */
+	/* color: var(--red); */
+	color: green;
 	background-color: #eee;
 }
 
@@ -625,16 +625,17 @@ input[type=range] {
 #social-icons a {
 	padding: 0 20px 0 20px;
 	margin-right: 10px;
-	color: #000;
+	color: #ddd;
 }
 
 #social-icons a:hover {
 	/* color: red; */
 	cursor: pointer;
 
-	color: var(--red);
-	/* color: green; */
+	/* color: var(--red); */
+	color: green;
 	/* background-color: #eee; */
+	transform: scale(1.4);
 }
 
 #speaker-icon {
@@ -941,10 +942,20 @@ table {
 	}
 }
 
+@media screen and (max-width: 1000px) {
+	#login-header {
+		font-size: 4rem;
+	}
+}
+
 @media screen and (max-width: 900px) {
 
 	#current-track {
 		font-size: .85rem;
+	}
+
+	#login-header {
+		font-size: 3.5rem;
 	}
 
 	#logo {
@@ -1061,7 +1072,9 @@ header{
 }
 
 	#login-header {
-		font-size: 3.8rem;
+		font-size: 3.5rem;
+		text-align: center;
+		letter-spacing: -2.8px;
 	}
 
 	#logo {
@@ -1145,6 +1158,7 @@ header{
 		text-align: center;
 		font-weight: bold;
 	}
+
 
 	/* #time-display {
 	padding: 20px;

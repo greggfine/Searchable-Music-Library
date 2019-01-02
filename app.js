@@ -64,9 +64,11 @@ function isLoggedIn(req, res, next) {
 	res.redirect('/');
 }
 
+app.use("/register", register);
+
 app.use(isLoggedIn);
 
-app.use("/register", register);
+
 app.use("/files", files);
 app.use("/search", search);
 app.use("/cms", cms);

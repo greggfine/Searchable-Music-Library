@@ -3,7 +3,7 @@
 </head>
 
 
-<div class="home-bg">
+<!-- <div class="home-bg">
 	<div class="register-form">
 		<h1>Sign Up Form</h1>
 		
@@ -17,6 +17,34 @@
 		<li><a href="/">Login!</a></li>
 		<li><a href="/logout">Logout!</a></li>
 	</div>
-</div>
+</div> -->
+
+
+<body>
+
+	<nav style="background-color: white; width: 100%">
+
+		<a href="/" id="login-logo">
+			<img src="images/logo.svg" width="180" height="180" alt="Hidden Tiger Music Logo">
+		</a>
+
+	</nav>
+
+	<form action="/register" method="POST">
+		<div id="login-inputs">
+			<h1 id="login-header">Sign Up</h1>
+			<div>
+				<input id="username" name="username" placeholder="Username" type="text" required="" autofocus>
+			</div>
+
+			<div>
+				<input id="password" placeholder="Password" type="text" name="password" required="">
+			</div>
+
+			<div>
+				<button type="submit">Submit</button>
+			</div>
+		</div>
+	</form>
 
 <% include partials/footer  %>
