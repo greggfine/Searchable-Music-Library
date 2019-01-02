@@ -222,6 +222,7 @@ footer span {
 	background-color: var(--green2);
 	/* background-color: mediumseagreen; */
 	padding: 10px;
+	/* border: 10px solid #000; */
 	/* background-color: #008b00cc;
 	background-image: url('/images/pexels/pexels-photo-904784.jpeg');
 	background-size: cover;
@@ -336,10 +337,11 @@ nav {
 	padding-right: 30px;
 }
 
+/* Flex Container for Logo and INFO DISPLAY */
 #image-box {
 	display: flex; 
-	 justify-content: space-between; 
-	 align-items: center;
+	justify-content: space-between; 
+	align-items: center;
 }
 
 #image-box-pexel {
@@ -837,17 +839,42 @@ table {
 	padding-left: 30px;
 }
 
-
-
-
-
 /* ============================================================================= */
 
+@media screen and (max-width: 1600px) {
+	#info-display {
+		flex-direction: column;
+		margin: 50px 0 50px 50px;
+		padding: 7px 0 53px 0;
+	}
+
+	#title-duration{
+		text-align: center;
+		padding-right: 0px;
+		margin-top: -30px;
+	}
+
+	#controls {
+		padding: 6px;
+		box-shadow: 7px 8px 0px 0px#00000047;
+		margin-top: 0px;
+	}
+
+	#volume {
+		top: 70px;
+		left: 51px;
+	}
+
+	#time-display-group{
+		margin-top: -30px;
+	}
+}
 
 @media screen and (max-width: 1100px){
 	#controls {
 		padding: 6px;
-		box-shadow: 4px 4px 0px 0px black;
+		/* box-shadow: 4px 4px 0px 0px black; */
+		box-shadow: 7px 8px 0px 0px#00000047;
 		margin-top: 30px;
 	}
 
@@ -857,7 +884,7 @@ table {
 	}
 
 	.download-icon {
-		font-size: 30px;
+		font-size: 40px;
 		padding-left: 20px;
 		padding-right: 20px;
 	}
@@ -874,8 +901,8 @@ table {
 	}
 
 	#logo {
-		width: 100px;
-		height: 100px;
+		width: 130px;
+		height: 130px;
 	}
 
 	#logout-icon {
@@ -891,11 +918,43 @@ table {
 		margin:  0px auto 50px auto;
 	}  
 
+	#track-title {
+		font-size: 2.9rem;
+		/* font-weight: 700;
+		max-width: 400px;
+		text-align: center;
+		font-weight: bold; */
+	}
+
+	#volume {
+		top: 67px;
+		left: 11px;
+	}
+	
+	#volume-slider{
+		top: 10px;
+	}
+	
+	#volume i{
+		/* font-size: 1.5rem;
+		padding-left: 10px;
+		position: relative; */
+	}
 }
 
+@media screen and (max-width: 900px) {
 
+	#logo {
+		width: 110px;
+		height: 110px;
+	}
 
-@media screen and (max-width: 600px){
+	#track-title {
+		font-size: 2.2rem;
+	}
+}
+
+@media screen and (max-width: 700px){
 	.container {
 		max-width: 95%;
 		margin: auto;
@@ -936,29 +995,71 @@ table {
 		text-align: left;
 	}
 
-	#info-display {
+/* #image-box {
+	display: flex; 
+	justify-content: space-between; 
+	align-items: center;
+	background-color: yellow;
+	border: 1px solid #000;
+} */
+
+header{
+	/* background-color: rgba(255, 255, 255, 1); */
+	background-color: rgba(240, 230, 220, 1.1);
+	padding: 0 0px 0 0px;
+	/* border: 1px solid #000; */
+	margin-top: -10px;
+}
+
+
+#info-display {
+		/* margin-top: -0px; */
 		flex-direction: column;
 		justify-content: center;
-		margin: 50px 0;
+		margin: -20px 0 50px 0;
 		border: none;
 		padding: 10px;
 		box-shadow: none;
-		background-color: #fff;
+		/* background-color: rgba(240, 230, 220, 1.1); */
+		/* border: 1px solid #000; */
 	}
+
+#info-display {
+	/* flex-wrap: wrap;
+	width: 90%;
+	-ms-align-items: center;
+	align-items: center;
+	margin: 50px 0 50px 50px; */
+	/* border: 1px solid rgba(0, 0, 0, 0.1); */
+	/* padding: 7px 0 53px 0;
+	box-shadow: 2px 0px 0px 7px rgba(218,210,186, 0.4);;
+	border-radius: 10px;
+	border: 1px inset rgba(0,0,0,0.1); */
+}
 
 	#login-header {
 		font-size: 3.8rem;
 	}
 
 	#logo {
-		width: 70px;
+		/* width: 70px;
 		height: 70px;
-		padding: 5px;
+		padding: 5px; */
+		display: none;
 	}
 
 	.search-card {
 		border: 1px solid green;
 	}
+
+.search-card {
+	width: 55%;
+}
+
+
+#selection-boxes {
+	flex-direction: column;
+}
 
 	table {
 		margin:  0px auto;
@@ -985,6 +1086,17 @@ table {
 	/* #time-display {
 	padding: 20px;
 	} */
+
+	#volume {
+		top: 97px;
+		left: 11px;
+	}
+	
+	
+	
+	#volume i{
+		font-size: 1.5rem;
+	}
 
 	#waveform {
 		margin: 10px auto 40px auto;
