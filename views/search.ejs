@@ -203,9 +203,12 @@
   
         <ul id="results-body">
           <li>
-            <button class="btn btn-track-info" id="current-track" 
+            <!-- <button class="btn btn-track-info" id="current-track" 
                     onclick="loadTrack(this.value, this.innerHTML)" 
-                    value="<%= file.filename %>">
+                    value="<%= file.filename %>"
+            > -->
+
+            <button class="btn-track-info" id="current-track" onclick="loadTrack(this.value, this.innerHTML)" value="<%= file.filename %>">
                     <strong>
                       <%= file.filename.replace('_HiddenTigerMusic.mp3', '') %>
                     </strong>
@@ -232,7 +235,7 @@
   <a href="/logout" class="logout" >
     <i class="fa fa-sign-out" id="logout-icon"> <span> Logout</span> </i>
   </a>
-  <p> &copy; 2018 Hidden Tiger Music Inc.</p>
+  <p> &copy; <%= new Date().getFullYear() %> Hidden Tiger Music Inc.</p>
   <div id="social-icons">
       <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
       <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
