@@ -15,11 +15,6 @@ const register  = require('./routes/register'),
 
 app.use(helmet());
 
-app.use('/register', register);
-app.use('/files', files);
-app.use('/search', search);
-app.use('/cms', cms);
-
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 app.use(methodOverride('_method'));
@@ -74,6 +69,11 @@ function isLoggedIn(req, res, next) {
 }
 
 app.use(isLoggedIn);
+
+app.use("/register", register);
+app.use("/files", files);
+app.use("/search", search);
+app.use("/cms", cms);
 
 app.get('/filemanager', (req, res) => {
 	res.render("file_manager")
