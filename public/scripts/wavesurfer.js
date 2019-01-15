@@ -45,8 +45,8 @@ window.addEventListener("resize", () => {
 function loadTrack(trackName, data) {
   var progress = document.getElementById("progress");
 
-  // var curTrack = `https://immense-atoll-44421.herokuapp.com/files/audio/trackName${trackName}`;
-  const curTrack = `http://localhost:8080/files/audio/${trackName}`;
+  var curTrack = `https://immense-atoll-44421.herokuapp.com/files/audio/trackName${trackName}`;
+  // const curTrack = `http://localhost:8080/files/audio/${trackName}`;
 
   let playState = false;
 
