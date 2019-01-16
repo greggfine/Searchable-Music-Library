@@ -6,7 +6,8 @@ const express = require('express'),
       Grid = require('gridfs-stream');
 
 // Mongo URI
-const mongoURI = 'mongodb://gregg:gregg@ds025239.mlab.com:25239/mongouploads';
+// Left blank for portfolio purposes
+const mongoURI = /////////////////////////
 mongoose.connect(mongoURI);
 // Create mongo connection
 const conn = mongoose.createConnection(mongoURI);

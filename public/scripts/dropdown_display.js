@@ -1,13 +1,9 @@
 // < !--Sets and retains dropdown display to the selected genre / bpm / length-- >
 
-// USE EVENT DELEGATION???
-
 var selectedList = document.querySelectorAll('.selected-list');
 var genreList = document.getElementById('genre');
 var bpmList = document.getElementById('bpm');
 var lengthList = document.getElementById('length');
-
-
 
 // Loop through the available options
 // Find the available option that matches my choice(selection.textContent)
