@@ -18,34 +18,6 @@ conn.once('open', () => {
     gfs.collection('uploads');
 })
 
-// ==================
-//  	SEARCH
-// ==================
-
-// {
-//     _id: "5aeb75b3c78f664952563f5c",
-//         length: 770843,
-//             chunkSize: 261120,
-//                 uploadDate: "2018-05-03T20:48:52.309Z",
-//                     md5: "e7a0669b5677a2b98ab7f35d69096ed5",
-//                         filename: "Traveling Man_HiddenTigerMusic.mp3",
-//                             contentType: "audio/mp3",
-//     metadata: {
-//         trackname: null,
-//             id: "Kia Sportage_gff1a.mp3",
-//                 genre: "jazz",
-//                     available: "yes",
-//                         length: "00:30",
-//                             description: "jazzy breakbeat",
-//                                 bpm: "medium",
-//                                     alt: "Kia_Sportage",
-//                                         genre1: null,
-//                                             genre2: "retro",
-//                                                 genre3: "breakbeat"
-//     }
-// },
-
-
 router.get('/', (req, res) => {
     var genre, genre2, genre3, length, bpm;
     genre = genre2 = genre3 = req.query.genre;

@@ -1,5 +1,3 @@
-// function(){
-
 var cacheDOM = {
    downloader: document.getElementById("downloader"),
    trackTitle: document.getElementById('track-title'),
@@ -25,12 +23,12 @@ const Spectrum = WaveSurfer.create({
 });
 
 window.onload = () => {
-     Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + cacheDOM.current.textContent)
+    //  Spectrum.load('https://immense-atoll-44421.herokuapp.com/audio/' + cacheDOM.current.textContent)
     // Spectrum.load('http://localhost:8080/audio/' + cacheDOM.current.textContent);
 
     cacheDOM.trackTitle.innerHTML = cacheDOM.current.textContent;
-    downloader.setAttribute('href', 'https://immense-atoll-44421.herokuapp.com/audio/' + cacheDOM.current.textContent);
-    // downloader.setAttribute('href', 'http://localhost:8080/audio/' + cacheDOM.current.textContent);
+    // downloader.setAttribute('href', 'https://immense-atoll-44421.herokuapp.com/audio/' + cacheDOM.current.textContent);
+    downloader.setAttribute('href', 'http://localhost:8080/audio/' + cacheDOM.current.textContent);
 
     cacheDOM.buttons.play.classList.add('fa-play');
 }
@@ -40,13 +38,11 @@ window.addEventListener("resize", () => {
    Spectrum.seekTo(currentProgress);
 }, false);
 
-
-
 function loadTrack(trackName, data) {
   var progress = document.getElementById("progress");
 
-  var curTrack = `https://immense-atoll-44421.herokuapp.com/files/audio/${trackName}`;
-  // const curTrack = `http://localhost:8080/files/audio/${trackName}`;
+  // var curTrack = `https://immense-atoll-44421.herokuapp.com/files/audio/${trackName}`;
+  const curTrack = `http://localhost:8080/files/audio/${trackName}`;
 
   let playState = false;
 
@@ -112,5 +108,3 @@ function loadTrack(trackName, data) {
       "/ " + formatTime(Spectrum.getDuration());
   });
 }
-
-// } ();

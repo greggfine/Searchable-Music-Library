@@ -1,54 +1,41 @@
 <% include partials/header %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
 
   <header>
-        <div id="waveform">
-          <div id="progress"></div>
+    <div id="waveform">
+      <div id="progress"></div>
+    </div>
+    
+    <div id="image-box">
+      <img src="images/logo.svg"  alt="Hidden Tiger Music Logo" id="logo">
+      
+      <div id="info-display">
+        <div id="title-duration">
+          <h2 id="track-title"></h2>
+          <div id="time-display-group">
+            <p id="time-display-current-time"></p><p id="time-display-duration"></p>
+          </div>
         </div>
-        
 
-        <div id="image-box">
-          <!-- <img id="image-box-pexel" src="images/pexels/structure-light-led-movement-158826.jpg" alt=""> -->
-          
-          <img src="images/logo.svg"  alt="Hidden Tiger Music Logo" id="logo">
-          
-          <div id="info-display">
+        <div id="controls">
+          <i class="fa fa-play  play-button" id="btn-play" value="Play" disabled="disabled"></i>
+          <i class="fa fa-stop " id="btn-stop" value="Stop" disabled="disabled"></i>
+          <a href="" id="downloader" download>
+            <i class="fa fa-download download-icon"></i>
+          </a>
 
-            <div id="title-duration">
-              <h2 id="track-title"></h2>
-              <div id="time-display-group">
-                <p id="time-display-current-time"></p><p id="time-display-duration"></p>
-              </div>
-            </div>
+          <div id="volume"> 
+            <input type="range" id="volume-slider" min=0 max=1 step=".01">
+            <i class="fa fa-volume-up" id="speaker-icon"></i>
+          </div> 
+        </div>
+      </div>
 
-            <div id="controls">
-              <i class="fa fa-play  play-button" id="btn-play" value="Play" disabled="disabled"></i>
-              <i class="fa fa-stop " id="btn-stop" value="Stop" disabled="disabled"></i>
-              <a href="" id="downloader" download>
-                <i class="fa fa-download download-icon"></i>
-              </a>
-
-              <div id="volume"> 
-                <input type="range" id="volume-slider" min=0 max=1 step=".01">
-                <i class="fa fa-volume-up" id="speaker-icon"></i>
-              </div> 
-        
-            </div>
-
-         </div>
-
-       </div>
+    </div>
   </header>
 
   <div class="container">
 
- <div id="body">
-
-
+  <div id="body">
 
 <div id="selection-boxes">
   <div class="search-card">
@@ -58,10 +45,8 @@
       <span class="genres-header">Genres</span>
       </div>
       
-    
       <div id="genre-selector">
         <h3 class="selected-list" id="list-genre" style="display: none" value=<% genre %>><%= genre %></h3>
-        <!-- <h3 id="selected-genre" style="display: none" value=<% genre %>><%= genre %></h3> -->
         <form  action="/search" method="GET" class="search-form">
           <select class="genre" name="genre" id="genre" onchange="this.form.submit()">
             <option selected disabled>Choose a genre</option>
@@ -125,8 +110,6 @@
 
   </div> 
 
-
-
   <div class="search-card">
 
       <div id="genres-box">
@@ -134,10 +117,8 @@
         <span class="genres-header">BPM</span>
       </div>
       
-    
       <div id="genre-selector">
         <h3 class="selected-list" id="list-bpm" style="display: none" value=<% bpm %>><%= bpm %></h3>
-        <!-- <h3 id="selected-genre" style="display: none" value=<% bpm %>><%= bpm %></h3> -->
         <form  action="/search" method="GET" class="search-form">
           <select class="genre" name="bpm" id="bpm" onchange="this.form.submit()">
             <option selected disabled>Choose a tempo</option>
@@ -151,8 +132,6 @@
   
     </div>
 
-
-
     <div class="search-card">
 
         <div id="genres-box">
@@ -163,7 +142,6 @@
       
         <div id="genre-selector">
           <h3 class="selected-list" id="list-length" style="display: none" value=<% length %>><%= length %></h3>
-          <!-- <h3 id="selected-genre" style="display: none" value=<% length %>><%= length %></h3> -->
           <form  action="/search" method="GET" class="search-form">
             <select class="genre" name="length" id="length" onchange="this.form.submit()">
               <option selected disabled>Choose a Length</option>
@@ -189,7 +167,6 @@
 
   </div>
 
-
   <div id="results-container">
       <ul id="results-header">
         <li>Trackname</li>
@@ -203,11 +180,6 @@
   
         <ul id="results-body">
           <li>
-            <!-- <button class="btn btn-track-info" id="current-track" 
-                    onclick="loadTrack(this.value, this.innerHTML)" 
-                    value="<%= file.filename %>"
-            > -->
-
             <button class="btn-track-info" id="current-track" onclick="loadTrack(this.value, this.innerHTML)" value="<%= file.filename %>">
                     <strong>
                       <%= file.filename.replace('_HiddenTigerMusic.mp3', '') %>
@@ -225,23 +197,8 @@
       <% } %>
   </div>
 
-
-  
-<!-- </div> -->
-
 </div>    
 
-<footer >
-  <p> &copy; <%= new Date().getFullYear() %> Hidden Tiger Music Inc.</p>
-</footer>
 
 
-</div>
-
-<script src="scripts/dropdown_display.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.5/wavesurfer.min.js"></script>
-<script src="scripts/wavesurfer.js"></script>
-
-
-</body>
-</html>
+<% include partials/footer %>

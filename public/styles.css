@@ -208,7 +208,9 @@ footer {
 
 footer p {
 	text-align: center;
-	font-size: 1rem;
+	font-size: 1.5rem;
+	color: #fff;
+	margin-top: -0px;
 }
 
 footer span {
@@ -948,7 +950,8 @@ table {
 	
 	footer p {
 		text-align: center;
-		font-size: .80rem;
+		font-size: 1.1rem;
+		margin-top: -35px;
 	}
 
 	#genres-box {

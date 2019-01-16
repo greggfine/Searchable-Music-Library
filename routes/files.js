@@ -55,7 +55,6 @@ router.get('/:filename/edit', (req, res) => {
     })
 })
 
-
 // ==================
 //  	UPDATE 
 // ==================
@@ -90,7 +89,6 @@ router.put('/:filename', (req, res) => {
     res.redirect('/filemanager');
 })
 
-
 // ==================
 //  	DELETE 
 // ==================
@@ -103,9 +101,6 @@ router.delete('/:id', (req, res) => {
         res.redirect('/cms');
     });
 });
-
-
-
 
 // ================================
 //  	DATABASE FILES/JSON
@@ -155,7 +150,5 @@ router.get('/audio/:filename', (req, res) => {
         }
     });
 });
-
-
 
 module.exports = router;
