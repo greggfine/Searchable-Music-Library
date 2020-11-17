@@ -25,7 +25,10 @@ const Spectrum = WaveSurfer.create({
 window.onload = () => {
     cacheDOM.trackTitle.innerHTML = cacheDOM.current.textContent;
     // Left blank for portfolio purposes
-    downloader.setAttribute('href', //////////// + cacheDOM.current.textContent);
+    // downloader.setAttribute('href', //////////// + cacheDOM.current.textContent);
+    downloader.setAttribute('href', 'https://immense-atoll-44421.herokuapp.com/audio/' + cacheDOM.current.textContent);
+    // downloader.setAttribute('href', 'http://localhost:8080/audio/' + cacheDOM.current.textContent);
+
 
     cacheDOM.buttons.play.classList.add('fa-play');
 }
@@ -39,8 +42,8 @@ function loadTrack(trackName, data) {
   var progress = document.getElementById("progress");
 
   // Left blank for portfolio purposes
-  var curTrack = `${//////////}/files/audio/${trackName}`;
-
+  var curTrack = `https://immense-atoll-44421.herokuapp.com/files/audio/${trackName}`;
+//   const curTrack = `http://localhost:8080/files/audio/${trackName}`;
   let playState = false;
 
   //  Create the waveform for the currently selected track

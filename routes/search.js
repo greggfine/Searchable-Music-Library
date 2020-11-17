@@ -4,9 +4,13 @@ const express = require('express'),
       router  = express.Router();
 
 // Mongo URI
-// Left blank for portfolio purposes
-const mongoURI = /////////////////////////
-mongoose.connect(mongoURI);
+const mongoURI = process.env.MONGO_URI;
+mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: false
+  });
 // Create mongo connection
 const conn = mongoose.createConnection(mongoURI);
 
