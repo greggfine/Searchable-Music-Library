@@ -3,7 +3,6 @@ const express 				= require('express'),
 	//   helmet				= require('helmet'),
 	  search   				= require('./routes/search'),
 	  files	    			= require('./routes/files');
-
 // app.use(helmet());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
