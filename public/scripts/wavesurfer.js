@@ -29,7 +29,6 @@ window.onload = () => {
     downloader.setAttribute('href', 'https://immense-atoll-44421.herokuapp.com/audio/' + cacheDOM.current.textContent);
     // downloader.setAttribute('href', 'http://localhost:8080/audio/' + cacheDOM.current.textContent);
 
-
     cacheDOM.buttons.play.classList.add('fa-play');
 }
 
