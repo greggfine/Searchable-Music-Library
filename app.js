@@ -1,7 +1,6 @@
 const express 				= require('express'),
 	  app					= express(),
-    //   helmet				= require('helmet'),
-        mongoose = require('mongoose'),
+	//   helmet				= require('helmet'),
 	  search   				= require('./routes/search'),
 	  files	    			= require('./routes/files');
 
