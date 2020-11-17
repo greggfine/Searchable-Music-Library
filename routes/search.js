@@ -3,15 +3,15 @@ const express = require('express'),
       Grid = require('gridfs-stream'),
       router  = express.Router();
 
-// Mongo URI
 const mongoURI = process.env.MONGO_URI;
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-    useUnifiedTopology: false
-  });
-// Create mongo connection
+mongoose.connect(mongoURI);
+// mongoose.connect(mongoURI, {
+//     useNewUrlParser: true,
+//     useFindAndModify: false,
+//     useCreateIndex: true,
+//     useUnifiedTopology: false
+//   });
+
 const conn = mongoose.createConnection(mongoURI);
 
 // Init gfs
