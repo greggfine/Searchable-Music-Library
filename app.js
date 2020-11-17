@@ -1,7 +1,7 @@
 const express 				= require('express'),
 	  app					= express(),
 	//   helmet				= require('helmet'),
-	  search   				= require('./routes/search'),
+	//   search   				= require('./routes/search'),
 	  files	    			= require('./routes/files');
 
 // app.use(helmet());
@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.use("/files", files);
-app.use("/search", search);
+// app.use("/search", search);
 
 var port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Our app is running on http://localhost:${port}`));
