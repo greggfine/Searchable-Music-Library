@@ -6,9 +6,7 @@ const express 				= require('express'),
 // app.use(helmet());
 
 // var http, options, proxy, url;
-
 // http = require("http");
-
 // url = require("url");
 
 // proxy = url.parse(process.env.QUOTAGUARDSTATIC_URL);
