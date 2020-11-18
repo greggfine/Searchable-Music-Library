@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	font-size: 16px;
+	/* font-size: 16px; */
 	font-family: 'Arial', sans-serif;
 	margin: 0;
 	padding:0;
@@ -20,7 +20,10 @@ body {
 	background-repeat: no-repeat;
 	background-position: right top;
 	background-color: #61892f;
-	background-blend-mode: screen;
+    background-blend-mode: screen;
+    display: grid;
+    place-items: center;
+    height: 100vh;
 }
 
 #login-inputs {
@@ -320,8 +323,14 @@ nav {
 
 .ht-title{
 	color: #fff;
-	width: 1200px;
-	padding-left: 400px;
+	/* width: 1200px; */
+    /* padding-left: 400px; */
+}
+
+.ht-title-max-width {
+    max-width: 80%;
+    font-size: 4rem;
+
 }
 
 .id-span {
