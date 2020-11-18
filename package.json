@@ -8,7 +8,8 @@
     "dev": "env-cmd ./config/.env nodemon app.js"
   },
   "engines": {
-    "node": "12.18.4"
+    "node": "12.18.4",
+    "npm": "6.14.6"
   },
   "author": "",
   "license": "ISC",
