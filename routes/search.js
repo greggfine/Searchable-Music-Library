@@ -4,13 +4,24 @@ const express = require('express'),
       router  = express.Router();
 
 const mongoURI = process.env.MONGO_URI;
-mongoose.connect(mongoURI);
+mongoose.connect(mongoURI, { useNewUrlParser: true });
 // mongoose.connect(mongoURI, {
 //     useNewUrlParser: true,
 //     useFindAndModify: false,
 //     useCreateIndex: true,
 //     useUnifiedTopology: false
 //   });
+
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://gregg:<password>@ht-music-library.q1chn.mongodb.net/<dbname>?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
 
 const conn = mongoose.createConnection(mongoURI);
 
