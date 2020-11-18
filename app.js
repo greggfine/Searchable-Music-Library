@@ -1,9 +1,9 @@
 const express 				= require('express'),
 	  app					= express(),
-	  helmet				= require('helmet');
-      search   				= require('./routes/search'),
+	//   helmet				= require('helmet');
+      search   				= require('./routes/search');
 	//   files	    			= require('./routes/files');
-      app.use(helmet());
+    //   app.use(helmet());
  
 
 app.use(express.urlencoded({extended: true}));
