@@ -1,38 +1,17 @@
 const express 				= require('express'),
 	  app					= express(),
-      search   				= require('./routes/search');
-	//   helmet				= require('helmet'),
-	//   files	    			= require('./routes/files');
-// app.use(helmet());
+      search   				= require('./routes/search'),
+	  helmet				= require('helmet'),
+	  files	    			= require('./routes/files');
+        app.use(helmet());
 
-// var http, options, proxy, url;
-// http = require("http");
-// url = require("url");
-
-// proxy = url.parse(process.env.QUOTAGUARDSTATIC_URL);
-// target  = url.parse("http://ip.quotaguard.com/");
-
-// options = {
-//   hostname: proxy.hostname,
-//   port: proxy.port || 80,
-//   path: target.href,
-//   headers: {
-//     "Proxy-Authorization": "Basic " + (new Buffer(proxy.auth).toString("base64")),
-//     "Host" : target.hostname
-//   }
-// };
-
-// http.get(options, function(res) {
-//   res.pipe(process.stdout);
-//   return console.log("status code", res.statusCode);
-// });
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-// app.use("/files", files);
+app.use("/files", files);
 app.use("/search", search);
 
 app.get('/', (req, res) => {
