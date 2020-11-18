@@ -1,7 +1,7 @@
 const express 				= require('express'),
 	  app					= express(),
 	//   helmet				= require('helmet'),
-	  search   				= require('./routes/search'),
+	//   search   				= require('./routes/search'),
 	  files	    			= require('./routes/files');
 // app.use(helmet());
 
@@ -33,11 +33,12 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-	res.redirect('/search');
+    // res.redirect('/search');
+    res.send("HT Music Library")
 });
 
-app.use("/files", files);
-app.use("/search", search);
+// app.use("/files", files);
+// app.use("/search", search);
 
 var port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Our app is running on http://localhost:${port}`));
