@@ -2,7 +2,7 @@ const express 				= require('express'),
 	  app					= express(),
 	//   helmet				= require('helmet'),
 	//   search   				= require('./routes/search'),
-	  files	    			= require('./routes/files');
+	//   files	    			= require('./routes/files');
 // app.use(helmet());
 
 // var http, options, proxy, url;
