@@ -7,6 +7,9 @@
     "start": "node app.js",
     "dev": "env-cmd ./config/.env nodemon app.js"
   },
+  "engines": {
+    "node": "12.18.4"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
